@@ -2,10 +2,15 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: ["src/index.ts"],
-  format: ["esm"],
+  format: ["cjs", "esm"],
   dts: true,
   sourcemap: true,
   clean: true,
-  css: true, // Enable CSS processing
+  outdir: "dist",
+  css: true, // Enable CSS processing,
+  plugins: [require("@tailwindcss/postcss")(), require("autoprefixer")()],
 });
 
+// export default {
+//   plugins: [require('@tailwindcss/postcss')(), require('autoprefixer')()],
+// }
