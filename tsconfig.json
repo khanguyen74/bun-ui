@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": ".", // Allows absolute imports relative to the root
+    "paths": {
+      "@bun-ui/*": ["packages/*/src"], // Alias for local packages
+      "@bun-ui/react": ["packages/react/src"]
+    },
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Better compatibility with CommonJS modules
+    "skipLibCheck": true, // Skip type checking of declaration files for faster builds
+    "forceConsistentCasingInFileNames": true // Enforce consistent casing in imports
+  },
+  "include": ["packages/*/src", "apps/*/src"], // Include all source files
+  "exclude": ["node_modules", "dist", ".next"] // Exclude unnecessary files
+}

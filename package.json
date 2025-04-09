@@ -1,0 +1,24 @@
+{
+  "name": "bun-ui",
+  "private": true,
+  "main": "index.js",
+  "keywords": [],
+  "author": "Kha Nguyen <hi@khanguyen.com>",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build:react && npm run build:www",
+    "build:react": "npm --prefix packages/react run build",
+    "build:www": "npm --prefix apps/www run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.2",
+    "react": "^19.1",
+    "react-dom": "^19.1"
+  }
+}
