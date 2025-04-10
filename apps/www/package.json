@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bun-ui/react": "workspace:*",
     "@tailwindcss/postcss": "^4.1.3",
     "autoprefixer": "^10.4.21",
     "next": "15.2.5",
@@ -24,6 +25,11 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.5",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "typescript": "^5"
   }
 }
