@@ -1,0 +1,7 @@
+packages:
+  - 'packages/**/**'
+  - 'apps/**'
+
+publicHoistPattern:
+  - "*@nextui-org/*"
+  - "*eslint*"

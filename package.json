@@ -10,11 +10,9 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build:react && npm run build:www",
-    "build:react": "npm --prefix packages/react run build",
-    "build:www": "npm --prefix apps/www run build",
-    "start:www": "npm --prefix apps/www run start",
-    "dev:www": "npm --prefix apps/www run dev"
+    "build": "pnpm --filter=./packages/* build",
+    "react": "pnpm --filter=./packages/react",
+    "www": "pnpm ---filter=./apps/www"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
