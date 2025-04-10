@@ -27,6 +27,8 @@
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
     "postcss-load-config": "^6.0.1",
+    "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwindcss": "^4.1.3",
