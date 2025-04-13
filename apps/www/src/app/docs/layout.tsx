@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import '@bun-ui/react/dist/index.css';
 
 export const metadata: Metadata = {
   title: 'Bun-UI | Accessible and Customizable UI Components',

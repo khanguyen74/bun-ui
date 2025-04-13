@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import '@bun-ui/react/dist/index.css';
+import '@bun-ui/react/index.css';
 import './globals.css';
 import { SiteHader } from '@/components/site-header';
 import { ThemeProvider } from '@bun-ui/react';
