@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.2
+
+### Patch Changes
+
+- update lint rules and formatter
+
 ## 0.2.1
 
 ### Patch Changes
