@@ -1,6 +1,6 @@
 import React from 'react';
-import { cx } from '../../lib/utils';
 import { type ClassValue } from 'clsx';
+import { cx } from '../../lib/utils';
 import { Label } from '../label';
 
 export interface InputProps extends React.ComponentProps<'input'> {
