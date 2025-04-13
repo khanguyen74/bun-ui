@@ -2,6 +2,7 @@
   "name": "bun-ui",
   "private": true,
   "main": "index.js",
+  "type": "module",
   "keywords": [
     "react",
     "ui",
@@ -24,12 +25,20 @@
     "release": "changeset version"
   },
   "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.2",
+    "@typescript-eslint/parser": "^8.29.1",
+    "eslint": "^9",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
     "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "react": "^19.1",
-    "react-dom": "^19.1"
+    "react-dom": "^19.1",
+    "typescript-eslint": "^8.29.1"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.3",
