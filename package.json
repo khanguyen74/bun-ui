@@ -2,7 +2,15 @@
   "name": "bun-ui",
   "private": true,
   "main": "index.js",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "ui",
+    "components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khanguyen74/bun-ui.git"
+  },
   "author": "Kha Nguyen <hi@khanguyen.com>",
   "license": "MIT",
   "workspaces": [
