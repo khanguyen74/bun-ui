@@ -1,2 +1,4 @@
-export { default as Button } from './button';
-export { default as ThemeProvider } from './theme-providers';
+export * from './button';
+export * from './theme-provider';
+export * from './input';
+export * from './label';
