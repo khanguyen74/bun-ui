@@ -1,1 +1,1 @@
-declare module '@react-ui/react/index.css';
+declare module "@react-ui/react/index.css"

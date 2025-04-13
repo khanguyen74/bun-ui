@@ -1,12 +1,13 @@
-import React from 'react';
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { CheckIcon } from '@radix-ui/react-icons';
-import { cx } from '../../lib/utils';
-import { Label } from '../label';
+import React from "react"
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
+import { CheckIcon } from "@radix-ui/react-icons"
+
+import { cx } from "../../lib/utils"
+import { Label } from "../label"
 
 interface CheckboxProps
   extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
-  label?: string;
+  label?: string
 }
 
 const Checkbox = React.forwardRef<
@@ -17,8 +18,8 @@ const Checkbox = React.forwardRef<
     <CheckboxPrimitive.Root
       ref={ref}
       className={cx(
-        'peer border-primary ring-offset-background focus-visible:ring-ring data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground h-4 w-4 shrink-0 rounded-xs border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
-        className,
+        "peer border-primary ring-offset-background focus-visible:ring-ring data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground h-4 w-4 shrink-0 rounded-xs border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+        className
       )}
       {...props}
     >
@@ -28,8 +29,8 @@ const Checkbox = React.forwardRef<
     </CheckboxPrimitive.Root>
     {label && <Label>{label}</Label>}
   </div>
-));
+))
 
-Checkbox.displayName = 'Checkbox';
+Checkbox.displayName = "Checkbox"
 
-export default Checkbox;
+export default Checkbox
