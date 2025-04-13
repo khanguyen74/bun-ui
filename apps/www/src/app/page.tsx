@@ -3,7 +3,7 @@ import NextLink from 'next/link';
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen">
+    <div>
       {/* Hero Section */}
       <header className="py-16">
         <div className="container mx-auto text-center">
@@ -46,12 +46,9 @@ const LandingPage = () => {
           <p className="text-lg font-semibold">
             Ready to build amazing UIs? Start now!
           </p>
-          <a
-            href="/docs"
-            className="mt-4 inline-block rounded bg-blue-600 px-6 py-3 font-semibold text-white shadow hover:bg-blue-700"
-          >
-            Explore Documentation
-          </a>
+          <Button>
+            <NextLink href="/docs">Explore Documentation</NextLink>
+          </Button>
         </div>
       </footer>
     </div>

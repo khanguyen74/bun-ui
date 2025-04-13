@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-background">
+      <body className="bg-background min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="system">
-          <div className="flex flex-col">
+          <div className="mx-auto flex max-w-[1800px] flex-col px-4">
             <SiteHader />
             {children}
           </div>
