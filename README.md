@@ -1,19 +1,34 @@
-# Bun UI Library
+# Bun UI
 
-Bun UI is a modern, lightweight, and customizable React component library designed to help developers build stunning and accessible user interfaces effortlessly. It provides a collection of reusable, responsive, and fully typed components that integrate seamlessly into your projects.
+Bun UI is a modern, lightweight, and customizable React component library designed to help developers build stunning and accessible user interfaces effortlessly. This monorepo contains the core library and a documentation site built with Next.js.
 
-## Features
+## Packages
 
-- **Lightweight**: Optimized for performance with minimal overhead.
-- **Customizable**: Easily adaptable to your design system.
-- **Responsive**: Designed with mobile-first principles.
-- **Accessible**: Built with accessibility in mind to ensure inclusivity.
-- **TypeScript Support**: Fully typed for a better developer experience.
-- **Extensive Components**: Includes a variety of pre-built, reusable components.
+This repository is organized as a monorepo using [pnpm workspaces](https://pnpm.io/workspaces). It includes the following packages:
+
+### [@bun-ui/react](packages/react)
+
+The core React component library. It provides reusable, responsive, and fully typed components that integrate seamlessly into your projects.
+
+- **Features**:
+  - Lightweight and optimized for performance.
+  - Fully customizable to fit your design system.
+  - Built with accessibility in mind.
+  - Includes extensive pre-built components.
+  - TypeScript support for a better developer experience.
+
+### [apps/www](apps/www)
+
+A Next.js application that serves as the documentation site for Bun UI. It showcases the components and provides usage examples.
+
+- **Features**:
+  - Interactive component demos.
+  - Comprehensive documentation.
+  - Built with Tailwind CSS for styling.
 
 ## Installation
 
-To get started, install the package via your preferred package manager:
+To get started with Bun UI, install the core library via your preferred package manager:
 
 ```bash
 # Using npm
@@ -23,43 +38,41 @@ npm install @bun-ui/react
 pnpm add @bun-ui/react
 ```
 
-## Usage
+## Development
 
-### Include the CSS
+To set up the development environment, follow these steps:
 
-To use Bun UI, include the CSS file in your project:
+1. Clone the repository:
 
-```tsx
-// app/layout.tsx
+   ```bash
+   git clone https://github.com/khanguyen74/bun-ui.git
+   cd bun-ui
+   ```
 
-import '@bun-ui/react/index.css';
+2. Install dependencies using `pnpm`:
 
-function RootLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
-```
+   ```bash
+   pnpm install
+   ```
 
-### Using Components
+3. Run the development server for the documentation site:
 
-Here’s an example of how to use a component from Bun UI:
+   ```bash
+   pnpm www dev
+   ```
 
-```tsx
-import { Button } from '@bun-ui/react';
+4. Build the core library:
 
-function App() {
-  return (
-    <div>
-      <Button variant="primary">Click Me</Button>
-    </div>
-  );
-}
+   ```bash
+   pnpm react build
+   ```
 
-export default App;
-```
+## Scripts
 
-## Documentation
+The repository includes several useful scripts:
 
-For detailed documentation and examples, visit the [Bun UI Documentation](https://your-docs-url.com).
+- **Build all packages**: `pnpm build`
+- **Run the documentation site**: `pnpm www dev`
 
 ## Contributing
 
@@ -67,4 +80,4 @@ We welcome contributions! Please check out our [Contributing Guide](https://your
 
 ## License
 
-Bun UI is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
