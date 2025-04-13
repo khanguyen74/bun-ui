@@ -1,4 +1,4 @@
-import ThemeSwitch from './theme-switch';
+import ThemeSwitch from "./theme-switch"
 
 export const SiteHader = () => {
   return (
@@ -7,5 +7,5 @@ export const SiteHader = () => {
         <ThemeSwitch />
       </div>
     </header>
-  );
-};
+  )
+}

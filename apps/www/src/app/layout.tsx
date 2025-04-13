@@ -1,19 +1,22 @@
-import type { Metadata } from 'next';
-import '@bun-ui/react/index.css';
-import './globals.css';
-import { SiteHader } from '@/components/site-header';
-import { ThemeProvider } from '@bun-ui/react';
+import type { Metadata } from "next"
+
+import "@bun-ui/react/index.css"
+import "./globals.css"
+
+import { ThemeProvider } from "@bun-ui/react"
+
+import { SiteHader } from "@/components/site-header"
 
 export const metadata: Metadata = {
-  title: 'Bun-UI | Accessible and Customizable UI Components',
+  title: "Bun-UI | Accessible and Customizable UI Components",
   description:
-    'Build beautiful, accessible, and reusable components effortlessly.',
-};
+    "Build beautiful, accessible, and reusable components effortlessly.",
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -26,5 +29,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

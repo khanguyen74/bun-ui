@@ -1,5 +1,5 @@
-import { Button } from '@bun-ui/react';
-import NextLink from 'next/link';
+import NextLink from "next/link"
+import { Button } from "@bun-ui/react"
 
 const LandingPage = () => {
   return (
@@ -52,20 +52,20 @@ const LandingPage = () => {
         </div>
       </footer>
     </div>
-  );
-};
+  )
+}
 
 const Feature = ({
   title,
   description,
 }: {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }) => (
   <div className="rounded border p-4 shadow">
     <h3 className="text-xl font-bold">{title}</h3>
     <p className="mt-2 text-gray-600">{description}</p>
   </div>
-);
+)
 
-export default LandingPage;
+export default LandingPage

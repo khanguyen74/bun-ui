@@ -1,4 +1,4 @@
-import { Button, Checkbox, Input, Label } from '@bun-ui/react';
+import { Button, Checkbox, Input } from "@bun-ui/react"
 
 export default function ComponentsPage() {
   return (
@@ -16,5 +16,5 @@ export default function ComponentsPage() {
         <Checkbox defaultChecked label="My Checkbox" />
       </div>
     </div>
-  );
+  )
 }
