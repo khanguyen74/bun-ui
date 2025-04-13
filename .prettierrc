@@ -17,8 +17,5 @@
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
-  "importOrderCaseInsensitive": true,
-  "plugins": [
-    "prettier-plugin-tailwindcss"
-  ]
+  "importOrderCaseInsensitive": true
 }

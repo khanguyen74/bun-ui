@@ -12,12 +12,14 @@
   "scripts": {
     "build": "pnpm --filter=./packages/* build",
     "react": "pnpm --filter=./packages/react",
-    "www": "pnpm ---filter=./apps/www"
+    "www": "pnpm ---filter=./apps/www",
+    "release": "changeset version"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.2",
+    "prettier": "3.5.3",
     "react": "^19.1",
     "react-dom": "^19.1"
   },
