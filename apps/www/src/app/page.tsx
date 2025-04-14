@@ -1,6 +1,8 @@
 import NextLink from "next/link"
 import { Button } from "@bun-ui/react"
 
+import { FeatureCard } from "@/components/feature-card"
+
 const LandingPage = () => {
   return (
     <div>
@@ -24,15 +26,15 @@ const LandingPage = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-2xl font-bold">Why Choose Our Library?</h2>
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <Feature
+            <FeatureCard
               title="Customizable"
               description="Easily adapt components to your design system."
             />
-            <Feature
+            <FeatureCard
               title="Accessible"
               description="Built with accessibility in mind for all users."
             />
-            <Feature
+            <FeatureCard
               title="Performant"
               description="Optimized for fast rendering and responsiveness."
             />
@@ -54,18 +56,5 @@ const LandingPage = () => {
     </div>
   )
 }
-
-const Feature = ({
-  title,
-  description,
-}: {
-  title: string
-  description: string
-}) => (
-  <div className="rounded border p-4 shadow">
-    <h3 className="text-xl font-bold">{title}</h3>
-    <p className="mt-2 text-gray-600">{description}</p>
-  </div>
-)
 
 export default LandingPage
