@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This library is heavily under development. Expect bugs, breaking changes, and incomplete features as we work towards a stable release. Use at your own risk and feel free to contribute!
+
 # Bun UI
 
 Bun UI is a modern, lightweight, and customizable React component library designed to help developers build stunning and accessible user interfaces effortlessly. This monorepo contains the core library and a documentation site built with Next.js.
@@ -73,10 +76,6 @@ The repository includes several useful scripts:
 
 - **Build all packages**: `pnpm build`
 - **Run the documentation site**: `pnpm www dev`
-
-## Contributing
-
-We welcome contributions! Please check out our [Contributing Guide](https://your-contributing-guide-url.com) for more details.
 
 ## License
 
