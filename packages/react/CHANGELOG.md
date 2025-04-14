@@ -1,5 +1,12 @@
 # @bun-ui/react
 
+## 0.2.4
+
+### Patch Changes
+
+- add RadioGroup components
+- update how label prop type in Checkbox and Input
+
 ## 0.2.3
 
 ### Patch Changes
