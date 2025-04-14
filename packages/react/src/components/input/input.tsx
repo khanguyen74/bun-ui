@@ -5,7 +5,7 @@ import { cx } from "../../lib/utils"
 import { Label } from "../label"
 
 export interface InputProps extends React.ComponentProps<"input"> {
-  label?: string
+  label?: React.ReactNode
   labelClassName?: ClassValue
 }
 
