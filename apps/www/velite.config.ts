@@ -3,7 +3,6 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import { codeImport } from "remark-code-import"
-import remarkDirective from "remark-directive"
 import remarkGfm from "remark-gfm"
 import { visit } from "unist-util-visit"
 import { defineCollection, defineConfig, s } from "velite"
@@ -98,25 +97,7 @@ export default defineConfig({
           },
         },
       ],
-      [
-        rehypePrettyCode,
-        {
-          theme: "github-dark-default",
-          onVisitLine(node) {
-            // Prevent lines from collapsing in `display: grid` mode, and allow empty
-            // lines to be copy/pasted
-            if (node.children.length === 0) {
-              node.children = [{ type: "text", value: " " }]
-            }
-          },
-          onVisitHighlightedLine(node) {
-            node.properties.className.push("line--highlighted")
-          },
-          onVisitHighlightedWord(node) {
-            node.properties.className = ["word--highlighted"]
-          },
-        },
-      ],
+      [rehypePrettyCode],
       () => (tree) => {
         visit(tree, (node) => {
           if (node?.type === "element" && node?.tagName === "figure") {
@@ -132,18 +113,6 @@ export default defineConfig({
             preElement.properties["__withMeta__"] =
               node.children.at(0).tagName === "div"
             preElement.properties["__rawString__"] = node.__rawString__
-
-            if (node.__src__) {
-              preElement.properties["__src__"] = node.__src__
-            }
-
-            if (node.__event__) {
-              preElement.properties["__event__"] = node.__event__
-            }
-
-            if (node.__style__) {
-              preElement.properties["__style__"] = node.__style__
-            }
           }
         })
       },
