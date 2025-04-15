@@ -1,0 +1,102 @@
+---
+title: Button
+description: A versatile component used to trigger actions or events.
+links:
+  source: components/button
+---
+
+<ExamplePreview name="button-basic" />
+
+## Overview
+
+The `Button` component is a flexible and accessible UI element used to trigger actions or events. It supports multiple variants, sizes, and customization options to fit various design needs.
+
+## Installation
+
+```bash
+npm install @bun-ui/react
+```
+
+## Usage
+
+Import the `Button` component from `@bun-ui/react` and use it in your project:
+
+```jsx
+import { Button } from "@bun-ui/react"
+```
+
+```jsx
+<Button>Click me</Button>
+```
+
+## Variants
+
+Use the variant prop to change the visual style of the Button.
+
+<ExamplePreview name="button-variants" />
+
+```jsx
+import { Button } from "@bun-ui/react"
+
+const Example = () => {
+  return (
+    <div>
+      <Button>Default</Button>
+      <Button variant="destructive">Destructive</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="link">Link</Button>
+    </div>
+  )
+}
+```
+
+## Sizes
+
+The `Button` component supports the following sizes:
+
+- **Default**: Medium-sized button for general use.
+- **Small (`sm`)**: A compact button for smaller spaces.
+- **Large (`lg`)**: A larger button for prominent actions.
+- **Icon (`icon`)**: A square button for icons only.
+
+### Example
+
+```jsx
+<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
+<Button size="lg">Large</Button>
+<Button size="icon">
+  <svg width="16" height="16" fill="currentColor" aria-hidden="true">
+    <path d="M8 0a8 8 0 100 16A8 8 0 008 0z" />
+  </svg>
+</Button>
+```
+
+## Accessibility
+
+The `Button` component is built with accessibility in mind. Ensure that buttons have accessible labels and are keyboard-navigable. Use the `aria-*` attributes where necessary to provide additional context.
+
+```jsx
+<Button aria-label="Submit form">Submit</Button>
+```
+
+## Customization
+
+The `Button` component can be customized using the `className` prop or by extending its styles with your design system.
+
+### Example
+
+```jsx
+<Button className="bg-purple-500 text-white hover:bg-purple-600">
+  Custom Button
+</Button>
+```
+
+## Notes
+
+- The `Button` component uses `class-variance-authority` for managing variants and sizes.
+- The `asChild` prop allows you to render the button as a custom component, such as a `Link` or `div`.
+
+Refer to the source code for more advanced usage and customization options.

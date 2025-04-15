@@ -1,15 +1,11 @@
-import type { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Bun-UI | Accessible and Customizable UI Components",
-  description:
-    "Build beautiful, accessible, and reusable components effortlessly.",
-}
-
-export default function RootLayout({
+export default function DocsLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
-  return <div className="flex flex-col px-4">{children}</div>
+}) {
+  return (
+    <main>
+      <div className="flex flex-col gap-4">{children}</div>
+    </main>
+  )
 }
