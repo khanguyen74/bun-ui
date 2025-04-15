@@ -4,6 +4,10 @@ import {
   Input,
   RadioGroup,
   RadioGroupItem,
+  Select,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
 } from "@bun-ui/react"
 
 import { ComponentCard } from "@/components/component-card"
@@ -51,6 +55,49 @@ export default function ComponentsPage() {
             <RadioGroupItem id="radio-1" value="option1" label="Option One" />
             <RadioGroupItem id="radio-2" value="option2" label="Option Two" />
           </RadioGroup>
+        </ComponentCard>
+        {/* Select */}
+        {/* Select - Basic Example */}
+        <ComponentCard
+          title="Select (Basic)"
+          description="A basic select input allowing users to choose one fruit from the list."
+        >
+          <Select
+            placeholder="Choose a fruit"
+            label="Fruit Selection"
+            menuPosition="popper"
+          >
+            <SelectItem value="apple">Apple</SelectItem>
+            <SelectItem value="banana">Banana</SelectItem>
+            <SelectItem value="mango">Mango</SelectItem>
+            <SelectItem value="orange">Orange</SelectItem>
+          </Select>
+        </ComponentCard>
+        {/* Select - Grouped Sections */}
+        <ComponentCard
+          title="Select (Grouped)"
+          description="A select input with logically grouped options for programming languages."
+        >
+          <Select
+            placeholder="Choose a language"
+            label="Language Selection"
+            menuPosition="popper"
+          >
+            <SelectGroup>
+              <SelectLabel>Frontend</SelectLabel>
+              <SelectItem value="javascript">JavaScript</SelectItem>
+              <SelectItem value="typescript">TypeScript</SelectItem>
+              <SelectItem value="html">HTML</SelectItem>
+              <SelectItem value="css">CSS</SelectItem>
+            </SelectGroup>
+            <SelectGroup>
+              <SelectLabel>Backend</SelectLabel>
+              <SelectItem value="python">Python</SelectItem>
+              <SelectItem value="go">Go</SelectItem>
+              <SelectItem value="java">Java</SelectItem>
+              <SelectItem value="ruby">Ruby</SelectItem>
+            </SelectGroup>
+          </Select>
         </ComponentCard>
       </div>
     </div>
