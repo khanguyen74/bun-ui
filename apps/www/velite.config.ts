@@ -97,7 +97,7 @@ export default defineConfig({
           },
         },
       ],
-      [rehypePrettyCode],
+      [rehypePrettyCode, { theme: "dark-plus" }],
       () => (tree) => {
         visit(tree, (node) => {
           if (node?.type === "element" && node?.tagName === "figure") {

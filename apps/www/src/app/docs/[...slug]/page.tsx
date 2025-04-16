@@ -21,9 +21,9 @@ export default async function DocPage({ params }: DocPageProps) {
     )
   }
   return (
-    <div className="flex w-full">
+    <div className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="flex w-full flex-col">
-        <h1>{page.title}</h1>
+        <h1 className="mb-5 text-2xl font-bold">{page.title}</h1>
         <MDXContent code={page.code} />
       </div>
       <Toc items={flattenToc(page.toc)} />

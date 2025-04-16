@@ -1,7 +1,6 @@
 import NextLink from "next/link"
 import { Button } from "@bun-ui/react"
 
-import { CopyButton } from "@/components/copy-button"
 import { FeatureCard } from "@/components/feature-card"
 
 const LandingPage = () => {
@@ -16,9 +15,13 @@ const LandingPage = () => {
           </p>
           <div className="mt-6">
             <Button asChild>
-              <NextLink href="/docs">Get Started</NextLink>
+              <NextLink href="/docs" className="mr-2">
+                Get Started
+              </NextLink>
             </Button>
-            <CopyButton value="ding dong" />
+            <Button asChild variant="secondary">
+              <NextLink href="/components">All Components</NextLink>
+            </Button>
           </div>
         </div>
       </header>

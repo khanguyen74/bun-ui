@@ -10,7 +10,6 @@ interface CopyButtonProps extends ButtonProps {
 }
 
 export async function copyToClipboardWithMeta(value: string) {
-  console.log("copyToClipboardWithMeta", value)
   navigator.clipboard.writeText(value)
 }
 
@@ -32,11 +31,10 @@ export function CopyButton({
     <Button
       variant={variant}
       className={cx(
-        "pointer-events-auto relative z-10 h-6 w-6 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50 [&_svg]:h-3 [&_svg]:w-3",
+        "relative z-10 h-6 w-6 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50 [&_svg]:h-3 [&_svg]:w-3",
         className
       )}
       onClick={() => {
-        console.log("copyToClipboardWithMeta", value)
         copyToClipboardWithMeta(value)
         setHasCopied(true)
       }}

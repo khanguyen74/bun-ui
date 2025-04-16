@@ -1,13 +1,11 @@
-"use client"
-
 import * as runtime from "react/jsx-runtime"
 import { cx } from "@bun-ui/react"
 
+import { ComponentPreview } from "./component-preview"
 import { CopyButton } from "./copy-button"
-import { ExamplePreview } from "./example"
 
 const sharedComponents = {
-  ExamplePreview,
+  ComponentPreview,
   CopyButton,
   pre: ({
     className,
