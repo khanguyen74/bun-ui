@@ -2,7 +2,7 @@ import eslint from "@eslint/js"
 import tseslintPlugin from "@typescript-eslint/eslint-plugin"
 import tsParser from "@typescript-eslint/parser"
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
-import { defineConfig } from "eslint/config"
+import { defineConfig, globalIgnores } from "eslint/config"
 import tseslint from "typescript-eslint"
 
 export default defineConfig([
@@ -24,4 +24,15 @@ export default defineConfig([
       // Add TypeScript-specific rules if needed
     },
   },
+  globalIgnores([
+    "node_modules",
+    "**/dist/**",
+    "build",
+    "coverage",
+    "out",
+    "lib",
+    "es",
+    "**/*.test.ts",
+    "**/.velite/**",
+  ]),
 ])
