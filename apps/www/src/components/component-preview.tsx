@@ -52,14 +52,19 @@ export const ExamplePreview = ({ name }: Props) => {
 export const ComponentPreview = ({ name }: { name: string }) => {
   return (
     <Tabs defaultValue="preview" className="w-full">
-      <TabList className="flex items-center justify-start border-b bg-transparent">
+      <TabList className="flex items-center justify-start rounded-none border-b bg-transparent p-0">
         <TabTrigger
           value="preview"
-          className="data-[state=active]:border-b-primary"
+          className="data-[state=active]:border-b-foreground h-full rounded-none data-[state=active]:border-b-2"
         >
           Preview
         </TabTrigger>
-        <TabTrigger value="code">Code</TabTrigger>
+        <TabTrigger
+          value="code"
+          className="data-[state=active]:border-b-foreground h-full rounded-none data-[state=active]:border-b-2"
+        >
+          Code
+        </TabTrigger>
       </TabList>
       <TabContent value="preview">
         <ExamplePreview name={name} />
