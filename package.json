@@ -21,9 +21,11 @@
   "scripts": {
     "build": "turbo run build",
     "react": "pnpm --filter=./packages/react",
-    "www": "pnpm ---filter=./apps/www",
+    "www:dev": "pnpm ---filter=./apps/www dev",
+    "www:build": "pnpm ---filter=./apps/www build",
     "release": "changeset version",
-    "react:build": "pnpm --filter=./packages/react build"
+    "react:build": "pnpm --filter=./packages/react build",
+    "docs:build": "pnpm --filter=./apps/www build:content"
   },
   "packageManager": "pnpm@10.8.0",
   "devDependencies": {
