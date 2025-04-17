@@ -23,6 +23,7 @@
     "react": "pnpm --filter=./packages/react",
     "www:dev": "pnpm ---filter=./apps/www dev",
     "www:build": "pnpm ---filter=./apps/www build",
+    "www:start": "pnpm ---filter=./apps/www start",
     "release": "changeset version",
     "react:build": "pnpm --filter=./packages/react build",
     "docs:build": "pnpm --filter=./apps/www build:content"
