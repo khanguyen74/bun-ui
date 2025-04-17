@@ -41,7 +41,7 @@ const Select = React.forwardRef<
         <SelectPrimitives.Trigger
           ref={ref}
           className={cx(
-            "focus:ring-ring bg-background data-[placeholder]:text-muted-foreground border-input ring-offset-background flex h-10 w-full items-center justify-between rounded-md border px-3 py-2 text-sm focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+            "focus:ring-ring bg-background data-[placeholder]:text-muted-foreground border-input ring-offset-background flex h-10 w-full cursor-pointer items-center justify-between rounded-md border px-3 py-2 text-sm focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
             className
           )}
         >
@@ -78,14 +78,19 @@ const Select = React.forwardRef<
   )
 )
 
+export interface SelectItemProps
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitives.Item> {
+  selectItemTextClassName?: string
+}
+
 const SelectItem = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitives.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitives.Item>
->(({ className, children, value, ...props }, ref) => (
+  SelectItemProps
+>(({ className, children, value, selectItemTextClassName, ...props }, ref) => (
   <SelectPrimitives.Item
     ref={ref}
     className={cx(
-      "data-[highlighted]:bg-accent/40 data-[state=checked]:bg-accent relative flex w-full cursor-default items-center rounded-sm py-1 pl-5 text-sm outline-none select-none",
+      "data-[highlighted]:bg-accent/40 data-[state=checked]:bg-accent relative flex w-full cursor-default cursor-pointer items-center rounded-sm py-1 pr-2 pl-6 text-sm outline-none select-none data-[disabled]:cursor-not-allowed",
       className
     )}
     value={value}
@@ -94,9 +99,12 @@ const SelectItem = React.forwardRef<
     <SelectPrimitives.ItemIndicator className="absolute left-1 flex items-center justify-center">
       <Check className="h-3 w-3" />
     </SelectPrimitives.ItemIndicator>
-    <SelectPrimitives.ItemText>{children}</SelectPrimitives.ItemText>
+    <SelectPrimitives.ItemText className={cx(selectItemTextClassName)}>
+      {children}
+    </SelectPrimitives.ItemText>
   </SelectPrimitives.Item>
 ))
+
 const SelectLabel = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitives.Label>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitives.Label>
