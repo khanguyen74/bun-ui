@@ -3,4 +3,4 @@
 ---
 
 update component styles
-form components will automatically generate id for accessibility
+form components will automatically generate id
