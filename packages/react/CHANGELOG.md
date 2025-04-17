@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.6
+
+### Patch Changes
+
+- 661d3e2: test release
+
 ## 0.2.5
 
 ### Patch Changes
