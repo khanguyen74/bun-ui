@@ -22,7 +22,8 @@
     "build": "turbo run build",
     "react": "pnpm --filter=./packages/react",
     "www": "pnpm ---filter=./apps/www",
-    "release": "changeset version"
+    "release": "changeset version",
+    "react:build": "pnpm --filter=./packages/react build"
   },
   "packageManager": "pnpm@10.8.0",
   "devDependencies": {
