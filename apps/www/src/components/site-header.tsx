@@ -8,7 +8,7 @@ import ThemeSwitch from "./theme-switch"
 
 export const SiteHeader = () => {
   return (
-    <header className="bg-background sticky top-0 z-50 w-full">
+    <header className="bg-background sticky top-0 z-50 w-full border-b">
       <div className="container-wrapper">
         <div className="container flex items-center justify-between">
           <div>Bun UI</div>
