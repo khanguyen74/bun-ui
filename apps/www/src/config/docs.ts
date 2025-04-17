@@ -18,6 +18,7 @@ export const sideBarNavs: SideBarNavItem[] = [
       { title: "Input", url: "/docs/components/input", items: [] },
       { title: "Radio", url: "/docs/components/radio", items: [] },
       { title: "Select", url: "/docs/components/select", items: [] },
+      { title: "Tabs", url: "/docs/components/tabs", items: [] },
     ],
   },
 ]
