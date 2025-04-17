@@ -1,6 +1,28 @@
+/*body::-webkit-scrollbar {*/
+/*  width: 12px; /* adjust width as needed */
+*/
+/*}*/
+/**/
+/*/* Track (background of the scrollbar) */*/
+/*body::-webkit-scrollbar-track {*/
+/*  background: transparent;*/
+/*}*/
+/**/
+/*/* Handle (scroll thumb) */*/
+/*body::-webkit-scrollbar-thumb {*/
+/*  background-color: rgba(100, 100, 100, 0.5); /* semi-transparent thumb */*/
+/*  border-radius: 10px;*/
+/*  border: 3px solid transparent; /* gives padding effect */*/
+/*  background-clip: content-box;*/
+/*}*/
 body {
   /*background-color: var(--background);*/
   color: var(--foreground);
+
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
 }
 [data-rehype-pretty-code-figure] pre {
   padding: 1rem;
@@ -9,6 +31,10 @@ body {
 
 [data-rehype-pretty-code-figure] {
   position: relative;
+}
+
+pre code {
+  font-size: 0.875rem;
 }
 
 @import "tailwindcss";
@@ -128,5 +154,32 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track (background of the scrollbar) */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle (scroll thumb) */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.5); /* semi-transparent thumb */
+    border-radius: 10px;
+    border: 3px solid transparent; /* gives padding effect */
+    background-clip: content-box;
+  }
+}
+
+@layer utilities {
+  .container-wrapper {
+    @apply mx-auto w-full max-w-[1400px] min-[1800px]:max-w-screen-2xl;
+  }
+
+  .container {
+    @apply mx-auto max-w-screen-2xl px-4 xl:px-6;
   }
 }

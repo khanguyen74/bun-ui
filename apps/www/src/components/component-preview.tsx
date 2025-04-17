@@ -27,12 +27,10 @@ export const ExampleCode = async ({ name, ext }: ExampleCodeProps) => {
   return (
     <div className="relative">
       <div
-        className="[&_pre]:rounded-md [&_pre]:p-2"
+        className="[&_pre]:max-h-[650px] [&_pre]:overflow-x-auto [&_pre]:rounded-md [&_pre]:p-2"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      <div className="absolute top-4 right-6">
-        <CopyButton value={content} />
-      </div>
+      <CopyButton value={content} className="absolute top-4 right-4" />
     </div>
   )
 }
@@ -43,7 +41,7 @@ export const ExamplePreview = ({ name }: Props) => {
     import(`../examples/${name}`).then((mod) => mod[componentName])
   )
   return (
-    <div className="my-4 flex items-center justify-center">
+    <div className="flex items-center justify-center rounded-sm border-2 py-10">
       <Component />
     </div>
   )
@@ -51,17 +49,17 @@ export const ExamplePreview = ({ name }: Props) => {
 
 export const ComponentPreview = ({ name }: { name: string }) => {
   return (
-    <Tabs defaultValue="preview" className="w-full">
-      <TabList className="flex items-center justify-start rounded-none border-b bg-transparent p-0">
+    <Tabs defaultValue="preview" className="mt-5 w-full">
+      <TabList className="flex items-center justify-start rounded-none bg-transparent p-0">
         <TabTrigger
           value="preview"
-          className="data-[state=active]:border-b-foreground h-full rounded-none data-[state=active]:border-b-2"
+          className="data-[state=active]:bg-primary/10 h-full hover:bg-transparent"
         >
           Preview
         </TabTrigger>
         <TabTrigger
           value="code"
-          className="data-[state=active]:border-b-foreground h-full rounded-none data-[state=active]:border-b-2"
+          className="data-[state=active]:bg-primary/10 h-full hover:bg-transparent"
         >
           Code
         </TabTrigger>
