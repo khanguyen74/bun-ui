@@ -1,11 +1,10 @@
 export const sideBarNavs: SideBarNavItem[] = [
   {
     title: "Getting Started",
-    url: "getting-started",
     items: [
       {
         title: "Introduction",
-        url: "/docs/introduction",
+        url: "/docs",
         items: [],
       },
     ],

@@ -31,7 +31,10 @@ export const Toc = ({ items }: Props) => {
   if (!items.length) return <div />
 
   return (
-    <aside id="toc" className="sticky top-10 h-[90vh] w-[16rem] text-sm">
+    <aside
+      id="toc"
+      className="sticky top-20 -mt-6 h-[calc(100vh-3.5rem)] w-[16rem] pt-6 text-sm"
+    >
       <p className="font-semibold text-gray-900 dark:text-white">
         On this page
       </p>
