@@ -1,0 +1,68 @@
+---
+title: Accordion
+description: A collapsible component used to group and hide content sections.
+links:
+  source: components/accordion
+---
+
+<ComponentPreview name="accordion-basic" />
+
+## Usage
+
+Import the `Accordion`, `AccordionItem`, `AccordionTrigger`, and `AccordionContent` components from `@bun-ui/react` and use them in your project:
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@bun-ui/react"
+```
+
+```tsx
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Section 1</AccordionTrigger>
+    <AccordionContent>Content for section 1.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>Section 2</AccordionTrigger>
+    <AccordionContent>Content for section 2.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Examples
+
+### Single Accordion
+
+Use the `type="single"` prop to allow only one section to be open at a time.
+
+<ComponentPreview name="accordion-basic" />
+
+### Multiple Accordion
+
+Use the `type="multiple"` prop to allow multiple sections to be open simultaneously.
+
+<ComponentPreview name="accordion-multiple" />
+
+### Disabled
+
+Disable specific accordion items using the `disabled` prop.
+
+<ComponentPreview name="accordion-disabled" />
+
+### Customization
+
+The `Accordion` components can be customized using the `className` prop or by extending their styles with your design system.
+
+<ComponentPreview name="accordion-customized" />
+
+## Notes
+
+- The `Accordion` component uses `@radix-ui/react-accordion` for its base functionality.
+- The `ChevronDown` icon rotates to indicate the open/closed state of each section.
+- The `type` prop controls whether the accordion allows single or multiple sections to be open.
+
+Refer to the source code for more advanced usage and customization options.
