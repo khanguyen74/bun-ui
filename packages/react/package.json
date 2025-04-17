@@ -52,6 +52,7 @@
     "postcss": "^8.5.3",
     "postcss-load-config": "^6.0.1",
     "tsup": "^8.4.0",
+    "tw-animate-css": "^1.2.5",
     "typescript": "^5.0.0"
   },
   "dependencies": {
