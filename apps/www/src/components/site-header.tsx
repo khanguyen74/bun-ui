@@ -4,6 +4,8 @@ import { Button } from "@bun-ui/react"
 import { siteConfig } from "@/config/site"
 import GithubIcon from "../icons/github-mark-white.svg"
 import GithubIconDark from "../icons/github-mark.svg"
+import { MainNav } from "./main-nav"
+import { MobileNav } from "./mobile-nav"
 import ThemeSwitch from "./theme-switch"
 
 export const SiteHeader = () => {
@@ -11,7 +13,10 @@ export const SiteHeader = () => {
     <header className="bg-background sticky top-0 z-50 w-full border-b">
       <div className="container-wrapper">
         <div className="container flex items-center justify-between">
-          <div>Bun UI</div>
+          <div>
+            <MainNav />
+            <MobileNav />
+          </div>
           <div className="flex items-center gap-2">
             <Button size="icon" variant="ghost" asChild>
               <NextLink href={siteConfig.links.github} target="_blank">

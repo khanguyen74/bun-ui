@@ -1,0 +1,77 @@
+---
+title: Drawer
+description: A sliding panel used for navigation or displaying additional content.
+links:
+  source: components/drawer
+---
+
+## Usage
+
+Import the `Drawer` component and its subcomponents from `@bun-ui/react` and use them in your project:
+
+```tsx
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@bun-ui/react"
+```
+
+```tsx
+<Drawer>
+  <DrawerTrigger>Open Drawer</DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Drawer Title</DrawerTitle>
+      <DrawerDescription>Drawer description goes here.</DrawerDescription>
+    </DrawerHeader>
+    <div>Drawer content goes here.</div>
+    <DrawerFooter>
+      <DrawerClose>Close</DrawerClose>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>
+```
+
+## Examples
+
+### Basic Drawer
+
+A simple example of a `Drawer` with a trigger and content.
+
+<ComponentPreview name="drawer-basic" />
+
+### Direction
+
+You can control the animation direction of the `Drawer` by setting the `direction` prop. To customize the appearance, apply a specific class to the `DrawerContent` for creating a left or right drawer.
+
+<ComponentPreview name="drawer-directions" />
+
+### Customization
+
+The `Drawer` component and its subcomponents can be customized using the `className` prop or by extending their styles with your design system.
+
+```tsx
+<Drawer>
+  <DrawerTrigger className="text-blue-500">Open Custom Drawer</DrawerTrigger>
+  <DrawerContent className="bg-gray-800 text-white">
+    <DrawerHeader>
+      <DrawerTitle>Custom Drawer</DrawerTitle>
+      <DrawerDescription>
+        Custom styles applied to the drawer.
+      </DrawerDescription>
+    </DrawerHeader>
+    <div>Custom content goes here.</div>
+    <DrawerFooter>
+      <DrawerClose className="text-red-500">Close</DrawerClose>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>
+```
+
+Refer to the source code for more advanced usage and customization options.
