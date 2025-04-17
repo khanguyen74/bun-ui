@@ -14,7 +14,7 @@ export const SiteHeader = () => {
           <div>Bun UI</div>
           <div className="flex items-center gap-2">
             <Button size="icon" variant="ghost" asChild>
-              <NextLink href={siteConfig.repoUrl} target="_blank">
+              <NextLink href={siteConfig.links.github} target="_blank">
                 <span className="hidden [html.dark_&]:block">
                   <GithubIcon viewBox="0 0 96 96" />
                 </span>

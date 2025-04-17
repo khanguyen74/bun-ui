@@ -6,6 +6,8 @@ import remarkGfm from "remark-gfm"
 import { visit } from "unist-util-visit"
 import { defineCollection, defineConfig, s } from "velite"
 
+import { siteConfig } from "@/config/site"
+
 const cwd = process.cwd()
 
 const slugify = (str: string) => {
@@ -34,16 +36,19 @@ const docs = defineCollection({
         .optional(),
     })
     .transform((data, { meta }) => {
-      // const links = data.links || {}
+      const links = data.links || {}
+      const componentLink = links.source
+        ? `${links.source}/${links.source.split("/")[1]}.tsx`
+        : ""
       return {
         ...data,
         slug: slugify(meta.path),
-        // links: {
-        //   ...links,
-        //   source: links.source
-        //     ? `${docsConfig.repoUrl}/tree/${docsConfig.repoBranch}/packages/react/src/${links.source}`
-        //     : undefined,
-        // },
+        links: {
+          ...links,
+          source: links.source
+            ? `${siteConfig.links.github}/tree/${siteConfig.branch}/packages/react/src/${componentLink}`
+            : undefined,
+        },
         category: meta.path
           .replace(/.*\/content\//, "")
           .replace(/\/[^/]*$/, "")
