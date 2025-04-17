@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.8
+
+### Patch Changes
+
+- 1ffa5d9: add accordion
+
 ## 0.2.7
 
 ### Patch Changes
