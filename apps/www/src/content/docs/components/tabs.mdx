@@ -1,0 +1,40 @@
+---
+title: Tabs
+description: Tabbed interface for organizing content.
+links:
+  source: components/tabs
+---
+
+<ComponentPreview name="tabs-basic" />
+
+## Usage
+
+Import the `Tabs` components from `@bun-ui/react` and use them to create a tabbed interface:
+
+```tsx
+import { TabContent, TabList, Tabs, TabTrigger } from "@bun-ui/react"
+```
+
+```tsx
+<Tabs defaultValue="tab1">
+  <TabList>
+    <TabTrigger value="tab1">Tab 1</TabTrigger>
+    <TabTrigger value="tab2">Tab 2</TabTrigger>
+    <TabTrigger value="tab3">Tab 3</TabTrigger>
+  </TabList>
+  <TabContent value="tab1">Content for Tab 1</TabContent>
+  <TabContent value="tab2">Content for Tab 2</TabContent>
+  <TabContent value="tab3">Content for Tab 3</TabContent>
+</Tabs>
+```
+
+## Customization
+
+The Tabs components can be customized using the className prop or by extending their styles with your design system. Below are the default components and their styling options:
+
+- Tabs: The root container for the tabbed interface.
+- TabList: The container for the tab triggers.
+- TabTrigger: The clickable element to switch between tabs.
+- TabContent: The container for the content of each tab.
+
+<ComponentPreview name="tabs-customized" />
