@@ -1,4 +1,3 @@
-import { docsConfig } from "docs.config"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
@@ -11,14 +10,15 @@ const cwd = process.cwd()
 
 const slugify = (str: string) => {
   return str
+    .toLowerCase()
     .replace(/.*\/content\//, "")
     .replace(/\.mdx$/, "")
-    .replace(cwd, "")
+    .replace(/\/index/, "")
 }
 
 const docs = defineCollection({
   name: "Docs", // collection type name
-  pattern: "src/content/docs/**/*.mdx", // content files glob pattern
+  pattern: "docs/**/*.mdx",
   schema: s
     .object({
       title: s.string(),
@@ -34,16 +34,16 @@ const docs = defineCollection({
         .optional(),
     })
     .transform((data, { meta }) => {
-      const links = data.links || {}
+      // const links = data.links || {}
       return {
         ...data,
         slug: slugify(meta.path),
-        links: {
-          ...links,
-          source: links.source
-            ? `${docsConfig.repoUrl}/tree/${docsConfig.repoBranch}/packages/react/src/${links.source}`
-            : undefined,
-        },
+        // links: {
+        //   ...links,
+        //   source: links.source
+        //     ? `${docsConfig.repoUrl}/tree/${docsConfig.repoBranch}/packages/react/src/${links.source}`
+        //     : undefined,
+        // },
         category: meta.path
           .replace(/.*\/content\//, "")
           .replace(/\/[^/]*$/, "")
@@ -53,7 +53,7 @@ const docs = defineCollection({
 })
 
 export default defineConfig({
-  root: cwd,
+  root: "src/content",
   output: {
     data: "./src/.velite",
   },

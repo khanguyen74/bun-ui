@@ -5,16 +5,19 @@ const nextConfig: NextConfig = {
   redirects: async () => {
     return [
       {
-        source: "/docs",
-        destination: "/docs/components/button",
-        permanent: true,
-      },
-      {
         source: "/docs/components",
         destination: "/docs/components/button",
         permanent: true,
       },
     ]
+  },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    })
+
+    return config
   },
 }
 
