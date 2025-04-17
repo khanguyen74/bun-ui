@@ -1,22 +1,7 @@
-/*body::-webkit-scrollbar {*/
-/*  width: 12px; /* adjust width as needed */
-*/
-/*}*/
-/**/
-/*/* Track (background of the scrollbar) */*/
-/*body::-webkit-scrollbar-track {*/
-/*  background: transparent;*/
-/*}*/
-/**/
-/*/* Handle (scroll thumb) */*/
-/*body::-webkit-scrollbar-thumb {*/
-/*  background-color: rgba(100, 100, 100, 0.5); /* semi-transparent thumb */*/
-/*  border-radius: 10px;*/
-/*  border: 3px solid transparent; /* gives padding effect */*/
-/*  background-clip: content-box;*/
-/*}*/
+@import "tailwindcss";
+@source "../../node_modules/@bun-ui/react/src/components/";
+
 body {
-  /*background-color: var(--background);*/
   color: var(--foreground);
 
   &::-webkit-scrollbar {
@@ -36,8 +21,6 @@ body {
 pre code {
   font-size: 0.875rem;
 }
-
-@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -154,23 +137,6 @@ pre code {
   }
   body {
     @apply bg-background text-foreground;
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  /* Track (background of the scrollbar) */
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  /* Handle (scroll thumb) */
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(100, 100, 100, 0.5); /* semi-transparent thumb */
-    border-radius: 10px;
-    border: 3px solid transparent; /* gives padding effect */
-    background-clip: content-box;
   }
 }
 
