@@ -13,6 +13,7 @@ export const sideBarNavs: SideBarNavItem[] = [
   {
     title: "Components",
     items: [
+      { title: "Accordion", url: "/docs/components/accordion", items: [] },
       { title: "Button", url: "/docs/components/button", items: [] },
       { title: "Checkbox", url: "/docs/components/checkbox", items: [] },
       { title: "Input", url: "/docs/components/input", items: [] },
