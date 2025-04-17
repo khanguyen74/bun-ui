@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.7
+
+### Patch Changes
+
+- cf5c172: test release script
+
 ## 0.2.6
 
 ### Patch Changes
