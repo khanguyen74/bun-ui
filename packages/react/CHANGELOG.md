@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.9
+
+### Patch Changes
+
+- 0e9b85b: add drawer
+
 ## 0.2.8
 
 ### Patch Changes
