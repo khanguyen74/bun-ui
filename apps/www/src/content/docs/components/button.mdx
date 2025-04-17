@@ -7,16 +7,6 @@ links:
 
 <ComponentPreview name="button-basic" />
 
-## Overview
-
-The `Button` component is a flexible and accessible UI element used to trigger actions or events. It supports multiple variants, sizes, and customization options to fit various design needs.
-
-## Installation
-
-```bash
-npm install @bun-ui/react
-```
-
 ## Usage
 
 Import the `Button` component from `@bun-ui/react` and use it in your project:
@@ -35,23 +25,6 @@ Use the variant prop to change the visual style of the Button.
 
 <ComponentPreview name="button-variants" />
 
-```jsx
-import { Button } from "@bun-ui/react"
-
-const Example = () => {
-  return (
-    <div>
-      <Button>Default</Button>
-      <Button variant="destructive">Destructive</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="ghost">Ghost</Button>
-      <Button variant="link">Link</Button>
-    </div>
-  )
-}
-```
-
 ## Sizes
 
 The `Button` component supports the following sizes:
@@ -69,8 +42,6 @@ The `Button` component is built with accessibility in mind. Ensure that buttons 
 ## Customization
 
 The `Button` component can be customized using the `className` prop or by extending its styles with your design system.
-
-### Example
 
 ```jsx
 <Button className="bg-purple-500 text-white hover:bg-purple-600">

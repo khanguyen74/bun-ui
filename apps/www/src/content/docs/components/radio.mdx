@@ -1,0 +1,48 @@
+---
+title: Radio Group
+description: A group of radio buttons for selecting a single option.
+links:
+  source: components/radio-group
+---
+
+<ComponentPreview name="radio-basic" />
+
+## Usage
+
+Import the `RadioGroup` and `RadioGroupItem` components from `@bun-ui/react` and use them in your project:
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@bun-ui/react"
+```
+
+```tsx
+<RadioGroup>
+  <RadioGroupItem value="option1" label="Option 1" />
+  <RadioGroupItem value="option2" label="Option 2" />
+  <RadioGroupItem value="option3" label="Option 3" />
+</RadioGroup>
+```
+
+## Controlled
+
+Use the `value` and `onValueChange` props to control the selected value programmatically.
+
+<ComponentPreview name="radio-controlled" />
+
+## Disabled
+
+<ComponentPreview name="radio-disabled" />
+
+## Customization
+
+The `RadioGroup` and `RadioGroupItem` components can be customized using the `className` prop or by extending their styles with your design system.
+
+<ComponentPreview name="radio-customized" />
+
+## Notes
+
+- The `RadioGroup` component ensures that only one option can be selected at a time.
+- The `label` prop in `RadioGroupItem` links an accessible label to the radio button.
+- If an `id` is not explicitly provided, ensure unique values for accessibility.
+
+Refer to the source code for more advanced usage and customization options.

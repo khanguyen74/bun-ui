@@ -6,7 +6,9 @@ export const ButtonVariants = () => {
       <Button>Default</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="outline">Outline</Button>
-      <Button variant="link">Link</Button>
+      <Button variant="link">
+        <a href="#">Link</a>
+      </Button>
       <Button variant="destructive">Destructive</Button>
     </div>
   )
