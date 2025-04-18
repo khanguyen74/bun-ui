@@ -1,4 +1,5 @@
-> [!CAUTION] This library is heavily under development. Expect bugs, breaking
+> [!CAUTION]
+> This library is heavily under development. Expect bugs, breaking
 > changes, and incomplete features as we work towards a stable release. Use at
 > your own risk and feel free to contribute!
 
