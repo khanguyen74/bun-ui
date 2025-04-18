@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.10
+
+### Patch Changes
+
+- e0b1c3c: nothing changes, testing moving to new org
+
 ## 0.2.9
 
 ### Patch Changes
