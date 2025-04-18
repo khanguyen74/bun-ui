@@ -1,17 +1,24 @@
-> [!CAUTION]
-> This library is heavily under development. Expect bugs, breaking changes, and incomplete features as we work towards a stable release. Use at your own risk and feel free to contribute!
+> [!CAUTION] This library is heavily under development. Expect bugs, breaking
+> changes, and incomplete features as we work towards a stable release. Use at
+> your own risk and feel free to contribute!
 
 # Bun UI
 
-Bun UI is a modern, lightweight, and customizable React component library designed to help developers build stunning and accessible user interfaces effortlessly. This monorepo contains the core library and a documentation site built with Next.js.
+Bun UI is a modern, lightweight, and customizable React component library
+designed to help developers build stunning and accessible user interfaces
+effortlessly. This monorepo contains the core library and a documentation site
+built with Next.js.
 
 ## Packages
 
-This repository is organized as a monorepo using [pnpm workspaces](https://pnpm.io/workspaces). It includes the following packages:
+This repository is organized as a monorepo using
+[pnpm workspaces](https://pnpm.io/workspaces). It includes the following
+packages:
 
 ### [@bun-ui/react](packages/react)
 
-The core React component library. It provides reusable, responsive, and fully typed components that integrate seamlessly into your projects.
+The core React component library. It provides reusable, responsive, and fully
+typed components that integrate seamlessly into your projects.
 
 - **Features**:
   - Lightweight and optimized for performance.
@@ -22,7 +29,8 @@ The core React component library. It provides reusable, responsive, and fully ty
 
 ### [apps/www](apps/www)
 
-A Next.js application that serves as the documentation site for Bun UI. It showcases the components and provides usage examples.
+A Next.js application that serves as the documentation site for Bun UI. It
+showcases the components and provides usage examples.
 
 - **Features**:
   - Interactive component demos.
@@ -31,7 +39,8 @@ A Next.js application that serves as the documentation site for Bun UI. It showc
 
 ## Installation
 
-To get started with Bun UI, install the core library via your preferred package manager:
+To get started with Bun UI, install the core library via your preferred package
+manager:
 
 ```bash
 # Using npm
@@ -48,7 +57,7 @@ To set up the development environment, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/khanguyen74/bun-ui.git
+   git clone https://github.com/bunui-kit/bun-ui.git
    cd bun-ui
    ```
 
@@ -79,4 +88,5 @@ The repository includes several useful scripts:
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file
+for more information.
