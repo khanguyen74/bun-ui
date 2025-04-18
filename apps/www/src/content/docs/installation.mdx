@@ -1,0 +1,73 @@
+---
+title: Installation
+description:
+  Learn how to install and configure the @bun-ui/react library in your project.
+---
+
+## Installation
+
+To get started with `@bun-ui/react`, install the library using your preferred
+package manager:
+
+```bash
+# Using pnpm
+pnpm add @bun-ui/react
+
+# Using npm
+npm install @bun-ui/react
+```
+
+## Setting Up Styles
+
+### If Using TailwindCSS
+
+If your project uses TailwindCSS, you need to import TailwindCSS and reference
+the library's components in your global CSS file. Here's an example:
+
+```css
+/* filepath: src/app/globals.css */
+@import "tailwindcss";
+@import "tw-animate-css";
+@source "../../node_modules/@bun-ui/react/src/components/";
+```
+
+This ensures that the styles from the `@bun-ui/react` library are properly
+integrated with your TailwindCSS setup.
+
+### If Not Using TailwindCSS
+
+If you're not using TailwindCSS, you can directly import the library's exported
+CSS file in your root layout file. Here's an example:
+
+```tsx
+// filepath: src/app/layout.tsx
+import "@bun-ui/react/index.css"
+
+function RootLayout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>
+}
+
+export default RootLayout
+```
+
+This will include all the necessary styles for the `@bun-ui/react` components in
+your project.
+
+## Example Usage
+
+Once installed and configured, you can start using the components from the
+library. For example:
+
+```tsx
+import { Button } from "@bun-ui/react"
+
+function App() {
+  return (
+    <div>
+      <Button variant="primary">Click Me</Button>
+    </div>
+  )
+}
+
+export default App
+```
