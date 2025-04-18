@@ -31,19 +31,21 @@ export default async function DocPage({ params }: DocPageProps) {
     <div className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="mx-auto flex w-full max-w-3xl min-w-0 flex-col">
         <h1 className="mb-5 text-3xl font-bold">{doc.title}</h1>
-        <Button variant="ghost" asChild className="w-fit" size="sm">
-          <NextLink href={doc.links?.source ?? ""} target="_blank">
-            <div className="flex items-center gap-2">
-              <span className="hidden [html.dark_&]:block">
-                <GithubIcon viewBox="0 0 96 96" />
-              </span>
-              <span className="hidden [html.light_&]:block">
-                <GithubIconDark viewBox="0 0 96 96" />
-              </span>
-              Source
-            </div>
-          </NextLink>
-        </Button>
+        {doc.links?.source && (
+          <Button variant="ghost" asChild className="w-fit" size="sm">
+            <NextLink href={doc.links.source} target="_blank">
+              <div className="flex items-center gap-2">
+                <span className="hidden [html.dark_&]:block">
+                  <GithubIcon viewBox="0 0 96 96" />
+                </span>
+                <span className="hidden [html.light_&]:block">
+                  <GithubIconDark viewBox="0 0 96 96" />
+                </span>
+                Source
+              </div>
+            </NextLink>
+          </Button>
+        )}
         {doc.description && (
           <p className="text-muted-foreground mb-5">{doc.description}</p>
         )}

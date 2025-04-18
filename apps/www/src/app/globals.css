@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 @source "../../node_modules/@bun-ui/react/src/components/";
 
 body {
@@ -9,13 +10,12 @@ body {
     height: 12px;
   }
 }
-[data-rehype-pretty-code-figure] pre {
-  padding: 1rem;
-  border-radius: 0.5rem;
+[data-rehype-pretty-code-figure] code {
+  background: transparent;
 }
 
-[data-rehype-pretty-code-figure] {
-  position: relative;
+[data-rehype-pretty-code-figure] [data-line] {
+  padding: 0.25rem 0.5rem;
 }
 
 pre code {
