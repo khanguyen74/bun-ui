@@ -3,8 +3,6 @@
 import { useEffect } from "react"
 import Link from "next/link"
 
-// import { scrollIntoView } from "@/app/docs/scroll-into-view"
-
 import { useScrollSpy } from "../lib/use-scroll-spy"
 
 interface TocItem {

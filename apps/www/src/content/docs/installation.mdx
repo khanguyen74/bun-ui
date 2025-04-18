@@ -4,7 +4,7 @@ description:
   Learn how to install and configure the @bun-ui/react library in your project.
 ---
 
-## Installation
+## 1. Installation
 
 To get started with `@bun-ui/react`, install the library using your preferred
 package manager:
@@ -17,9 +17,9 @@ pnpm add @bun-ui/react
 npm install @bun-ui/react
 ```
 
-## Setting Up Styles
+## 2. Setting Up Styles
 
-### If Using TailwindCSS
+### With TailwindCSS
 
 If your project uses TailwindCSS, you need to import TailwindCSS and reference
 the library's components in your global CSS file. Here's an example:
@@ -34,13 +34,13 @@ the library's components in your global CSS file. Here's an example:
 This ensures that the styles from the `@bun-ui/react` library are properly
 integrated with your TailwindCSS setup.
 
-### If Not Using TailwindCSS
+### Without TailwindCSS
 
 If you're not using TailwindCSS, you can directly import the library's exported
 CSS file in your root layout file. Here's an example:
 
 ```tsx
-// filepath: src/app/layout.tsx
+// src/app/layout.tsx
 import "@bun-ui/react/index.css"
 
 function RootLayout({ children }: { children: React.ReactNode }) {
@@ -53,7 +53,7 @@ export default RootLayout
 This will include all the necessary styles for the `@bun-ui/react` components in
 your project.
 
-## Example Usage
+## 3. Example Usage
 
 Once installed and configured, you can start using the components from the
 library. For example:

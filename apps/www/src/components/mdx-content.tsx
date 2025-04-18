@@ -135,6 +135,15 @@ const sharedComponents = {
       </div>
     )
   },
+  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+    <code
+      className={cx(
+        "bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        className
+      )}
+      {...props}
+    />
+  ),
 }
 
 // parse the Velite generated MDX code into a React component function
