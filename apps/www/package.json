@@ -10,7 +10,7 @@
     "lint": "next lint",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "velite --clean && tsc --noEmit"
   },
   "dependencies": {
     "@bun-ui/react": "workspace:*",
