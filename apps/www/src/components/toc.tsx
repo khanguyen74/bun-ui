@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect } from "react"
 import Link from "next/link"
 
 import { useScrollSpy } from "../lib/use-scroll-spy"
@@ -17,14 +16,6 @@ interface Props {
 
 export const Toc = ({ items }: Props) => {
   const activeItem = useScrollSpy(items.map((entry) => entry.url))
-
-  useEffect(() => {
-    const activeLink = document.querySelector("[data-toc][aria-current='page']")
-    const toc = document.getElementById("toc")
-    if (toc && activeLink) {
-      // scrollIntoView(toc, activeLink as HTMLElement, 120)
-    }
-  }, [activeItem])
 
   if (!items.length) return <div />
 

@@ -1,0 +1,40 @@
+---
+title: Dialog
+description: A modal dialog component for displaying content in an overlay.
+links:
+  source: components/dialog
+---
+
+<ComponentPreview name="dialog-basic" />
+
+## Usage
+
+Import the `Dialog` components from `@bun-ui/react` and use them in your
+project:
+
+```tsx
+import {
+  DialogClose,
+  DialogContent,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from "@bun-ui/react"
+```
+
+```tsx
+<DialogRoot>
+  <DialogTrigger className="btn">Open Dialog</DialogTrigger>
+  <DialogContent>
+    <DialogTitle>Dialog Title</DialogTitle>
+    <p>This is the content of the dialog.</p>
+    <DialogClose className="btn">Close</DialogClose>
+  </DialogContent>
+</DialogRoot>
+```
+
+## Examples
+
+### Form Dialog
+
+<ComponentPreview name="dialog-form" />
