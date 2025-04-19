@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.11
+
+### Patch Changes
+
+- e7f9244: add dialog component
+
 ## 0.2.10
 
 ### Patch Changes
