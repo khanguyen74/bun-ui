@@ -8,6 +8,22 @@
     "dev": {
       "persistent": true,
       "cache": false
+    },
+    "lint": {
+      "cache": false,
+      "outputs": []
+    },
+    "format:check": {
+      "cache": false,
+      "outputs": []
+    },
+    "format:write": {
+      "cache": false,
+      "outputs": []
+    },
+    "typecheck": {
+      "cache": false,
+      "outputs": []
     }
   }
 }
