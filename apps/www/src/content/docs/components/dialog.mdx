@@ -14,23 +14,23 @@ project:
 
 ```tsx
 import {
+  Dialog,
   DialogClose,
   DialogContent,
-  DialogRoot,
   DialogTitle,
   DialogTrigger,
 } from "@bun-ui/react"
 ```
 
 ```tsx
-<DialogRoot>
+<Dialog>
   <DialogTrigger className="btn">Open Dialog</DialogTrigger>
   <DialogContent>
     <DialogTitle>Dialog Title</DialogTitle>
     <p>This is the content of the dialog.</p>
     <DialogClose className="btn">Close</DialogClose>
   </DialogContent>
-</DialogRoot>
+</Dialog>
 ```
 
 ## Examples
