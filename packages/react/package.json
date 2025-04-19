@@ -45,7 +45,8 @@
     "dev": "tsup src/index.ts --watch",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
-    "pub:release": "pnpm build && pnpm publish --access public"
+    "pub:release": "pnpm build && pnpm publish --access public",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",

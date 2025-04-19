@@ -27,7 +27,11 @@
     "www:start": "pnpm ---filter=./apps/www start",
     "release": "changeset version",
     "react:build": "pnpm --filter=./packages/react build",
-    "docs:build": "pnpm --filter=./apps/www build:content"
+    "docs:build": "pnpm --filter=./apps/www build:content",
+    "lint": "turbo run lint",
+    "format:check": "turbo run format:check",
+    "format:write": "turbo run format:write",
+    "typecheck": "turbo run typecheck"
   },
   "packageManager": "pnpm@10.8.0",
   "devDependencies": {
