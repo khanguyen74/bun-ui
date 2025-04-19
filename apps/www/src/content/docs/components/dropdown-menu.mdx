@@ -1,0 +1,43 @@
+---
+title: Dropdown Menu
+description:
+  A versatile component for creating dropdown menus with customizable options.
+links:
+  source: components/dropdown-menu
+---
+
+<ComponentPreview name="dropdown-menu-basic" />
+
+## Usage
+
+Import the `DropdownMenu`, `DropdownMenuTrigger`, `DropdownMenuContent`, and
+`DropdownMenuItem` components from `@bun-ui/react` and use them to create a
+dropdown menu:
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@bun-ui/react"
+```
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger>
+    <button>Open Menu</button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuItem>Option 1</DropdownMenuItem>
+    <DropdownMenuItem>Option 2</DropdownMenuItem>
+    <DropdownMenuItem>Option 3</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## Examples
+
+### Sub Menu
+
+<ComponentPreview name="dropdown-sub-menu" />

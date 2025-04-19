@@ -22,6 +22,11 @@ export const sideBarNavs: SideBarNavItem[] = [
       { title: "Checkbox", url: "/docs/components/checkbox", items: [] },
       { title: "Dialog", url: "/docs/components/dialog", items: [] },
       { title: "Drawer", url: "/docs/components/drawer", items: [] },
+      {
+        title: "Dropdown Menu",
+        url: "/docs/components/dropdown-menu",
+        items: [],
+      },
       { title: "Input", url: "/docs/components/input", items: [] },
       { title: "Radio", url: "/docs/components/radio", items: [] },
       { title: "Select", url: "/docs/components/select", items: [] },
