@@ -25,9 +25,19 @@ pnpm add @bun-ui/react
 
 ## Usage
 
-### Include the CSS
-
 To use Bun UI, include the CSS file in your project:
+
+### With Tailwind CSS
+
+```css
+/* app/globals.css */
+
+/* Detect the @bun-ui/react components */
+@source "../node_modules/@bun-ui/react/src/components/";
+
+```
+
+### Without Tailwind CSS
 
 ```tsx
 // app/layout.tsx
