@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.12
+
+### Patch Changes
+
+- 1a17536: add command menu and popover
+
 ## 0.2.11
 
 ### Patch Changes
