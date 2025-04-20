@@ -28,6 +28,7 @@ export const sideBarNavs: SideBarNavItem[] = [
         items: [],
       },
       { title: "Input", url: "/docs/components/input", items: [] },
+      { title: "Popover", url: "/docs/components/popover", items: [] },
       { title: "Radio", url: "/docs/components/radio", items: [] },
       { title: "Select", url: "/docs/components/select", items: [] },
       { title: "Tabs", url: "/docs/components/tabs", items: [] },

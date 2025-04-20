@@ -1,0 +1,50 @@
+---
+title: Popover
+description:
+  A lightweight and customizable popover component for displaying additional
+  content.
+links:
+  source: components/popover
+---
+
+<ComponentPreview name="popover-basic" />
+
+## Usage
+
+Import the `Popover` components from `@bun-ui/react` and use them to create a
+popover:
+
+```tsx
+import { Popover, PopoverContent, PopoverTrigger } from "@bun-ui/react"
+```
+
+```tsx
+<Popover>
+  <PopoverTrigger>
+    <button>Open Popover</button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <p>This is the content of the popover.</p>
+  </PopoverContent>
+</Popover>
+```
+
+## Examples
+
+### Basic Popover
+
+<ComponentPreview name="popover-basic" />
+
+### Customization
+
+The `Popover` component and its subcomponents can be customized using the
+`className` prop or by extending their styles with your design system. Below are
+the default components and their styling options:
+
+- **Popover**: The root container for the popover.
+- **PopoverTrigger**: The element that triggers the popover.
+- **PopoverContent**: The container for the content of the popover.
+
+<ComponentPreview name="popover-form" />
+
+Refer to the source code for more advanced usage and customization options.
