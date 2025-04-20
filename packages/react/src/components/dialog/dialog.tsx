@@ -80,6 +80,17 @@ const DialogContent = React.forwardRef<
   </DialogPortal>
 ))
 
+const DialogDescription = React.forwardRef<
+  React.ComponentRef<typeof DialogPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Description
+    ref={ref}
+    className={cx("text-muted-foreground text-sm", className)}
+    {...props}
+  />
+))
+
 export {
   Dialog,
   DialogTrigger,
@@ -87,4 +98,5 @@ export {
   DialogContent,
   DialogTitle,
   DialogClose,
+  DialogDescription,
 }

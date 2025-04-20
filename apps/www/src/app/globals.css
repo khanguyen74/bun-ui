@@ -4,11 +4,6 @@
 
 body {
   color: var(--foreground);
-
-  &::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-  }
 }
 [data-rehype-pretty-code-figure] code {
   background: transparent;
@@ -137,6 +132,20 @@ pre code {
   }
   body {
     @apply bg-background text-foreground;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 5px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
   }
 }
 
