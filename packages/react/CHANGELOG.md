@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.13
+
+### Patch Changes
+
+- 55f7ef5: export popover
+
 ## 0.2.12
 
 ### Patch Changes
