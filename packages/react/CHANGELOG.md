@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.14
+
+### Patch Changes
+
+- 25bedb1: add breadcrumb and link
+
 ## 0.2.13
 
 ### Patch Changes
