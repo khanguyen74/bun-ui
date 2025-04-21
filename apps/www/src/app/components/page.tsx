@@ -193,9 +193,6 @@ export default function ComponentsPage() {
         <ComponentCard title="Dialog" description="A simple dialog component.">
           <div className="flex gap-2">
             <Link href="#">click me</Link>
-            <Link disabled href="#">
-              click me
-            </Link>
             <Link asChild>
               <NextLink href="/">Home</NextLink>
             </Link>
