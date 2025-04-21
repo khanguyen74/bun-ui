@@ -1,3 +1,4 @@
+import NextLink from "next/link"
 import {
   Accordion,
   AccordionContent,
@@ -7,6 +8,7 @@ import {
   Checkbox,
   cx,
   Input,
+  Link,
   RadioGroup,
   RadioGroupItem,
   Select,
@@ -187,6 +189,17 @@ export default function ComponentsPage() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
+        </ComponentCard>
+        <ComponentCard title="Dialog" description="A simple dialog component.">
+          <div className="flex gap-2">
+            <Link href="#">click me</Link>
+            <Link disabled href="#">
+              click me
+            </Link>
+            <Link asChild>
+              <NextLink href="/">Home</NextLink>
+            </Link>
+          </div>
         </ComponentCard>
       </div>
     </div>
