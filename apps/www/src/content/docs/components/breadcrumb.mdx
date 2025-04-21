@@ -1,0 +1,40 @@
+---
+title: Breadcrumb
+description:
+  A navigation component that helps users understand and navigate the hierarchy
+  of a website.
+links:
+  source: components/breadcrumb
+---
+
+<ComponentPreview name="breadcrumb-basic" />
+
+## Usage
+
+Import the `Breadcrumb` component from `@bun-ui/react` and use it in your
+project:
+
+```tsx
+import { Breadcrumb } from "@bun-ui/react"
+```
+
+```tsx
+<Breadcrumb>
+  <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+  <Breadcrumb.Item href="/docs">Docs</Breadcrumb.Item>
+  <Breadcrumb.Item>Current Page</Breadcrumb.Item>
+</Breadcrumb>
+```
+
+## Examples
+
+### Custom Separator
+
+You can customize the separator between breadcrumb items using the `separator`
+prop.
+
+<ComponentPreview name="breadcrumb-separator" />
+
+### Fully Customized Breadcrumb
+
+<ComponentPreview name="breadcrumb-customized" />

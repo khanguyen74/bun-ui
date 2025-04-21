@@ -1,0 +1,57 @@
+---
+title: Link
+description: A versatile component for navigation and interaction.
+links:
+  source: components/link
+---
+
+<ComponentPreview name="link-basic" />
+
+## Usage
+
+Import the `Link` component from `@bun-ui/react` and use it in your project:
+
+```tsx
+import { Link } from "@bun-ui/react"
+```
+
+```tsx
+<Link href="#">Visit Example</Link>
+```
+
+## Examples
+
+### Custom Rendering
+
+The `Link` component supports rendering as a custom child element using the
+`asChild` prop. This is useful for integrating with other components like
+buttons.
+
+<ComponentPreview name="link-customized" />
+
+### Underline
+
+<ComponentPreview name="link-underline" />
+
+### Accessibility
+
+The `Link` component is built with accessibility in mind. Ensure that links have
+descriptive labels and are keyboard-navigable. Use the `aria-*` attributes where
+necessary to provide additional context.
+
+```tsx
+<Link href="/" aria-label="Go to homepage">
+  Home
+</Link>
+```
+
+### Customization
+
+The `Link` component can be customized using the `className` prop or by
+extending its styles with your design system.
+
+```tsx
+<Link href="#" className="text-blue-500 underline hover:text-blue-700">
+  Custom Styled Link
+</Link>
+```
