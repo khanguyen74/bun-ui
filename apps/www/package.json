@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
+    "typecheck": "pnpm --filter=react build && velite && tsc --noEmit"
   },
   "dependencies": {
     "@bun-ui/react": "workspace:*",
