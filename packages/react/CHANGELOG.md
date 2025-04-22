@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.15
+
+### Patch Changes
+
+- db252d2: add switch
+
 ## 0.2.14
 
 ### Patch Changes
