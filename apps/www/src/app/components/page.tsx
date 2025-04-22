@@ -15,6 +15,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectLabel,
+  Switch,
   TabContent,
   TabList,
   Tabs,
@@ -196,6 +197,12 @@ export default function ComponentsPage() {
             <Link asChild>
               <NextLink href="/">Home</NextLink>
             </Link>
+          </div>
+        </ComponentCard>
+        <ComponentCard title="Switch" description="Switch component">
+          <div className="flex gap-4">
+            <Switch label="Dark Mode" />
+            <Switch label="Disabled" disabled />
           </div>
         </ComponentCard>
       </div>
