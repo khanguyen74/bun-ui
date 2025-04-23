@@ -32,6 +32,7 @@ const docs = defineCollection({
       links: s
         .object({
           source: s.string().optional(),
+          docs: s.string().optional(),
         })
         .optional(),
     })

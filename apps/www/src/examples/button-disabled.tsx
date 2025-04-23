@@ -10,6 +10,9 @@ export const ButtonDisabled = () => {
       <Button disabled variant="outline">
         Outline
       </Button>
+      <Button disabled variant="text">
+        Outline
+      </Button>
       <Button disabled variant="link">
         <a href="#">Link</a>
       </Button>

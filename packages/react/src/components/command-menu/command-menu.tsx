@@ -36,19 +36,28 @@ interface CommandMenuDialogProps extends React.ComponentProps<typeof Dialog> {
    * The description of the dialog.
    */
   description?: string
+
+  commandMenuProps?: React.ComponentProps<typeof CommandMenu>
 }
 
 const CommandMenuDialog = ({
   children,
   title,
   description,
+  commandMenuProps,
   ...props
 }: CommandMenuDialogProps) => (
   <Dialog {...props}>
     <DialogTitle>{title}</DialogTitle>
     <DialogDescription>{description}</DialogDescription>
     <DialogContent className="overflow-hidden p-0">
-      <CommandMenu className="[&_[cmdk-group-heading]]:text-muted-foreground **:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
+      <CommandMenu
+        {...commandMenuProps}
+        className={cx(
+          "[&_[cmdk-group-heading]]:text-muted-foreground **:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5",
+          commandMenuProps?.className
+        )}
+      >
         {children}
       </CommandMenu>
     </DialogContent>

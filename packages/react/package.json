@@ -41,8 +41,8 @@
     "react-dom": "^19.0.0"
   },
   "scripts": {
-    "build": "tsup src/index.ts src/components/*/index.ts --format cjs,esm --dts",
-    "dev": "tsup src/index.ts --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "pub:release": "pnpm build && pnpm publish --access public",

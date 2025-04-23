@@ -3,91 +3,36 @@
 > changes, and incomplete features as we work towards a stable release. Use at
 > your own risk and feel free to contribute!
 
-# Bun UI
+# Bun UI Library
 
-Bun UI is a modern, lightweight, and customizable React component library
-designed to help developers build stunning and accessible user interfaces
-effortlessly. This monorepo contains the core library and a documentation site
-built with Next.js.
+Bun UI is a modern, lightweight, and customizable React component library designed to help developers build stunning and accessible user interfaces effortlessly. It provides a collection of reusable, responsive, and fully typed components that integrate seamlessly into your projects.
 
-## Packages
+## ✨ Features
 
-This repository is organized as a monorepo using
-[pnpm workspaces](https://pnpm.io/workspaces). It includes the following
-packages:
+- **Lightweight**: Optimized for performance with minimal overhead.
+- **Customizable**: Easily adaptable to your design system.
+- **Responsive**: Designed with mobile-first principles.
+- **Accessible**: Built with accessibility in mind to ensure inclusivity.
+- **TypeScript Support**: Fully typed for a better developer experience.
+- **Extensive Components**: Includes a variety of pre-built, reusable components.
+- Radix UI Primitives – Built on top of Radix UI for consistent behavior and accessibility.
 
-### [@bun-ui/react](packages/react)
+## 📚 Documentation
 
-The core React component library. It provides reusable, responsive, and fully
-typed components that integrate seamlessly into your projects.
+For detailed documentation and examples, visit the [Bun UI Documentation](https://your-docs-url.com).
 
-- **Features**:
-  - Lightweight and optimized for performance.
-  - Fully customizable to fit your design system.
-  - Built with accessibility in mind.
-  - Includes extensive pre-built components.
-  - TypeScript support for a better developer experience.
+## 💡 Open Code, Open Source
 
-### [apps/www](apps/www)
+Bun UI is fully open source and designed with simplicity and developer freedom at its core. Many components are built using [@radix-ui](https://www.radix-ui.com/primitives) primitives, providing accessible and high-quality behavior while leaving styling and customization in your hands.
 
-A Next.js application that serves as the documentation site for Bun UI. It
-showcases the components and provides usage examples.
+Need a custom version of a component? Simply copy the source from the library into your project directory and tweak it to fit your design or specific use case — no complicated overrides or internal coupling.
 
-- **Features**:
-  - Interactive component demos.
-  - Comprehensive documentation.
-  - Built with Tailwind CSS for styling.
+I believe great UI libraries should be transparent, flexible, and easy to extend.
 
-## Installation
+## 🤝 Contributing
 
-To get started with Bun UI, install the core library via your preferred package
-manager:
+Contributors are welcomed! For contribution guidelines, please refer to the [Contributing Guide](./CONTRIBUTING.md) file.
 
-```bash
-# Using npm
-npm install @bun-ui/react
+## 🪪 License
 
-# Using pnpm
-pnpm add @bun-ui/react
-```
-
-## Development
-
-To set up the development environment, follow these steps:
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/bunui-kit/bun-ui.git
-   cd bun-ui
-   ```
-
-2. Install dependencies using `pnpm`:
-
-   ```bash
-   pnpm install
-   ```
-
-3. Run the development server for the documentation site:
-
-   ```bash
-   pnpm www dev
-   ```
-
-4. Build the core library:
-
-   ```bash
-   pnpm react build
-   ```
-
-## Scripts
-
-The repository includes several useful scripts:
-
-- **Build all packages**: `pnpm build`
-- **Run the documentation site**: `pnpm www dev`
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file
-for more information.
+Bun UI is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.

@@ -11,7 +11,7 @@ import {
 export const DropdownMenuBasic = () => (
   <DropdownMenu>
     <DropdownMenuTrigger asChild>
-      <Button variant="ghost">Menu</Button>
+      <Button variant="text">Menu</Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent className="w-56">
       <DropdownMenuItem>Profile</DropdownMenuItem>
