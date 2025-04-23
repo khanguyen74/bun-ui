@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.16
+
+### Patch Changes
+
+- 980b9b0: minor ui change
+
 ## 0.2.15
 
 ### Patch Changes
