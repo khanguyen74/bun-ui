@@ -41,7 +41,7 @@ const BreadcrumbList = React.forwardRef<HTMLOListElement, BreadcrumbListProps>(
       <ol
         ref={ref}
         className={cx(
-          "flex list-none flex-wrap items-center overflow-hidden",
+          "text-muted-foreground flex list-none flex-wrap items-center overflow-hidden",
           className
         )}
         {...props}
@@ -73,11 +73,14 @@ const BreadcrumbLink = ({
   ...props
 }: BreadcrumbLinkProps) =>
   currentLink ? (
-    <span className="text-primary cursor-default">{props.children}</span>
+    <span className="text-foreground cursor-default">{props.children}</span>
   ) : (
     <Link
       underline="hover"
-      className={cx("text-primary/50 hover:decoration-primary/50", className)}
+      className={cx(
+        "hover:decoration-foreground hover:text-foreground text-current",
+        className
+      )}
       {...props}
     />
   )
