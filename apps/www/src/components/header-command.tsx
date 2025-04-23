@@ -100,7 +100,7 @@ export const HeaderCommand = () => {
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTitle className="sr-only">Search</DialogTitle>
-        <DialogContent>
+        <DialogContent className="p-0 lg:max-w-3xl">
           <CommandMenu
             className="[&_[cmdk-group-heading]]:text-muted-foreground **:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5"
             shouldFilter={false}
@@ -111,7 +111,7 @@ export const HeaderCommand = () => {
               onValueChange={setValue}
               className="w-lg"
             />
-            <CommandMenuList>
+            <CommandMenuList className="max-h-[30rem] lg:max-h-[40rem]">
               <CommandMenuEmpty>No results</CommandMenuEmpty>
               {navItems.map((nav) => (
                 <CommandMenuGroup heading={nav.title} key={nav.title}>
