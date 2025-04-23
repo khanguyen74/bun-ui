@@ -19,7 +19,7 @@ Bun UI is a modern, lightweight, and customizable React component library design
 
 ## 📚 Documentation
 
-For detailed documentation and examples, visit the [Bun UI Documentation](https://your-docs-url.com).
+For detailed documentation and examples, visit the [Bun UI Documentation](https://bun-ui.com/docs).
 
 ## 💡 Open Code, Open Source
 
