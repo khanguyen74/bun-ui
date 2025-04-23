@@ -41,10 +41,6 @@ Need a custom version of a component? Simply copy the source from the library in
 
 I believe great UI libraries should be transparent, flexible, and easy to extend.
 
-## 🤝 Contributing
-
-Contributors are welcomed!
-
 ## 🪪 License
 
 Bun UI is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.

@@ -31,7 +31,7 @@ I believe great UI libraries should be transparent, flexible, and easy to extend
 
 ## 🤝 Contributing
 
-Contributors are welcomed!
+Contributors are welcomed! For contribution guidelines, please refer to the [Contributing Guide](./CONTRIBUTING.md) file.
 
 ## 🪪 License
 
