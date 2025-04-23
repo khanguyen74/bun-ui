@@ -7,7 +7,7 @@ export const ThemeSwitch = () => {
   const { toggleTheme } = useTheme()
 
   return (
-    <Button onClick={toggleTheme} size="icon" variant="ghost">
+    <Button onClick={toggleTheme} size="icon" variant="text">
       <Moon className="hidden [html.light_&]:block" />
       <Sun className="hidden [html.dark_&]:block" />
     </Button>

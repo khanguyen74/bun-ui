@@ -16,7 +16,7 @@ export async function copyToClipboardWithMeta(value: string) {
 export function CopyButton({
   value,
   className,
-  variant = "ghost",
+  variant = "text",
   ...props
 }: CopyButtonProps) {
   const [hasCopied, setHasCopied] = React.useState(false)
