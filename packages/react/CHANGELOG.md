@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.17
+
+### Patch Changes
+
+- 89c7712: add toast and alert
+
 ## 0.2.16
 
 ### Patch Changes
