@@ -1,9 +1,13 @@
+"use client"
+
 import NextLink from "next/link"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+  Alert,
+  AlertTitle,
   Button,
   Checkbox,
   cx,
@@ -22,7 +26,11 @@ import {
   TabTrigger,
 } from "@bun-ui/react"
 
+import { useToast } from "@/hooks/use-toast"
+
 export default function ComponentsPage() {
+  const { createToast } = useToast()
+
   return (
     <div className="mx-auto max-w-4xl space-y-12 px-4 py-12">
       <header className="space-y-2">
@@ -191,7 +199,7 @@ export default function ComponentsPage() {
             </AccordionItem>
           </Accordion>
         </ComponentCard>
-        <ComponentCard title="Dialog" description="A simple dialog component.">
+        <ComponentCard title="Link" description="Link component">
           <div className="flex gap-2">
             <Link href="#">click me</Link>
             <Link asChild>
@@ -205,6 +213,20 @@ export default function ComponentsPage() {
             <Switch label="Disabled" disabled />
           </div>
         </ComponentCard>
+        <ComponentCard title="Toast" description="A simple toast component.">
+          <Button
+            onClick={() => {
+              createToast({ title: "Marked as done" })
+            }}
+          >
+            Mark as done
+          </Button>
+        </ComponentCard>
+        <ComponentCard title="Alert">
+          <Alert>
+            <AlertTitle>Hi</AlertTitle>
+          </Alert>
+        </ComponentCard>
       </div>
     </div>
   )
@@ -216,8 +238,8 @@ function ComponentCard({
   children,
   className,
 }: {
-  title: string
-  description: string
+  title?: string
+  description?: string
   children: React.ReactNode
   className?: string
 }) {
@@ -228,8 +250,10 @@ function ComponentCard({
         className
       )}
     >
-      <h2 className="text-xl font-semibold">{title}</h2>
-      <p className="text-muted-foreground mb-4 text-sm">{description}</p>
+      {title && <h2 className="text-xl font-semibold">{title}</h2>}
+      {description && (
+        <p className="text-muted-foreground mb-4 text-sm">{description}</p>
+      )}
       <div className={"space-y-2"}>{children}</div>
     </div>
   )

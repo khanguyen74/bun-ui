@@ -1,4 +1,4 @@
-import { Button } from "@bun-ui/react"
+import { Button, Link } from "@bun-ui/react"
 
 export const ButtonVariants = () => {
   return (
@@ -7,8 +7,8 @@ export const ButtonVariants = () => {
       <Button variant="secondary">Secondary</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="text">Text</Button>
-      <Button variant="link">
-        <a href="#">Link</a>
+      <Button variant="link" asChild>
+        <Link href="#">Link</Link>
       </Button>
       <Button variant="destructive">Destructive</Button>
     </div>

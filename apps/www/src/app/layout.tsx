@@ -5,6 +5,9 @@ import "./globals.css"
 import { headers } from "next/headers"
 import { cx, ThemeProvider } from "@bun-ui/react"
 
+import { SiteHeader } from "@/components/site-header"
+import { Toaster } from "@/components/toaster"
+
 export const metadata: Metadata = {
   title: "Bun-UI | Accessible and Customizable UI Components",
   description:
@@ -35,8 +38,10 @@ export default async function RootLayout({
       <body className="bg-background min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="system">
           <div className="bg-background relative flex min-h-svh flex-col">
+            <SiteHeader />
             {children}
           </div>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

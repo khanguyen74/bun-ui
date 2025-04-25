@@ -31,7 +31,7 @@ pnpm add @bun-ui/react
 
 ## 📚 Documentation
 
-For detailed documentation and examples, visit the [Bun UI Documentation](https://bun-ui.khanguyen.com).
+For detailed documentation and examples, visit the [Bun UI Documentation](https://bun-ui.com/docs).
 
 ## 💡 Open Code, Open Source
 

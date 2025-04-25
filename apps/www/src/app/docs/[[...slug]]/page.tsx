@@ -4,7 +4,6 @@ import GithubIcon from "@/icons/github-mark-white.svg"
 import GithubIconDark from "@/icons/github-mark.svg"
 import { Button } from "@bun-ui/react"
 
-import { siteConfig } from "@/config/site"
 import { flattenToc } from "@/lib/flatten-toc"
 import { MDXContent } from "@/components/mdx-content"
 import { Toc } from "@/components/toc"

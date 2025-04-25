@@ -5,7 +5,7 @@
 import { useCallback } from "react"
 import { useTheme as useNextTheme } from "next-themes"
 
-export const useTheme = () => {
+const useTheme = () => {
   const { resolvedTheme: nextTheme, setTheme: setNextTheme } = useNextTheme()
 
   const toggleTheme = useCallback(() => {
@@ -13,3 +13,5 @@ export const useTheme = () => {
   }, [nextTheme, setNextTheme])
   return { theme: nextTheme, toggleTheme }
 }
+
+export { useTheme }
