@@ -35,6 +35,7 @@ export const sideBarNavs: SideBarNavItem[] = [
       { title: "Select", url: "/docs/components/select", items: [] },
       { title: "Switch", url: "/docs/components/switch", items: [] },
       { title: "Tabs", url: "/docs/components/tabs", items: [] },
+      { title: "Toast", url: "/docs/components/toast", items: [] },
     ],
   },
 ]
