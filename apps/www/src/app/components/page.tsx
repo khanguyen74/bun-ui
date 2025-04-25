@@ -1,3 +1,5 @@
+"use client"
+
 import NextLink from "next/link"
 import {
   Accordion,
@@ -20,9 +22,17 @@ import {
   TabList,
   Tabs,
   TabTrigger,
+  Toast,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
 } from "@bun-ui/react"
 
+import { useToast } from "@/hooks/use-toast"
+
 export default function ComponentsPage() {
+  const { createToast } = useToast()
+
   return (
     <div className="mx-auto max-w-4xl space-y-12 px-4 py-12">
       <header className="space-y-2">
@@ -191,7 +201,7 @@ export default function ComponentsPage() {
             </AccordionItem>
           </Accordion>
         </ComponentCard>
-        <ComponentCard title="Dialog" description="A simple dialog component.">
+        <ComponentCard title="Link" description="Link component">
           <div className="flex gap-2">
             <Link href="#">click me</Link>
             <Link asChild>
@@ -204,6 +214,15 @@ export default function ComponentsPage() {
             <Switch label="Dark Mode" />
             <Switch label="Disabled" disabled />
           </div>
+        </ComponentCard>
+        <ComponentCard title="Toast" description="A simple toast component.">
+          <Button
+            onClick={() => {
+              createToast({ title: "Marked as done" })
+            }}
+          >
+            Mark as done
+          </Button>
         </ComponentCard>
       </div>
     </div>
