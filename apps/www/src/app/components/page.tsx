@@ -25,8 +25,7 @@ import {
   Tabs,
   TabTrigger,
 } from "@bun-ui/react"
-
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@bun-ui/react/toast"
 
 export default function ComponentsPage() {
   const { createToast } = useToast()

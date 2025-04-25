@@ -1,8 +1,7 @@
 "use client"
 
-import { Button, ToastAction } from "@bun-ui/react"
-
-import { useToast } from "@/hooks/use-toast"
+import { Button } from "@bun-ui/react"
+import { ToastAction, useToast } from "@bun-ui/react/toast"
 
 export const ToastBasic = () => {
   const { createToast } = useToast()

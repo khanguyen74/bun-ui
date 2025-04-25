@@ -7,7 +7,7 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from "@bun-ui/react"
+} from "@bun-ui/react/toast"
 
 import { useToast } from "@/hooks/use-toast"
 
