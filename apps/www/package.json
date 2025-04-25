@@ -38,7 +38,7 @@
     "@next/eslint-plugin-next": "^15.3.0",
     "@svgr/webpack": "^8.1.0",
     "@types/hast": "^3.0.4",
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
