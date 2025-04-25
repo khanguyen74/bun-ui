@@ -8,8 +8,8 @@ export const ThemeSwitch = () => {
 
   return (
     <Button onClick={toggleTheme} size="icon" variant="text">
-      <Moon className="hidden [html.light_&]:block" />
-      <Sun className="hidden [html.dark_&]:block" />
+      <Moon className="hidden [html.dark_&]:block" />
+      <Sun className="hidden [html.light_&]:block" />
     </Button>
   )
 }
