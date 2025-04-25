@@ -4,3 +4,4 @@ node_modules
 build
 **/.velite/**
 README.md
+tsup.config.ts
