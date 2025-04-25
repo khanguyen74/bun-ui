@@ -6,6 +6,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+  Alert,
+  AlertTitle,
   Button,
   Checkbox,
   cx,
@@ -22,10 +24,6 @@ import {
   TabList,
   Tabs,
   TabTrigger,
-  Toast,
-  ToastProvider,
-  ToastTitle,
-  ToastViewport,
 } from "@bun-ui/react"
 
 import { useToast } from "@/hooks/use-toast"
@@ -224,6 +222,11 @@ export default function ComponentsPage() {
             Mark as done
           </Button>
         </ComponentCard>
+        <ComponentCard title="Alert">
+          <Alert>
+            <AlertTitle>Hi</AlertTitle>
+          </Alert>
+        </ComponentCard>
       </div>
     </div>
   )
@@ -235,8 +238,8 @@ function ComponentCard({
   children,
   className,
 }: {
-  title: string
-  description: string
+  title?: string
+  description?: string
   children: React.ReactNode
   className?: string
 }) {
@@ -247,8 +250,10 @@ function ComponentCard({
         className
       )}
     >
-      <h2 className="text-xl font-semibold">{title}</h2>
-      <p className="text-muted-foreground mb-4 text-sm">{description}</p>
+      {title && <h2 className="text-xl font-semibold">{title}</h2>}
+      {description && (
+        <p className="text-muted-foreground mb-4 text-sm">{description}</p>
+      )}
       <div className={"space-y-2"}>{children}</div>
     </div>
   )

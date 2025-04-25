@@ -1,0 +1,59 @@
+---
+title: Alert
+description:
+  A component used to display important messages or feedback to the user.
+links:
+  source: components/alert
+  docs: /docs/components/alert
+---
+
+<ComponentPreview name="alert-basic" />
+
+## Usage
+
+Import the `Alert`, `AlertTitle`, and `AlertDescription` components from
+`@bun-ui/react` and use them in your project:
+
+```tsx
+import { Alert, AlertDescription, AlertTitle } from "@bun-ui/react"
+```
+
+```tsx
+<Alert variant="info">
+  <AlertTitle>Information</AlertTitle>
+  <AlertDescription>This is an informational alert.</AlertDescription>
+</Alert>
+```
+
+## Variants
+
+The `Alert` component supports multiple variants to indicate different types of
+messages. Use the `variant` prop to specify the style:
+
+- **Default**: Neutral message.
+- **Success**: Success message.
+- **Warning**: Warning message.
+- **Error**: Error message.
+
+<ComponentPreview name="alert-variants" />
+
+## Icons
+
+The `Alert` component automatically includes an icon based on the `variant`. You
+can also provide a custom icon using the `icon` prop:
+
+<ComponentPreview name="alert-icon" />
+
+## Customization
+
+The `Alert` component and its subcomponents can be customized using the
+`className` prop or by extending their styles with your design system.
+
+```tsx
+<Alert className="bg-purple-50 text-purple-800">
+  <AlertTitle>Custom Alert</AlertTitle>
+  <AlertDescription>This is a custom-styled alert.</AlertDescription>
+</Alert>
+```
+
+Refer to the source code for more advanced usage and customization options.
