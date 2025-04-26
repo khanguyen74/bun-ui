@@ -1,5 +1,13 @@
 # @bun-ui/react
 
+## 0.2.18
+
+### Patch Changes
+
+- 686ea1d: update how components are export
+
+  add useToast and Toaster to the exports
+
 ## 0.2.17
 
 ### Patch Changes
