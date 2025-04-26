@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import NextLink from "next/link"
 import { docs } from "@/.velite"
 import GithubIcon from "@/icons/github-mark-white.svg"
@@ -5,6 +6,7 @@ import GithubIconDark from "@/icons/github-mark.svg"
 import { Button } from "@bun-ui/react"
 
 import { flattenToc } from "@/lib/flatten-toc"
+import { kebabToPascalCase } from "@/lib/string"
 import { MDXContent } from "@/components/mdx-content"
 import { Toc } from "@/components/toc"
 
@@ -12,6 +14,23 @@ interface DocPageProps {
   params: Promise<{
     slug: string
   }>
+}
+
+type DocPageParams = {
+  params: Promise<{ slug: string | string[] }>
+}
+
+export async function generateMetadata({
+  params,
+}: DocPageParams): Promise<Metadata> {
+  const { slug } = await params
+  let title = "Introduction"
+  if (Array.isArray(slug) && slug.length > 0) {
+    title = slug[slug.length - 1]
+  }
+  return {
+    title: `${kebabToPascalCase(title, "-", " ")} | Bun UI`,
+  }
 }
 
 export default async function DocPage({ params }: DocPageProps) {

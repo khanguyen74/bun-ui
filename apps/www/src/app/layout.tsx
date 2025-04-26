@@ -9,7 +9,7 @@ import { Toaster } from "@bun-ui/react/toast"
 import { SiteHeader } from "@/components/site-header"
 
 export const metadata: Metadata = {
-  title: "Bun-UI | Accessible and Customizable UI Components",
+  title: "Bun UI | Accessible and Customizable UI Components",
   description:
     "Build beautiful, accessible, and reusable components effortlessly.",
 }
