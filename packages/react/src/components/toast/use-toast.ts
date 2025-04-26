@@ -4,8 +4,8 @@ import * as React from "react"
 
 import type { ToastActionElement, ToastProps } from "./toast"
 
-const TOAST_LIMIT = 1
-const TOAST_REMOVE_DELAY = 1000000
+const DEFAULT_TOAST_LIMIT = 4
+const TOAST_REMOVE_DELAY = 2000
 
 type ToasterToast = ToastProps & {
   id: string
@@ -28,12 +28,11 @@ function genId() {
   return count.toString()
 }
 
-// type ActionType = typeof actionTypes
-
 type Action =
   | {
       type: ActionType.ADD_TOAST
       toast: ToasterToast
+      maxToasts: number
     }
   | {
       type: ActionType.UPDATE_TOAST
@@ -75,7 +74,7 @@ export const reducer = (state: State, action: Action): State => {
     case ActionType.ADD_TOAST:
       return {
         ...state,
-        toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
+        toasts: [action.toast, ...state.toasts].slice(0, action.maxToasts),
       }
 
     case ActionType.UPDATE_TOAST:
@@ -89,8 +88,6 @@ export const reducer = (state: State, action: Action): State => {
     case ActionType.DISMISS_TOAST: {
       const { toastId } = action
 
-      // ! Side effects ! - This could be extracted into a dismissToast() action,
-      // but I'll keep it here for simplicity
       if (toastId) {
         addToRemoveQueue(toastId)
       } else {
@@ -138,37 +135,11 @@ function dispatch(action: Action) {
 
 type Toast = Omit<ToasterToast, "id">
 
-function createToast({ ...props }: Toast) {
-  const id = genId()
-
-  const update = (props: ToasterToast) =>
-    dispatch({
-      type: ActionType.UPDATE_TOAST,
-      toast: { ...props, id },
-    })
-  const dismiss = () =>
-    dispatch({ type: ActionType.DISMISS_TOAST, toastId: id })
-
-  dispatch({
-    type: ActionType.ADD_TOAST,
-    toast: {
-      ...props,
-      id,
-      open: true,
-      onOpenChange: (open) => {
-        if (!open) dismiss()
-      },
-    },
-  })
-
-  return {
-    id: id,
-    dismiss,
-    update,
-  }
+interface UseToastOptions {
+  maxToasts?: number
 }
 
-function useToast() {
+function useToast({ maxToasts = DEFAULT_TOAST_LIMIT }: UseToastOptions = {}) {
   const [state, setState] = React.useState<State>(memoryState)
 
   React.useEffect(() => {
@@ -181,6 +152,37 @@ function useToast() {
     }
   }, [])
 
+  const createToast = ({ ...props }: Toast) => {
+    const id = genId()
+
+    const update = (props: ToasterToast) =>
+      dispatch({
+        type: ActionType.UPDATE_TOAST,
+        toast: { ...props, id },
+      })
+    const dismiss = () =>
+      dispatch({ type: ActionType.DISMISS_TOAST, toastId: id })
+
+    dispatch({
+      type: ActionType.ADD_TOAST,
+      toast: {
+        ...props,
+        id,
+        open: true,
+        onOpenChange: (open) => {
+          if (!open) dismiss()
+        },
+      },
+      maxToasts,
+    })
+
+    return {
+      id: id,
+      dismiss,
+      update,
+    }
+  }
+
   return {
     ...state,
     createToast,
@@ -189,4 +191,4 @@ function useToast() {
   }
 }
 
-export { useToast, createToast }
+export { useToast }
