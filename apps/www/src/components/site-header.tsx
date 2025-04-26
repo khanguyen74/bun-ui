@@ -18,10 +18,8 @@ export const SiteHeader = () => {
             <MainNav />
             <MobileNav />
           </div>
-          <div className="ml-auto flex grow items-center gap-3 md:flex-1 md:grow-0 md:justify-end">
-            <div className="w-full flex-1 md:flex md:w-auto md:flex-none">
-              <HeaderCommand />
-            </div>
+          <div className="ml-auto flex flex-1 grow items-center justify-end gap-3">
+            <HeaderCommand />
             <div className="flex items-center gap-2">
               <Button size="icon" variant="text" asChild>
                 <NextLink href={siteConfig.links.github} target="_blank">
