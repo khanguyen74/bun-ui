@@ -28,7 +28,7 @@ npm install @bun-ui/react
 
 /* Detect the components source in @bun-ui/react */
 /* change the pathname that matches your project structure */
-@source "../node_modules/@bun-ui/react/src/components/";
+@source "../node_modules/@bun-ui/react/dist/";
 ```
 
 ### With Tailwind CSS (v3)
@@ -38,7 +38,7 @@ npm install @bun-ui/react
 module.exports = {
   content: [
     // other paths
-    "../node_modules/@bun-ui/react/src/components/**/*.{js,ts,jsx,tsx}",
+    "../node_modules/@bun-ui/react/dist/**/*.{js,ts,jsx,tsx}",
   ],
   // other configurations
 }
