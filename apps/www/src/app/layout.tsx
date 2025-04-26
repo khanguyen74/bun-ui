@@ -3,10 +3,10 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 import { headers } from "next/headers"
-import { cx, ThemeProvider } from "@bun-ui/react"
+import { Alert, AlertTitle, cx, ThemeProvider } from "@bun-ui/react"
+import { Toaster } from "@bun-ui/react/toast"
 
 import { SiteHeader } from "@/components/site-header"
-import { Toaster } from "@/components/toaster"
 
 export const metadata: Metadata = {
   title: "Bun-UI | Accessible and Customizable UI Components",
@@ -38,6 +38,16 @@ export default async function RootLayout({
       <body className="bg-background min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="system">
           <div className="bg-background relative flex min-h-svh flex-col">
+            <Alert
+              variant="warning"
+              className="flex justify-center rounded-none"
+            >
+              <AlertTitle>
+                The library is still in early development. Breaking changes and
+                bugs may occur without prior notice. Thanks for your interest in
+                using the library!
+              </AlertTitle>
+            </Alert>
             <SiteHeader />
             {children}
           </div>

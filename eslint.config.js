@@ -34,5 +34,6 @@ export default defineConfig([
     "es",
     "**/*.test.ts",
     "**/.velite/**",
+    "**/tsup.config.ts",
   ]),
 ])

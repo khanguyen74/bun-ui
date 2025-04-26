@@ -34,9 +34,10 @@ const Switch = React.forwardRef<
     ref
   ) => {
     const Wrapper = label ? "div" : React.Fragment
+    const wrapperClassName = label ? "flex items-center w-fit" : ""
     const _id = id ?? React.useId()
     return (
-      <Wrapper className={cx("flex w-fit items-center")}>
+      <Wrapper {...(label ? { className: wrapperClassName } : {})}>
         {label && (
           <Label
             htmlFor={_id}
