@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { cx } from "@bun-ui/react"
 
 import { useScrollSpy } from "../lib/use-scroll-spy"
 
@@ -21,7 +22,13 @@ export const Toc = ({ items }: Props) => {
 
   return (
     <aside id="toc" className="hidden xl:block">
-      <div className="sticky top-20 -mt-6 h-[calc(100vh-3.5rem)] w-[16rem] pt-6 text-sm">
+      <div
+        className={cx(
+          "sticky top-20 -mt-6 h-[calc(100vh-3.5rem)] w-[16rem] pt-6 text-sm",
+          // TODO: Remove these class when warning alert at top of all pages is removed
+          "top-25 mt-3"
+        )}
+      >
         <p className="font-semibold text-gray-900 dark:text-white">
           On this page
         </p>

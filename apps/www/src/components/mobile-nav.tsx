@@ -84,7 +84,7 @@ export function MobileNav() {
           </div>
         </DrawerContent>
       </Drawer>
-      <Logo />
+      <Logo width={42} height={42} />
     </div>
   )
 }
