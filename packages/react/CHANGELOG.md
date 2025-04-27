@@ -1,5 +1,12 @@
 # @bun-ui/react
 
+## 0.2.19
+
+### Patch Changes
+
+- 614a43e: - only export toast and add options to useToast
+  - add alert dialog
+
 ## 0.2.18
 
 ### Patch Changes
