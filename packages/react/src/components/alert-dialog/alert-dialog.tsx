@@ -59,6 +59,17 @@ const AlertDialogTitle = React.forwardRef<
   />
 ))
 
+const AlertDialogDescription = React.forwardRef<
+  React.ComponentRef<typeof AlertDialogPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Description>
+>(({ className, ...props }, ref) => (
+  <AlertDialogPrimitive.Description
+    ref={ref}
+    className={cx("text-muted-foreground text-sm", className)}
+    {...props}
+  />
+))
+
 const AlertDialogContent = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content>
@@ -79,6 +90,13 @@ const AlertDialogContent = React.forwardRef<
   </AlertDialogPortal>
 ))
 
+const AlertDialogFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLProps<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cx("flex gap-x-2", className)} {...props} />
+))
+
 export {
   AlertDialog,
   AlertDialogAction,
@@ -88,4 +106,6 @@ export {
   AlertDialogTitle,
   AlertDialogOverlay,
   AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
 }
