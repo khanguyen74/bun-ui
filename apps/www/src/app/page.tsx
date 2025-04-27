@@ -1,45 +1,110 @@
 import NextLink from "next/link"
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
   Button,
-  Checkbox,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
   Input,
-  RadioGroup,
-  RadioGroupItem,
-  Select,
-  SelectItem,
-  Switch,
   TabContent,
   TabList,
   Tabs,
   TabTrigger,
 } from "@bun-ui/react"
+import { Terminal } from "lucide-react"
 
 import { ComponentCard } from "@/components/component-card"
 
 const HomePage = () => {
   return (
-    <div>
-      {/* Hero Section */}
-      <div className="py-16 text-center">
-        <h1 className="text-4xl font-bold">Welcome to Bun-UI</h1>
-        <p className="mt-4 text-lg">
-          Build beautiful, accessible, and reusable components effortlessly.
+    <div className="container">
+      <div className="py-16">
+        <h1 className="text-4xl font-bold">Welcome to Bun UI</h1>
+        <p className="mt-4 text-xl">
+          Build beautiful, accessible, and reusable React components
+          effortlessly.
         </p>
-        <div className="mt-6 flex justify-center gap-4">
-          <Button asChild>
-            <NextLink href="/docs">Get Started</NextLink>
+        <div className="mt-6 flex items-center gap-4">
+          <Button asChild className="p-6 text-base">
+            <NextLink href="/docs/installation">Get Started</NextLink>
           </Button>
-          <Button asChild variant="secondary">
-            <NextLink href="/components">Explore Components</NextLink>
-          </Button>
+          <code className="bg-muted text-primary flex h-fit items-center rounded-md p-4 font-mono text-sm">
+            <Terminal className="mr-2 h-4 w-4" />
+            npm i @bun-ui/react
+          </code>
         </div>
       </div>
 
-      {/* Features Section */}
+      <section className="py-16">
+        <div className="mx-auto text-center">
+          <p className="mt-2">
+            Build faster with pre-styled, accessible components.
+          </p>
+
+          <div className="mt-12 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
+            <ComponentCard>
+              <div className="flex h-36 items-center justify-center">
+                <Button size="sm">Click Me</Button>
+              </div>
+              <p className="text-muted-foreground mt-8">Button</p>
+            </ComponentCard>
+
+            <ComponentCard>
+              <div className="flex h-36 items-center justify-center">
+                <Input placeholder="Enter text" />
+              </div>
+              <p className="text-muted-foreground mt-8">Input</p>
+            </ComponentCard>
+
+            <ComponentCard>
+              <div className="flex h-36 items-center justify-center">
+                <Tabs defaultValue="overview">
+                  <TabList>
+                    <TabTrigger value="overview">Overview</TabTrigger>
+                    <TabTrigger value="settings">Settings</TabTrigger>
+                    <TabTrigger value="billing">Billing</TabTrigger>
+                  </TabList>
+                  <TabContent value="overview">
+                    <p>
+                      This is the overview section. You can provide a summary
+                      here.
+                    </p>
+                  </TabContent>
+                  <TabContent value="settings">
+                    <p>
+                      Settings go here. You can add inputs or toggles for user
+                      preferences.
+                    </p>
+                  </TabContent>
+                  <TabContent value="billing">
+                    <p>
+                      Billing information, invoices, or payment methods live
+                      here.
+                    </p>
+                  </TabContent>
+                </Tabs>
+              </div>
+              <p className="text-muted-foreground mt-8">Tabs</p>
+            </ComponentCard>
+            <ComponentCard>
+              <div className="flex h-36 items-center justify-center">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button>Open Menu</Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem>Profile</DropdownMenuItem>
+                    <DropdownMenuItem>Settings</DropdownMenuItem>
+                    <DropdownMenuItem>Log out</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+              <p className="text-muted-foreground mt-8">Menu</p>
+            </ComponentCard>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16">
         <div className="container mx-auto text-center">
           <h2 className="text-2xl font-bold">Why Choose Bun-UI?</h2>
@@ -60,87 +125,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Components Showcase */}
-      <section className="py-16">
-        <div className="container mx-auto">
-          <h2 className="text-center text-2xl font-bold">Component Showcase</h2>
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {/* Button */}
-            <ComponentCard>
-              <h3 className="text-lg font-semibold">Button</h3>
-              <Button>Click Me</Button>
-            </ComponentCard>
-
-            {/* Input */}
-            <ComponentCard>
-              <h3 className="text-lg font-semibold">Input</h3>
-              <Input label="Your Name" placeholder="Enter your name" />
-            </ComponentCard>
-
-            {/* Checkbox */}
-            <ComponentCard>
-              <h3 className="text-lg font-semibold">Checkbox</h3>
-              <Checkbox label="I agree to the terms" />
-            </ComponentCard>
-
-            {/* Radio Group */}
-            <ComponentCard>
-              <h3 className="text-lg font-semibold">Radio Group</h3>
-              <RadioGroup defaultValue="option-1">
-                <RadioGroupItem value="option-1" label="Option 1" />
-                <RadioGroupItem value="option-2" label="Option 2" />
-              </RadioGroup>
-            </ComponentCard>
-
-            {/* Select */}
-            <ComponentCard>
-              <h3 className="text-lg font-semibold">Select</h3>
-              <Select placeholder="Choose an option">
-                <SelectItem value="option-1">Option 1</SelectItem>
-                <SelectItem value="option-2">Option 2</SelectItem>
-              </Select>
-            </ComponentCard>
-
-            {/* Switch */}
-            <ComponentCard>
-              <h3 className="text-lg font-semibold">Switch</h3>
-              <Switch label="Enable Feature" />
-            </ComponentCard>
-
-            {/* Tabs */}
-            <ComponentCard>
-              <h3 className="text-lg font-semibold">Tabs</h3>
-              <Tabs defaultValue="tab-1">
-                <TabList>
-                  <TabTrigger value="tab-1">Tab 1</TabTrigger>
-                  <TabTrigger value="tab-2">Tab 2</TabTrigger>
-                </TabList>
-                <TabContent value="tab-1">
-                  <p>Content for Tab 1</p>
-                </TabContent>
-                <TabContent value="tab-2">
-                  <p>Content for Tab 2</p>
-                </TabContent>
-              </Tabs>
-            </ComponentCard>
-
-            {/* Accordion */}
-            <ComponentCard>
-              <h3 className="text-lg font-semibold">Accordion</h3>
-              <Accordion type="single" collapsible>
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>What is Bun-UI?</AccordionTrigger>
-                  <AccordionContent>
-                    Bun-UI is a modern, lightweight UI library.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </ComponentCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
       <footer className="py-16 text-center">
         <h2 className="text-2xl font-bold">Ready to build amazing UIs?</h2>
         <Button asChild>

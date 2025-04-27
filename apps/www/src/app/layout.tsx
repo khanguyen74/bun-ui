@@ -11,7 +11,7 @@ import { SiteHeader } from "@/components/site-header"
 export const metadata: Metadata = {
   title: "Bun UI | Accessible and Customizable UI Components",
   description:
-    "Build beautiful, accessible, and reusable components effortlessly.",
+    "Build beautiful, accessible, and reusable React components effortlessly.",
 }
 
 export default async function RootLayout({
