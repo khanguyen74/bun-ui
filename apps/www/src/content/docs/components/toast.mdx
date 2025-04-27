@@ -8,10 +8,25 @@ links:
 
 <ComponentPreview name="toast-basic" />
 
+## Overview
+
+The Toast component is built using React hooks internally.
+Because hooks require client-side usage, the Toast implementation is
+exported from a separate directory.
+When using Toast in your app, import from:
+
+```tsx
+import { useToast, Toaster, ToastAction } from "@bun-ui/react/toast"
+```
+
+This ensures everything works correctly without any extra configuration.
+
 ## Setup
 
-Add `Toaster` to your app's root layout. This component is responsible for
-rendering and managing the toasts.
+You must add a `Toaster` component at the root layout of your application.
+This component is responsible for rendering and managing toast notifications.
+
+> The Toaster only needs to be added once at the app's root.
 
 ```tsx
 import { Toaster } from "@bun-ui/react/toast"
@@ -62,3 +77,7 @@ Pass `maxToasts` option to the `useToast` hook to change the number of toasts
 </Alert>
 
 <ComponentPreview name="toast-max" />
+
+### Action Component
+
+<ComponentPreview name="toast-action-button" />

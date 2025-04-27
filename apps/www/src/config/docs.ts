@@ -19,6 +19,11 @@ export const sideBarNavs: SideBarNavItem[] = [
     items: [
       { title: "Accordion", url: "/docs/components/accordion", items: [] },
       { title: "Alert", url: "/docs/components/alert", items: [] },
+      {
+        title: "Alert Dialog",
+        url: "/docs/components/alert-dialog",
+        items: [],
+      },
       { title: "Button", url: "/docs/components/button", items: [] },
       { title: "Breadcrumb", url: "/docs/components/breadcrumb", items: [] },
       { title: "Checkbox", url: "/docs/components/checkbox", items: [] },

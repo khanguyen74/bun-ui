@@ -1,0 +1,38 @@
+---
+title: Alert Dialog
+description: A modal dialog component for displaying critical information or actions.
+links:
+  source: components/alert-dialog
+  docs: /docs/components/alert-dialog
+---
+
+<ComponentPreview name="alert-dialog-basic" />
+
+## Usage
+
+Import the `AlertDialog` components from `@bun-ui/react` and use them in your project:
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogTitle,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "@bun-ui/react"
+```
+
+```tsx
+<AlertDialog>
+  <AlertDialogTrigger className="btn">Open Alert Dialog</AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+    <p>This action cannot be undone. Do you want to proceed?</p>
+    <div className="flex justify-end gap-2">
+      <AlertDialogCancel className="btn-outline">Cancel</AlertDialogCancel>
+      <AlertDialogAction className="btn">Confirm</AlertDialogAction>
+    </div>
+  </AlertDialogContent>
+</AlertDialog>
+```
