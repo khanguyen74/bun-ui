@@ -1,11 +1,14 @@
 import * as runtime from "react/jsx-runtime"
-import { cx } from "@bun-ui/react"
+import { Alert, AlertDescription, AlertTitle, cx } from "@bun-ui/react"
 
 import { ComponentPreview } from "./component-preview"
 import { CopyButton } from "./copy-button"
 
 const sharedComponents = {
   ComponentPreview,
+  Alert,
+  AlertTitle,
+  AlertDescription,
   CopyButton,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
