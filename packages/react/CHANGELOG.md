@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.20
+
+### Patch Changes
+
+- 0abd6bd: add spinner and improve theme setup
+
 ## 0.2.19
 
 ### Patch Changes
