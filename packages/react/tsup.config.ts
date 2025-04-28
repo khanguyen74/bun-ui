@@ -1,5 +1,5 @@
-import fs from "fs"
-import path from "path"
+import fs, { copyFileSync } from "fs"
+import { resolve } from "path"
 import { defineConfig } from "tsup"
 
 export default defineConfig(() => [
@@ -13,6 +13,12 @@ export default defineConfig(() => [
     target: "esnext",
     splitting: false,
     css: true,
+     onSuccess: async () => {
+    // Copy theme.css to the dist folder after build
+      const src = resolve(__dirname, 'src/styles/theme.css'); // adjust the path if needed
+      const dest = resolve(__dirname, 'dist/theme.css');
+      copyFileSync(src, dest);
+    }
   },
   {
     entry: ["src/components/toast/index.ts"],
@@ -25,7 +31,7 @@ export default defineConfig(() => [
     splitting: false,
     css: true,
     onSuccess: async () => {
-      const toastFile = path.resolve("dist/toast/index.mjs")
+      const toastFile = resolve("dist/toast/index.mjs")
       if (fs.existsSync(toastFile)) {
         const content = fs.readFileSync(toastFile, "utf8")
         if (!content.startsWith('"use client"')) {
