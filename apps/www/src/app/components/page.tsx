@@ -19,6 +19,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectLabel,
+  Spinner,
   Switch,
   TabContent,
   TabList,
@@ -44,7 +45,12 @@ export default function ComponentsPage() {
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
         {/* Button */}
         <ComponentCard title="Button" description="A basic button component.">
-          <Button>Click me</Button>
+          <div className="flex gap-2">
+            <Button>Click me</Button>
+            <Button>
+              <Spinner color="primary" size="lg" />
+            </Button>
+          </div>
         </ComponentCard>
 
         {/* Input */}
@@ -225,6 +231,12 @@ export default function ComponentsPage() {
           <Alert>
             <AlertTitle>Hi</AlertTitle>
           </Alert>
+        </ComponentCard>
+        <ComponentCard title="Spinner">
+          <div className="mt-5 flex gap-4">
+            <Spinner />
+            <Spinner color="destructive" />
+          </div>
         </ComponentCard>
       </div>
     </div>
