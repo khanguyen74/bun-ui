@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
+// import "@bun-ui/react/index.css"
+
 import { headers } from "next/headers"
 import { Alert, AlertTitle, cx, ThemeProvider } from "@bun-ui/react"
 import { Toaster } from "@bun-ui/react/toast"
@@ -35,7 +37,7 @@ export default async function RootLayout({
       suppressHydrationWarning
       className={cx("scroll-smooth", osClass)}
     >
-      <body className="bg-background min-h-screen">
+      <body className="min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="system">
           <div className="bg-background relative flex min-h-svh flex-col">
             <Alert
