@@ -13,12 +13,12 @@ export default defineConfig(() => [
     target: "esnext",
     splitting: false,
     css: true,
-     onSuccess: async () => {
-    // Copy theme.css to the dist folder after build
-      const src = resolve(__dirname, 'src/styles/theme.css'); // adjust the path if needed
-      const dest = resolve(__dirname, 'dist/theme.css');
-      copyFileSync(src, dest);
-    }
+    onSuccess: async () => {
+      // Copy theme.css to the dist folder after build
+      const src = resolve(__dirname, "src/styles/theme.css") // adjust the path if needed
+      const dest = resolve(__dirname, "dist/theme.css")
+      copyFileSync(src, dest)
+    },
   },
   {
     entry: ["src/components/toast/index.ts"],
