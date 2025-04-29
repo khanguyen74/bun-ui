@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.21
+
+### Patch Changes
+
+- 551f245: fix color tokens
+
 ## 0.2.20
 
 ### Patch Changes
