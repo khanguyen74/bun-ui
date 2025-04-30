@@ -23,10 +23,10 @@ export const SiteHeader = () => {
             <div className="flex items-center gap-2">
               <Button size="icon" variant="text" asChild>
                 <NextLink href={siteConfig.links.github} target="_blank">
-                  <span className="hidden [html.dark_&]:block">
+                  <span className="hidden dark:block">
                     <GithubIcon viewBox="0 0 96 96" />
                   </span>
-                  <span className="hidden [html.light_&]:block">
+                  <span className="hidden not-dark:block">
                     <GithubIconDark viewBox="0 0 96 96" />
                   </span>
                 </NextLink>

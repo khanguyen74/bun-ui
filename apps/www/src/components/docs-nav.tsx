@@ -52,9 +52,9 @@ const DocsNavItems = ({
             href={item.url}
             data-active={pathname === item.url ? "" : undefined}
             className={cx(
-              "not-data-[active]:hover:bg-accent/30 hover:text-accent-foreground relative flex h-8 w-full items-center rounded-lg px-2 after:absolute after:inset-x-0 after:inset-y-[-2px] after:rounded-lg",
+              "not-data-[active]:hover:bg-primary/30 hover:text-primary-foreground relative flex h-8 w-full items-center rounded-lg px-2 after:absolute after:inset-x-0 after:inset-y-[-2px] after:rounded-lg",
               pathname === item.url
-                ? "bg-accent text-accent-foreground font-medium"
+                ? "bg-primary/50 text-primary-foreground font-medium"
                 : "text-foreground font-normal"
             )}
             target={item.external ? "_blank" : "_self"}
