@@ -4,7 +4,7 @@
 
 @source "../../node_modules/@bun-ui/react/dist/";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where([class*="dark"] *, [data-theme*="dark"] *));
 
 [data-rehype-pretty-code-figure] code {
   background: transparent;
