@@ -7,7 +7,7 @@ import { cx } from "@bun-ui/react"
 export const HeaderLinks = () => {
   const currentPath = usePathname()
   return (
-    <div className="text-foreground/60 flex gap-x-6 text-sm">
+    <div className="text-foreground/60 hidden gap-x-6 text-sm sm:flex">
       <NextLink
         href="/docs"
         className={cx(currentPath.startsWith("/docs") && "text-foreground")}

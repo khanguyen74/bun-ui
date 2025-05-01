@@ -3,5 +3,5 @@ export default function DocsLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <main className="flex flex-col">{children}</main>
+  return <main>{children}</main>
 }
