@@ -19,6 +19,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectLabel,
+  Skeleton,
   Spinner,
   Switch,
   TabContent,
@@ -236,6 +237,16 @@ export default function ComponentsPage() {
           <div className="mt-5 flex gap-4">
             <Spinner />
             <Spinner color="destructive" />
+          </div>
+        </ComponentCard>
+        <ComponentCard title="Skeleton">
+          <div className="mt-5 flex items-center space-x-2">
+            <Skeleton className="h-12 w-12" />
+            <div className="space-y-2">
+              <Skeleton variant="rectangle" width="13rem" height="10px" />
+              <Skeleton variant="rectangle" width="13rem" height="10px" />
+              <Skeleton variant="rectangle" width="13rem" height="10px" />
+            </div>
           </div>
         </ComponentCard>
       </div>
