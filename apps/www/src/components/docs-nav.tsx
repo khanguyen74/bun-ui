@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import Logo from "@/icons/logo.svg"
 import { cx } from "@bun-ui/react"
 
 import { DocsConfig, SideBarNavItem } from "@/config/docs"
@@ -17,14 +16,6 @@ export const DocsNav = ({ config }: DocsNavProps) => {
   return (
     <nav className="hidden w-[300px] shrink-0 border-r lg:block">
       <div className="fixed flex h-full w-[300px] flex-col">
-        <div className="h-[var(--header-height)] border-b p-2">
-          <Link href="/" className="flex w-fit items-center gap-2 px-2">
-            <Logo width={42} height={42} />
-            <span className="hidden font-mono text-lg font-bold lg:inline-block">
-              Bun UI
-            </span>
-          </Link>
-        </div>
         <div className="h-full overflow-y-auto px-2 py-8 pt-2">
           {items.map((item, index) => (
             <div key={index} className="flex flex-col gap-1">
@@ -63,7 +54,7 @@ const DocsNavItems = ({
             href={item.url}
             data-active={pathname === item.url ? "" : undefined}
             className={cx(
-              "not-data-[active]:hover:bg-popover/30 not-data-[active]:hover:text-foreground relative flex h-8 w-full items-center rounded-lg px-2 after:absolute after:inset-x-0 after:inset-y-[-2px] after:rounded-lg",
+              "not-data-[active]:hover:bg-popover/30 not-data-[active]:hover:text-foreground relative flex h-8 w-full items-center rounded-lg px-5 after:absolute after:inset-x-0 after:inset-y-[-2px] after:rounded-lg",
               pathname === item.url
                 ? "bg-popover text-primary font-medium"
                 : "text-foreground/70 font-normal"

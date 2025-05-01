@@ -40,6 +40,17 @@ export default async function RootLayout({
       <body className="min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="system">
           <div className="bg-background relative flex min-h-svh flex-col">
+            <Alert
+              variant="warning"
+              className="flex items-center justify-center rounded-none"
+            >
+              <AlertTitle>
+                The library is still in early development. Breaking changes and
+                bugs may occur without prior notice. Thanks for your interest in
+                using the library!
+              </AlertTitle>
+            </Alert>
+            <SiteHeader />
             {children}
           </div>
           <Toaster />

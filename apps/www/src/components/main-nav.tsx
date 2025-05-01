@@ -3,7 +3,7 @@ import Logo from "@/icons/logo.svg"
 
 export function MainNav() {
   return (
-    <Link href="/" className="flex items-center gap-2 px-2">
+    <Link href="/" className="hidden items-center gap-2 px-2 lg:flex">
       <Logo width={42} height={42} />
       <span className="hidden font-mono text-lg font-bold lg:inline-block">
         Bun UI
