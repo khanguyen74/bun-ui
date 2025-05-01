@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.22
+
+### Patch Changes
+
+- 046fd5b: add value to Select root
+
 ## 0.2.21
 
 ### Patch Changes
