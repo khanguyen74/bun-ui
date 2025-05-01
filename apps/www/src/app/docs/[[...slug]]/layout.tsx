@@ -7,9 +7,9 @@ export default function DocsLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex w-full">
+    <div className="block w-full lg:flex">
       <DocsNav config={docsConfig} />
-      <div className="flex grow flex-col">{children}</div>
+      {children}
     </div>
   )
 }
