@@ -1,0 +1,27 @@
+"use client"
+
+import NextLink from "next/link"
+import { usePathname } from "next/navigation"
+import { cx } from "@bun-ui/react"
+
+export const HeaderLinks = () => {
+  const currentPath = usePathname()
+  return (
+    <div className="text-foreground/60 flex gap-x-6 text-sm">
+      <NextLink
+        href="/docs"
+        className={cx(currentPath.startsWith("/docs") && "text-foreground")}
+      >
+        Docs
+      </NextLink>
+      <NextLink
+        href="/components"
+        className={cx(
+          currentPath.startsWith("/components") && "text-foreground"
+        )}
+      >
+        Components
+      </NextLink>
+    </div>
+  )
+}
