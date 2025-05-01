@@ -18,6 +18,7 @@ const spinnerVariants = cva("inline-flex animate-spin", {
       secondary: "text-secondary",
       destructive: "text-destructive",
       accent: "text-accent",
+      current: "text-current",
     },
   },
   defaultVariants: {
