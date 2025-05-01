@@ -24,7 +24,7 @@ export const Toc = ({ items }: Props) => {
     <aside id="toc" className="hidden xl:block">
       <div
         className={cx(
-          "sticky top-20 -mt-6 h-[calc(100vh-3.5rem)] w-[16rem] pt-6 text-sm",
+          "sticky top-20 -mt-6 w-[16rem] pt-6 text-sm",
           // TODO: Remove these class when warning alert at top of all pages is removed
           "top-25 mt-3"
         )}
