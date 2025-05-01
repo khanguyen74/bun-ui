@@ -46,7 +46,7 @@ export default async function DocPage({ params }: DocPageProps) {
     )
   }
   return (
-    <div className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+    <div className="relative flex grow px-4 py-6 lg:gap-10 lg:py-8">
       <div className="mx-auto flex w-full max-w-3xl min-w-0 flex-col">
         <h1 className="mb-5 text-3xl font-bold">{doc.title}</h1>
         {doc.links?.source && (

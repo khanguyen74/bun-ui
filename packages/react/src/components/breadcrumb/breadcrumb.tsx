@@ -31,7 +31,10 @@ const BreadcrumbList = React.forwardRef<HTMLOListElement, BreadcrumbListProps>(
           ? [item]
           : [
               item,
-              <li key={`separator-${index}`} className="text-primary/50 mx-1">
+              <li
+                key={`separator-${index}`}
+                className="text-muted-foreground mx-1"
+              >
                 {separator}
               </li>,
             ]

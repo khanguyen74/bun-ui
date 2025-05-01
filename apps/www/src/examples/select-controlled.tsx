@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Select, SelectItem } from "@bun-ui/react"
 
 export function SelectControlled() {
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState("tailwind")
 
   return (
     <div className="flex flex-col">
@@ -13,6 +13,7 @@ export function SelectControlled() {
         onValueChange={setValue}
         placeholder="Select your favorite"
         label="CSS Framework"
+        className="w-[200px]"
       >
         <SelectItem value="tailwind">Tailwind CSS</SelectItem>
         <SelectItem value="bootstrap">Bootstrap</SelectItem>

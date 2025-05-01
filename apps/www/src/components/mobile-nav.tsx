@@ -12,6 +12,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@bun-ui/react"
+import { Menu } from "lucide-react"
 
 import { docsConfig } from "@/config/docs"
 
@@ -23,28 +24,11 @@ export function MobileNav() {
   }, [])
 
   return (
-    <div className="flex items-center gap-2 md:hidden">
+    <div className="flex items-center gap-2 lg:hidden">
       <Drawer open={open} onOpenChange={onOpenChange}>
         <DrawerTrigger asChild>
-          <Button
-            variant="text"
-            className="h-8 w-full gap-4 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="!size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 9h16.5m-16.5 6.75h16.5"
-              />
-            </svg>
-            <span className="sr-only">Toggle Menu</span>
+          <Button variant="text" className="h-8 w-8 text-base lg:hidden">
+            <Menu />
           </Button>
         </DrawerTrigger>
         <DrawerContent className="max-h-[80svh] p-0">
@@ -84,7 +68,9 @@ export function MobileNav() {
           </div>
         </DrawerContent>
       </Drawer>
-      <Logo width={42} height={42} />
+      <Link href="/" className="h-8 w-8">
+        <Logo width={32} height={32} />
+      </Link>
     </div>
   )
 }

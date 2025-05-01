@@ -4,7 +4,7 @@
 
 @source "../../node_modules/@bun-ui/react/dist/";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where([class*="dark"] *, [data-theme*="dark"] *));
 
 [data-rehype-pretty-code-figure] code {
   background: transparent;
@@ -52,4 +52,8 @@ body {
   .container {
     @apply mx-auto max-w-screen-2xl px-4 xl:px-6;
   }
+}
+
+:root {
+  --header-height: 60px;
 }

@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import * as SelectPrimitives from "@radix-ui/react-select"
 import { Check, ChevronDown } from "lucide-react"
@@ -37,7 +39,7 @@ const Select = React.forwardRef<
   ) => (
     <div className="flex flex-col gap-2">
       {label && <Label>{label}</Label>}
-      <SelectPrimitives.Root {...props}>
+      <SelectPrimitives.Root value={value} {...props}>
         <SelectPrimitives.Trigger
           ref={ref}
           className={cx(

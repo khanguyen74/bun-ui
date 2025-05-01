@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import Logo from "@/icons/logo.svg"
 import { cx } from "@bun-ui/react"
 
 import { DocsConfig, SideBarNavItem } from "@/config/docs"
@@ -13,26 +14,36 @@ export const DocsNav = ({ config }: DocsNavProps) => {
   const pathname = usePathname()
   const items = config.sideBarNavs
 
-  return items.length ? (
-    <div className="flex flex-col gap-6">
-      {items.map((item, index) => (
-        <div key={index} className="flex flex-col gap-1">
-          <h4 className="rounded-md px-2 py-1 text-sm font-medium">
-            {item.title}{" "}
-            {item.label && (
-              <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none font-normal text-[#000000] no-underline group-hover:no-underline">
-                {item.label}
-              </span>
-            )}
-          </h4>
-          {item?.items?.length && (
-            <DocsNavItems items={item.items} pathname={pathname} />
-          )}
+  return (
+    <nav className="hidden w-[300px] shrink-0 border-r lg:block">
+      <div className="fixed flex h-full w-[300px] flex-col">
+        <div className="h-[var(--header-height)] border-b p-2">
+          <Link href="/" className="flex w-fit items-center gap-2 px-2">
+            <Logo width={42} height={42} />
+            <span className="hidden font-mono text-lg font-bold lg:inline-block">
+              Bun UI
+            </span>
+          </Link>
         </div>
-      ))}
-    </div>
-  ) : (
-    <></>
+        <div className="h-full overflow-y-auto px-2 py-8 pt-2">
+          {items.map((item, index) => (
+            <div key={index} className="flex flex-col gap-1">
+              <h4 className="rounded-md px-2 py-1 text-sm font-medium">
+                {item.title}{" "}
+                {item.label && (
+                  <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none font-normal text-[#000000] no-underline group-hover:no-underline">
+                    {item.label}
+                  </span>
+                )}
+              </h4>
+              {item?.items?.length && (
+                <DocsNavItems items={item.items} pathname={pathname} />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </nav>
   )
 }
 
@@ -52,10 +63,10 @@ const DocsNavItems = ({
             href={item.url}
             data-active={pathname === item.url ? "" : undefined}
             className={cx(
-              "not-data-[active]:hover:bg-accent/30 hover:text-accent-foreground relative flex h-8 w-full items-center rounded-lg px-2 after:absolute after:inset-x-0 after:inset-y-[-2px] after:rounded-lg",
+              "not-data-[active]:hover:bg-popover/30 not-data-[active]:hover:text-foreground relative flex h-8 w-full items-center rounded-lg px-2 after:absolute after:inset-x-0 after:inset-y-[-2px] after:rounded-lg",
               pathname === item.url
-                ? "bg-accent text-accent-foreground font-medium"
-                : "text-foreground font-normal"
+                ? "bg-popover text-primary font-medium"
+                : "text-foreground/70 font-normal"
             )}
             target={item.external ? "_blank" : "_self"}
             rel={item.external ? "noreferrer" : ""}

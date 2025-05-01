@@ -1,5 +1,9 @@
+import { Alert, AlertTitle } from "@bun-ui/react"
+import { TriangleAlert } from "lucide-react"
+
 import { docsConfig } from "@/config/docs"
 import { DocsNav } from "@/components/docs-nav"
+import { SiteHeader } from "@/components/site-header"
 
 export default function DocsLayout({
   children,
@@ -7,13 +11,21 @@ export default function DocsLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="container-wrapper">
-      <div className="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
-        <aside className="border-grid fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 border-r md:sticky md:block">
-          <div className="no-scrollbar h-full overflow-auto py-6 pr-4 lg:py-8">
-            <DocsNav config={docsConfig} />
-          </div>
-        </aside>
+    <div className="flex w-full">
+      <DocsNav config={docsConfig} />
+      <div className="flex grow flex-col">
+        <Alert
+          variant="warning"
+          className="flex h-[var(--header-height)] items-center justify-center rounded-none"
+          icon={<TriangleAlert className="mt-0 h-4 w-4 xl:mt-2" />}
+        >
+          <AlertTitle>
+            The library is still in early development. Breaking changes and bugs
+            may occur without prior notice. Thanks for your interest in using
+            the library!
+          </AlertTitle>
+        </Alert>
+        <SiteHeader />
         {children}
       </div>
     </div>
