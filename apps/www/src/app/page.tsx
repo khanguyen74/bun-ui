@@ -25,11 +25,11 @@ const HomePage = () => {
           effortlessly.
         </p>
         <div className="mt-6 flex items-center gap-4">
-          <Button asChild className="p-6 text-base">
+          <Button asChild className="text-base" size="lg">
             <NextLink href="/docs/installation">Get Started</NextLink>
           </Button>
-          <code className="bg-muted text-primary flex h-fit items-center rounded-md p-4 font-mono text-sm">
-            <Terminal className="mr-2 h-4 w-4" />
+          <code className="bg-muted text-primary flex h-fit items-center rounded-md px-2 py-4 font-mono text-sm sm:p-4">
+            <Terminal className="mr-2 hidden h-4 w-4 sm:block" />
             npm i @bun-ui/react
           </code>
         </div>

@@ -21,18 +21,16 @@ export const Toc = ({ items }: Props) => {
   if (!items.length) return <div />
 
   return (
-    <aside id="toc" className="hidden xl:block">
+    <aside id="toc" className="col-span-2 hidden xl:block">
       <div
         className={cx(
-          "sticky top-20 -mt-6 w-[16rem] pt-6 text-sm",
+          "bl sticky top-20 -mt-6 w-full pt-6 pl-10 text-sm",
           // TODO: Remove these class when warning alert at top of all pages is removed
           "top-25 mt-3"
         )}
       >
-        <p className="font-semibold text-gray-900 dark:text-white">
-          On this page
-        </p>
-        <div className="mt-3 flex flex-col space-y-2">
+        <p className="text-muted-foreground font-semibold">On this page</p>
+        <div className="mt-3 flex flex-col">
           {items.map((item, index) => (
             <Link
               key={index}
@@ -40,8 +38,12 @@ export const Toc = ({ items }: Props) => {
               data-toc
               id={item.url}
               aria-current={item.url === activeItem ? "page" : undefined}
-              className={`text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ${item.url === activeItem ? "font-medium text-gray-900 dark:text-white" : ""} `}
-              style={{ marginLeft: `calc(1rem * ${item.depth})` }}
+              className={cx(
+                "border-l py-1 text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white",
+                item.url === activeItem &&
+                  "border-foreground font-medium text-gray-900 dark:text-white"
+              )}
+              style={{ paddingLeft: `calc(1rem * ${item.depth + 1})` }}
             >
               {item.title}
             </Link>
