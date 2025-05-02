@@ -29,7 +29,7 @@ export const useScrollSpy = (selectors: string[]) => {
           }
         }
       },
-      { rootMargin: "-30% 0px" }
+      { rootMargin: "0px 0px -50% 0px" }
     )
 
     for (const element of elements) {

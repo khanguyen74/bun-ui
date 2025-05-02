@@ -44,6 +44,12 @@ export const sideBarNavs: SideBarNavItem[] = [
       { title: "Switch", url: "/docs/components/switch", items: [] },
       { title: "Tabs", url: "/docs/components/tabs", items: [] },
       { title: "Toast", url: "/docs/components/toast", items: [] },
+      { title: "Toggle", url: "/docs/components/toggle", items: [] },
+      {
+        title: "Toggle Group",
+        url: "/docs/components/toggle-group",
+        items: [],
+      },
     ],
   },
 ]

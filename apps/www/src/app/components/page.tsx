@@ -26,8 +26,14 @@ import {
   TabList,
   Tabs,
   TabTrigger,
+  Toggle,
+  ToggleGroup,
+  ToggleGroupItem,
 } from "@bun-ui/react"
 import { useToast } from "@bun-ui/react/toast"
+import { AlignCenter, AlignLeft, AlignRight } from "lucide-react"
+
+import { ComponentCard } from "@/components/component-card"
 
 export default function ComponentsPage() {
   const { createToast } = useToast()
@@ -234,49 +240,35 @@ export default function ComponentsPage() {
           </Alert>
         </ComponentCard>
         <ComponentCard title="Spinner">
-          <div className="mt-5 flex gap-4">
+          <div className="flex gap-4">
             <Spinner />
             <Spinner color="destructive" />
           </div>
         </ComponentCard>
         <ComponentCard title="Skeleton">
-          <div className="mt-5 flex items-center space-x-2">
+          <div className="flex items-center space-x-2">
             <Skeleton className="h-12 w-12" />
             <div className="space-y-2">
-              <Skeleton variant="rectangle" width="13rem" height="10px" />
-              <Skeleton variant="rectangle" width="13rem" height="10px" />
-              <Skeleton variant="rectangle" width="13rem" height="10px" />
+              <Skeleton variant="rectangular" width="13rem" height="10px" />
+              <Skeleton variant="rectangular" width="13rem" height="10px" />
+              <Skeleton variant="rectangular" width="13rem" height="10px" />
             </div>
           </div>
         </ComponentCard>
+        <ComponentCard title="Toggle">
+          <ToggleGroup type="single" defaultValue="left">
+            <ToggleGroupItem value="left">
+              <AlignLeft />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="center">
+              <AlignCenter />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="right">
+              <AlignRight />
+            </ToggleGroupItem>
+          </ToggleGroup>
+        </ComponentCard>
       </div>
-    </div>
-  )
-}
-
-function ComponentCard({
-  title,
-  description,
-  children,
-  className,
-}: {
-  title?: string
-  description?: string
-  children: React.ReactNode
-  className?: string
-}) {
-  return (
-    <div
-      className={cx(
-        "bg-background rounded-2xl border p-6 shadow-sm transition-all hover:shadow-md",
-        className
-      )}
-    >
-      {title && <h2 className="text-xl font-semibold">{title}</h2>}
-      {description && (
-        <p className="text-muted-foreground mb-4 text-sm">{description}</p>
-      )}
-      <div className={"space-y-2"}>{children}</div>
     </div>
   )
 }
