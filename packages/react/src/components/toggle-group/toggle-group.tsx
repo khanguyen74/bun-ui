@@ -5,16 +5,54 @@ import type { VariantProps } from "class-variance-authority"
 import { cx } from "../../lib"
 import { toggleVariants } from "../toggle/toggle"
 
+type ToggleGroupProps =
+  | (Omit<ToggleGroupPrimitive.ToggleGroupSingleProps, "type"> & {
+      type?: "single"
+    })
+  | (Omit<ToggleGroupPrimitive.ToggleGroupMultipleProps, "type"> & {
+      type: "multiple"
+    })
 const ToggleGroup = React.forwardRef<
   React.ComponentRef<typeof ToggleGroupPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <ToggleGroupPrimitive.Root
-    ref={ref}
-    className={cx("flex", className)}
-    {...props}
-  />
-))
+  ToggleGroupProps & VariantProps<typeof toggleVariants>
+>(({ className, children, size, type = "single", ...props }, ref) => {
+  const getChildren = () => {
+    return React.Children.map(children, (child) => {
+      if (React.isValidElement(child)) {
+        const element = child as React.ReactElement<
+          VariantProps<typeof toggleVariants> & { className?: string }
+        >
+        return React.cloneElement(element, {
+          size: element.props.size ?? size,
+        })
+      }
+      return child
+    })
+  }
+
+  if (type === "single") {
+    return (
+      <ToggleGroupPrimitive.Root
+        ref={ref}
+        className={cx("flex items-center justify-center gap-1", className)}
+        {...(props as ToggleGroupPrimitive.ToggleGroupSingleProps)}
+        type="single"
+      >
+        {getChildren()}
+      </ToggleGroupPrimitive.Root>
+    )
+  }
+  return (
+    <ToggleGroupPrimitive.Root
+      ref={ref}
+      className={cx("flex items-center justify-center gap-1", className)}
+      {...(props as ToggleGroupPrimitive.ToggleGroupMultipleProps)}
+      type="multiple"
+    >
+      {getChildren()}
+    </ToggleGroupPrimitive.Root>
+  )
+})
 
 interface ToggleGroupItemProps
   extends React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item>,
