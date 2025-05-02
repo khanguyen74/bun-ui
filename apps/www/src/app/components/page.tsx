@@ -8,6 +8,9 @@ import {
   AccordionTrigger,
   Alert,
   AlertTitle,
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
   Button,
   Checkbox,
   Input,
@@ -271,6 +274,16 @@ export default function ComponentsPage() {
               <AlignRight />
             </ToggleGroupItem>
           </ToggleGroup>
+        </ComponentCard>
+        <ComponentCard title="Avatar">
+          <div className="flex items-center gap-5">
+            <Avatar>
+              <AvatarImage src="/avatar.png" />
+            </Avatar>
+            <Avatar>
+              <AvatarFallback>KN</AvatarFallback>
+            </Avatar>
+          </div>
         </ComponentCard>
       </div>
     </div>

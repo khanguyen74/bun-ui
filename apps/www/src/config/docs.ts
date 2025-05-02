@@ -24,6 +24,7 @@ export const sideBarNavs: SideBarNavItem[] = [
         url: "/docs/components/alert-dialog",
         items: [],
       },
+      { title: "Avatar", url: "/docs/components/avatar", items: [] },
       { title: "Button", url: "/docs/components/button", items: [] },
       { title: "Breadcrumb", url: "/docs/components/breadcrumb", items: [] },
       { title: "Checkbox", url: "/docs/components/checkbox", items: [] },
