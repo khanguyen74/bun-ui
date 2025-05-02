@@ -39,10 +39,17 @@ export const sideBarNavs: SideBarNavItem[] = [
       { title: "Popover", url: "/docs/components/popover", items: [] },
       { title: "Radio", url: "/docs/components/radio", items: [] },
       { title: "Select", url: "/docs/components/select", items: [] },
+      { title: "Skeleton", url: "/docs/components/skeleton", items: [] },
       { title: "Spinner", url: "/docs/components/spinner", items: [] },
       { title: "Switch", url: "/docs/components/switch", items: [] },
       { title: "Tabs", url: "/docs/components/tabs", items: [] },
       { title: "Toast", url: "/docs/components/toast", items: [] },
+      { title: "Toggle", url: "/docs/components/toggle", items: [] },
+      {
+        title: "Toggle Group",
+        url: "/docs/components/toggle-group",
+        items: [],
+      },
     ],
   },
 ]

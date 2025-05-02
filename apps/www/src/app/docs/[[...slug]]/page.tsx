@@ -46,8 +46,8 @@ export default async function DocPage({ params }: DocPageProps) {
     )
   }
   return (
-    <div className="relative mx-auto max-w-2xl justify-between px-4 py-6 lg:flex lg:gap-10 lg:py-8 xl:max-w-5xl">
-      <div className="mx-auto flex flex-col">
+    <div className="relative mx-auto w-full max-w-2xl grid-cols-6 justify-between px-6 xl:grid xl:max-w-7xl">
+      <div className="col-span-4 mx-auto flex w-full flex-col py-6">
         <h1 className="mb-5 text-3xl font-bold">{doc.title}</h1>
         {doc.links?.source && (
           <Button variant="text" asChild className="w-fit" size="sm">

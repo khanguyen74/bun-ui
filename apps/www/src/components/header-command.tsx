@@ -89,11 +89,12 @@ export const HeaderCommand = () => {
     <>
       <Button
         onClick={handleOpen}
-        className="bg-muted/50 text-muted-foreground group relative h-8 w-fit justify-start rounded-lg px-1 text-sm font-normal shadow-none hover:not-disabled:bg-inherit dark:hover:not-disabled:bg-inherit"
+        className="bg-muted/50 text-muted-foreground group hover:[&_*]:text-foreground relative h-8 w-fit justify-start rounded-lg px-1 text-sm font-normal shadow-none hover:not-disabled:bg-inherit dark:hover:not-disabled:bg-inherit [&_*]:transition-colors [&_*]:duration-150"
         variant="outline"
       >
-        <Search className="h-4 w-4 transition-colors duration-150 group-hover:text-black sm:flex dark:group-hover:text-white" />
-        <kbd className="bg-muted pointer-events-none hidden items-center gap-1 rounded border px-1.5 font-sans text-xs font-medium opacity-100 transition-colors duration-150 select-none group-hover:text-black sm:flex dark:group-hover:text-white">
+        <Search className="h-4 w-4 group-hover:text-black sm:flex dark:group-hover:text-white" />
+        <span className="mr-4 hidden sm:inline-flex">Search...</span>
+        <kbd className="bg-muted pointer-events-none hidden items-center gap-1 rounded border px-1.5 font-sans text-xs font-medium opacity-100 select-none sm:flex">
           <span className="hidden [.os-macos_&]:block">⌘K</span>
           <span className="hidden not-[.os-macos_&]:block">Ctrl&apos;K</span>
         </kbd>
