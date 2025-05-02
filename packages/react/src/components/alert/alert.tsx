@@ -5,7 +5,7 @@ import { CircleAlert, CircleCheckBig, TriangleAlert } from "lucide-react"
 import { cx } from "../../lib"
 
 const alertVariants = cva(
-  "relative w-full rounded-lg border px-4 py-3 text-sm  [&>svg]:text-foreground flex",
+  "relative w-full rounded-lg border border-border px-4 py-3 text-sm  [&>svg]:text-foreground flex",
   {
     variants: {
       variant: {

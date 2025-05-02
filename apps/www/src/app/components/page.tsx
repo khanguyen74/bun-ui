@@ -10,7 +10,6 @@ import {
   AlertTitle,
   Button,
   Checkbox,
-  cx,
   Input,
   Link,
   RadioGroup,
@@ -26,7 +25,6 @@ import {
   TabList,
   Tabs,
   TabTrigger,
-  Toggle,
   ToggleGroup,
   ToggleGroupItem,
 } from "@bun-ui/react"
@@ -39,111 +37,93 @@ export default function ComponentsPage() {
   const { createToast } = useToast()
 
   return (
-    <div className="mx-auto max-w-4xl space-y-12 px-4 py-12">
+    <div className="mx-auto max-w-5xl space-y-14 px-4 py-12">
       <header className="space-y-2">
-        <h1 className="text-3xl font-bold">🧩 Components Showcase</h1>
-        <p className="text-muted-foreground">
-          A visual playground for testing and previewing all components from{" "}
-          <code>@bun-ui/react</code>. This page will evolve into full component
-          docs.
+        <h1 className="text-4xl font-bold tracking-tight">
+          🧩 Component Gallery
+        </h1>
+        <p className="text-muted-foreground text-lg">
+          Preview and interact with all available components from{" "}
+          <code>@bun-ui/react</code>. Use this space as a sandbox or style
+          reference while building.
         </p>
       </header>
 
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-        {/* Button */}
-        <ComponentCard title="Button" description="A basic button component.">
+        <ComponentCard
+          title="Button"
+          description="Clickable elements for actions."
+        >
           <div className="flex gap-2">
-            <Button>Click me</Button>
-            <Button>
-              <Spinner color="primary" size="lg" />
+            <Button>Submit</Button>
+            <Button variant="outline" disabled>
+              <Spinner size="sm" className="mr-2" color="current" />
+              Loading
             </Button>
           </div>
         </ComponentCard>
 
-        {/* Input */}
         <ComponentCard
           title="Input"
-          description="Input with an optional label."
+          description="Text input for forms or data capture."
         >
-          <Input label="Your name" className="w-full" />
+          <Input label="Email Address" placeholder="you@example.com" />
         </ComponentCard>
 
-        {/* Checkbox */}
-        <ComponentCard
-          title="Checkbox"
-          description="A simple labeled checkbox."
-        >
-          <Checkbox defaultChecked label="Accept terms" />
+        <ComponentCard title="Checkbox" description="Used for binary options.">
+          <Checkbox defaultChecked label="I agree to the terms" />
         </ComponentCard>
 
-        {/* Radio Group */}
         <ComponentCard
           title="Radio Group"
-          description="Radio group with labeled options."
+          description="Select one option from a set."
         >
-          <RadioGroup defaultValue="option1" className="space-y-2">
-            <RadioGroupItem id="radio-1" value="option1" label="Option One" />
-            <RadioGroupItem id="radio-2" value="option2" label="Option Two" />
+          <RadioGroup defaultValue="light" className="space-y-2">
+            <RadioGroupItem id="light" value="light" label="Light Mode" />
+            <RadioGroupItem id="dark" value="dark" label="Dark Mode" />
           </RadioGroup>
         </ComponentCard>
+
         <ComponentCard
           title="Select (Basic)"
-          description="A basic select input allowing users to choose one fruit from the list."
+          description="A dropdown to pick a fruit."
         >
-          {/* Select - Basic */}
-          <Select
-            placeholder="Choose a fruit"
-            label="Fruit Selection"
-            menuPosition="popper"
-          >
+          <Select placeholder="Select fruit" label="Fruit">
             <SelectItem value="apple">Apple</SelectItem>
             <SelectItem value="banana">Banana</SelectItem>
-            <SelectItem value="mango">Mango</SelectItem>
-            <SelectItem value="orange">Orange</SelectItem>
+            <SelectItem value="grape">Grape</SelectItem>
           </Select>
         </ComponentCard>
-        {/* Select - Grouped Sections */}
+
         <ComponentCard
           title="Select (Grouped)"
-          description="A select input with logically grouped options for programming languages."
+          description="Grouped select options by category."
         >
-          <Select
-            placeholder="Choose a language"
-            label="Language Selection"
-            menuPosition="popper"
-          >
+          <Select placeholder="Select language" label="Programming Language">
             <SelectGroup>
               <SelectLabel>Frontend</SelectLabel>
-              <SelectItem value="javascript">JavaScript</SelectItem>
-              <SelectItem value="typescript">TypeScript</SelectItem>
-              <SelectItem value="html">HTML</SelectItem>
-              <SelectItem value="css">CSS</SelectItem>
+              <SelectItem value="react">React</SelectItem>
+              <SelectItem value="vue">Vue</SelectItem>
             </SelectGroup>
             <SelectGroup>
               <SelectLabel>Backend</SelectLabel>
-              <SelectItem value="python">Python</SelectItem>
-              <SelectItem value="go">Go</SelectItem>
-              <SelectItem value="java">Java</SelectItem>
-              <SelectItem value="ruby">Ruby</SelectItem>
+              <SelectItem value="node">Node.js</SelectItem>
+              <SelectItem value="django">Django</SelectItem>
             </SelectGroup>
           </Select>
         </ComponentCard>
 
-        {/* Tabs */}
         <ComponentCard
           title="Tabs"
-          description="Switch between different views or sections of related content."
+          description="Navigate between content sections."
         >
           <Tabs defaultValue="account">
             <TabList>
-              <TabTrigger value="account" className="mr-2">
-                Account
-              </TabTrigger>
+              <TabTrigger value="account">Account</TabTrigger>
               <TabTrigger value="billing">Billing</TabTrigger>
             </TabList>
-
             <TabContent value="account">
-              <div className="mt-4 h-[17rem] space-y-2">
+              <div className="mt-4 h-[21rem] space-y-2">
                 <h3 className="text-lg font-semibold">Account Settings</h3>
                 <p className="text-muted-foreground text-sm">
                   Update your personal information and change your password.
@@ -157,7 +137,7 @@ export default function ComponentsPage() {
             </TabContent>
 
             <TabContent value="billing">
-              <div className="mt-4 h-[17rem] space-y-2">
+              <div className="mt-4 h-[21rem] space-y-2">
                 <h3 className="text-lg font-semibold">Billing Info</h3>
                 <p className="text-muted-foreground text-sm">
                   Manage your payment methods and view invoices.
@@ -175,10 +155,20 @@ export default function ComponentsPage() {
                     autoComplete="off"
                     autoCorrect="off"
                   />
+                  <Input
+                    label="Billing Address"
+                    placeholder="1234 Main St"
+                    autoComplete="off"
+                  />
                 </div>
-                <Button className="mt-2" variant="outline">
-                  Update Billing
-                </Button>
+                <div className="flex items-center justify-between">
+                  <Button className="mt-2" variant="outline">
+                    Update Billing
+                  </Button>
+                  <Button className="mt-2" variant="text">
+                    View Invoices
+                  </Button>
+                </div>
               </div>
             </TabContent>
           </Tabs>
@@ -186,84 +176,98 @@ export default function ComponentsPage() {
 
         <ComponentCard
           title="Accordion"
-          description="A simple accordion component"
+          description="Expandable content panels."
         >
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+          <Accordion type="multiple" className="w-full">
+            <AccordionItem value="faq1">
+              <AccordionTrigger>What is Bun UI?</AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Bun UI is a customizable component library designed for modern
+                React apps.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem disabled value="item-2">
-              <AccordionTrigger>Is it styled?</AccordionTrigger>
+            <AccordionItem value="faq2">
+              <AccordionTrigger>Is it customizable?</AccordionTrigger>
               <AccordionContent>
-                Yes. It comes with default styles that matches the other
-                components&apos; aesthetic.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger>Is it animated?</AccordionTrigger>
-              <AccordionContent>
-                Yes. It&apos;s animated by default, but you can disable it if
-                you prefer.
+                Yes, all components support theming and utility class overrides.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </ComponentCard>
-        <ComponentCard title="Link" description="Link component">
-          <div className="flex gap-2">
-            <Link href="#">click me</Link>
+
+        <ComponentCard
+          title="Link"
+          description="Text-based navigation and hyperlinks."
+        >
+          <div className="flex gap-4">
             <Link asChild>
-              <NextLink href="/">Home</NextLink>
+              <NextLink href="/">Back to Home</NextLink>
             </Link>
           </div>
         </ComponentCard>
-        <ComponentCard title="Switch" description="Switch component">
-          <div className="flex gap-4">
-            <Switch label="Dark Mode" />
-            <Switch label="Disabled" disabled />
+
+        <ComponentCard
+          title="Switch"
+          description="Toggle between enabled/disabled states."
+        >
+          <div className="flex gap-6">
+            <Switch label="Enable feature" />
+            <Switch label="Disabled toggle" disabled />
           </div>
         </ComponentCard>
-        <ComponentCard title="Toast" description="A simple toast component.">
+
+        <ComponentCard
+          title="Toast"
+          description="Temporary message notification."
+        >
           <Button
-            onClick={() => {
-              createToast({ title: "Marked as done" })
-            }}
+            onClick={() => createToast({ title: "Item saved successfully" })}
           >
-            Mark as done
+            Show Toast
           </Button>
         </ComponentCard>
-        <ComponentCard title="Alert">
+
+        <ComponentCard
+          title="Alert"
+          description="Prominent messages for feedback."
+        >
           <Alert>
-            <AlertTitle>Hi</AlertTitle>
+            <AlertTitle>Heads up!</AlertTitle>
           </Alert>
         </ComponentCard>
-        <ComponentCard title="Spinner">
-          <div className="flex gap-4">
+
+        <ComponentCard title="Spinner" description="Loading indicator.">
+          <div className="flex items-center gap-4">
             <Spinner />
-            <Spinner color="destructive" />
+            <Spinner size="lg" color="primary" />
           </div>
         </ComponentCard>
-        <ComponentCard title="Skeleton">
-          <div className="flex items-center space-x-2">
-            <Skeleton className="h-12 w-12" />
+
+        <ComponentCard
+          title="Skeleton"
+          description="Placeholder for loading content."
+        >
+          <div className="flex items-center gap-4">
+            <Skeleton className="h-12 w-12 rounded-full" />
             <div className="space-y-2">
-              <Skeleton variant="rectangular" width="13rem" height="10px" />
-              <Skeleton variant="rectangular" width="13rem" height="10px" />
-              <Skeleton variant="rectangular" width="13rem" height="10px" />
+              <Skeleton className="h-4 w-48" />
+              <Skeleton className="h-4 w-32" />
             </div>
           </div>
         </ComponentCard>
-        <ComponentCard title="Toggle">
-          <ToggleGroup type="single" defaultValue="left">
-            <ToggleGroupItem value="left">
+
+        <ComponentCard
+          title="Toggle"
+          description="Switch between layout modes."
+        >
+          <ToggleGroup defaultValue="left">
+            <ToggleGroupItem value="left" aria-label="Align Left">
               <AlignLeft />
             </ToggleGroupItem>
-            <ToggleGroupItem value="center">
+            <ToggleGroupItem value="center" aria-label="Align Center">
               <AlignCenter />
             </ToggleGroupItem>
-            <ToggleGroupItem value="right">
+            <ToggleGroupItem value="right" aria-label="Align Right">
               <AlignRight />
             </ToggleGroupItem>
           </ToggleGroup>

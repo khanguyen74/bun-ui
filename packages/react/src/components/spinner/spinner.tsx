@@ -29,6 +29,10 @@ const spinnerVariants = cva("inline-flex animate-spin", {
 
 type SpinnerProps = Omit<React.HTMLAttributes<HTMLSpanElement>, "color"> &
   VariantProps<typeof spinnerVariants> & {
+    /**
+     * Color of the spinner.
+     * @default "info"
+     */
     color?: VariantProps<typeof spinnerVariants>["color"]
   }
 
