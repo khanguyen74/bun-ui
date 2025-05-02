@@ -1,0 +1,50 @@
+---
+title: Toggle Group
+description:
+  A group of toggle buttons for single or multiple selection. Useful for options like text alignment or formatting.
+links:
+  source: components/toggle-group
+  docs: /docs/components/toggle-group
+---
+
+<ComponentPreview name="toggle-group-basic" />
+
+## Usage
+
+Import the `ToggleGroup` and `ToggleGroupItem` components from `@bun-ui/react`:
+
+```tsx
+import { ToggleGroup, ToggleGroupItem } from "@bun-ui/react"
+```
+
+```tsx
+<ToggleGroup type="single" value="center">
+  <ToggleGroupItem value="left">
+    <AlignLeft />
+  </ToggleGroupItem>
+  <ToggleGroupItem value="center">
+    <AlignCenter />
+  </ToggleGroupItem>
+  <ToggleGroupItem value="right">
+    <AlignRight />
+  </ToggleGroupItem>
+</ToggleGroup>
+```
+
+## Examples
+
+### Multiple Selection
+
+Use `type="multiple"` to allow multiple items to be selected:
+
+<ComponentPreview name="toggle-group-multiple" />
+
+### Sizes
+
+Pass the `size` prop to the group to set a consistent size across items:
+
+<ComponentPreview name="toggle-group-sizes" />
+
+### Controlled
+
+<ComponentPreview name="toggle-group-controlled" />
