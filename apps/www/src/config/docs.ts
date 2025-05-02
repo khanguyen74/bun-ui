@@ -51,6 +51,7 @@ export const sideBarNavs: SideBarNavItem[] = [
         url: "/docs/components/toggle-group",
         items: [],
       },
+      { title: "Progress", url: "/docs/components/progress", items: [] },
     ],
   },
 ]

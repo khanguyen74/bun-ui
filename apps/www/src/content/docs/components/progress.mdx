@@ -1,0 +1,30 @@
+---
+title: Progress
+description: A linear progress bar component to visually indicate completion or status.
+links:
+  source: components/progress
+  docs: /docs/components/progress
+---
+
+<ComponentPreview name="progress-basic" />
+
+## Usage
+
+Import the `Progress` component from `@bun-ui/react` and use it like this:
+
+```tsx
+import { Progress } from "@bun-ui/react"
+```
+
+```tsx
+<Progress value={50} />
+```
+
+## Examples
+
+### Color
+
+Use `color` prop to set the color of the progress bar.
+Available colors are `primary`, `secondary`, `accent`, and `info`.
+
+<ComponentPreview name="progress-color" />
