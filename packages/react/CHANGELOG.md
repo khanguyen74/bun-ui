@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.23
+
+### Patch Changes
+
+- 67c3480: add Toggle and ToggleGroup
+
 ## 0.2.22
 
 ### Patch Changes
