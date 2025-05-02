@@ -1,0 +1,26 @@
+---
+title: Avatar
+description:
+  A circular component used to display user profile images, with fallback support.
+links:
+  source: components/avatar
+  docs: /docs/components/avatar
+---
+
+<ComponentPreview name="avatar-basic" />
+
+## Usage
+
+Import the `Avatar`, `AvatarImage`, and `AvatarFallback` components from `@bun-ui/react`:
+
+```tsx
+import { Avatar, AvatarImage, AvatarFallback } from "@bun-ui/react"
+```
+
+## Examples
+
+### Fallback
+
+If the image fails to load, or no image is provided, a fallback will render automatically:
+
+<ComponentPreview name="avatar-fallback-example" />

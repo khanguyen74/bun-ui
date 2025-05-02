@@ -8,10 +8,14 @@ import {
   AccordionTrigger,
   Alert,
   AlertTitle,
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
   Button,
   Checkbox,
   Input,
   Link,
+  Progress,
   RadioGroup,
   RadioGroupItem,
   Select,
@@ -271,6 +275,19 @@ export default function ComponentsPage() {
               <AlignRight />
             </ToggleGroupItem>
           </ToggleGroup>
+        </ComponentCard>
+        <ComponentCard title="Avatar">
+          <div className="flex items-center gap-5">
+            <Avatar>
+              <AvatarImage src="/avatar.png" />
+            </Avatar>
+            <Avatar>
+              <AvatarFallback>KN</AvatarFallback>
+            </Avatar>
+          </div>
+        </ComponentCard>
+        <ComponentCard title="Progress">
+          <Progress value={20} />
         </ComponentCard>
       </div>
     </div>

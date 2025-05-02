@@ -16,7 +16,7 @@ export const DocsNav = ({ config }: DocsNavProps) => {
   return (
     <nav className="hidden w-[300px] shrink-0 border-r lg:block">
       <div className="fixed flex h-full w-[300px] flex-col">
-        <div className="h-full overflow-y-auto px-2 py-8 pt-2">
+        <div className="h-full overflow-y-auto px-2 py-8 pt-2 pb-[8rem]">
           {items.map((item, index) => (
             <div key={index} className="flex flex-col gap-1">
               <h4 className="rounded-md px-2 py-1 text-sm font-medium">
