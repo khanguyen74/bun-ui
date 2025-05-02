@@ -15,6 +15,7 @@ import {
   Checkbox,
   Input,
   Link,
+  Progress,
   RadioGroup,
   RadioGroupItem,
   Select,
@@ -284,6 +285,9 @@ export default function ComponentsPage() {
               <AvatarFallback>KN</AvatarFallback>
             </Avatar>
           </div>
+        </ComponentCard>
+        <ComponentCard title="Progress">
+          <Progress value={20} />
         </ComponentCard>
       </div>
     </div>
