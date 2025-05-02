@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.24
+
+### Patch Changes
+
+- 06a13c5: add Progress and Avatar
+
 ## 0.2.23
 
 ### Patch Changes
