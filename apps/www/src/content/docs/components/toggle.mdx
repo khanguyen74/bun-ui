@@ -1,0 +1,40 @@
+---
+title: Toggle
+description:
+  A single button used to switch between two states, such as on/off or bold/not bold formatting.
+links:
+  source: components/toggle
+  docs: /docs/components/toggle
+---
+
+<ComponentPreview name="toggle-basic" />
+
+## Usage
+
+Import the `Toggle` component from `@bun-ui/react` and use it in your project:
+
+```tsx
+import { Toggle } from "@bun-ui/react"
+```
+
+```tsx
+<Toggle aria-label="Toggle bold">
+  <Bold />
+</Toggle>
+
+```
+
+## Examples
+
+### Controlled
+
+Use `pressed` and `onPressedChange` to manage the toggle state manually:
+
+<ComponentPreview name="toggle-controlled" />
+
+### Size
+
+The `size` prop can be used to set the size of the toggle button.
+The available sizes are `sm`, `md`, and `lg`. The default size is `md`.
+
+<ComponentPreview name="toggle-sizes" />
