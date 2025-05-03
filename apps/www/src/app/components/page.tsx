@@ -32,6 +32,7 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@bun-ui/react"
+import { Calendar } from "@bun-ui/react/calendar"
 import { useToast } from "@bun-ui/react/toast"
 import { AlignCenter, AlignLeft, AlignRight } from "lucide-react"
 
@@ -288,6 +289,9 @@ export default function ComponentsPage() {
         </ComponentCard>
         <ComponentCard title="Progress">
           <Progress value={20} />
+        </ComponentCard>
+        <ComponentCard title="Progress">
+          <Calendar />
         </ComponentCard>
       </div>
     </div>
