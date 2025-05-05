@@ -131,11 +131,10 @@ const Calendar = ({
   const _dayButtonClassName = cx(
     buttonVariants({ variant: "text", color: "neutral" }),
     "size-8 rounded-md p-0 font-normal transition-none aria-selected:opacity-100",
-    "group-data-[selected=true]:hover:bg-primary/40",
+    "group-data-[selected=true]:hover:bg-primary/80 group-data-[selected=true]:border-none",
     props.dayButtonClassName
   )
-  const buttonRangeClassName =
-    "bg-accent [&>button]:bg-primary [&>button]:text-primary-foreground [&>button]:hover:bg-primary [&>button]:hover:text-primary-foreground"
+  const buttonRangeClassName = cx("bg-primary/10 ")
   const _rangeStartClassName = cx(
     buttonRangeClassName,
     "day-range-start rounded-s-md",
@@ -147,7 +146,7 @@ const Calendar = ({
     props.rangeEndClassName
   )
   const _rangeMiddleClassName = cx(
-    "bg-accent !text-foreground [&>button]:bg-transparent [&>button]:!text-foreground [&>button]:hover:bg-transparent [&>button]:hover:!text-foreground",
+    "[&>button]:bg-transparent bg-primary/10 [&>button]:!text-foreground [&>button]:hover:!bg-primary/20",
     props.rangeMiddleClassName
   )
   const _selectedClassName = cx(
@@ -155,7 +154,7 @@ const Calendar = ({
     props.selectedClassName
   )
   const _todayClassName = cx(
-    "[&>button]:text-accent-foreground [&>button]:border [&>button]:border-foreground/60",
+    "[&>button]:text-foreground [&>button]:border [&>button]:border-foreground/60 ",
     props.todayClassName
   )
   const _outsideClassName = cx(
