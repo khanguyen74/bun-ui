@@ -1,7 +1,12 @@
 "use client"
 
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { DayPicker, useDayPicker, type DayPickerProps } from "react-day-picker"
+import {
+  DayPicker,
+  useDayPicker,
+  type DateRange,
+  type DayPickerProps,
+} from "react-day-picker"
 
 import { cx } from "../../lib"
 import { Button, buttonVariants } from "../button"
@@ -210,4 +215,4 @@ const Calendar = ({
 }
 Calendar.displayName = "Calendar"
 
-export { Calendar }
+export { Calendar, type DateRange }
