@@ -27,7 +27,7 @@ export const DialogForm = () => {
           </Select>
           <div className="flex justify-end gap-2 pt-4">
             <DialogClose asChild>
-              <Button variant="secondary">Cancel</Button>
+              <Button color="secondary">Cancel</Button>
             </DialogClose>
             <Button type="submit">Create</Button>
           </div>

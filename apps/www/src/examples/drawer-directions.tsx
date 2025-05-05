@@ -44,9 +44,9 @@ export const DrawerDirections = () => {
             <p>Here is the drawer body content.</p>
           </div>
           <DrawerFooter>
-            <Button variant="default">Continue</Button>
+            <Button>Continue</Button>
             <DrawerClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outlined">Cancel</Button>
             </DrawerClose>
           </DrawerFooter>
         </DrawerContent>
