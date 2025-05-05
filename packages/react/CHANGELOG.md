@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.25
+
+### Patch Changes
+
+- 610c124: add Calendar component
+
 ## 0.2.24
 
 ### Patch Changes
