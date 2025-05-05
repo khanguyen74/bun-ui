@@ -13,7 +13,7 @@ import {
 export const AlertDialogBasic = () => (
   <AlertDialog>
     <AlertDialogTrigger asChild>
-      <Button variant="destructive">Delete</Button>
+      <Button color="destructive">Delete</Button>
     </AlertDialogTrigger>
     <AlertDialogContent>
       <AlertDialogTitle>Are you sure?</AlertDialogTitle>

@@ -26,10 +26,28 @@ export default defineConfig(() => [
     format: ["esm"],
     dts: true,
     sourcemap: true,
-    clean: false,
+    clean: true,
     target: "esnext",
     splitting: false,
-    css: true,
+    onSuccess: async () => {
+      const toastFile = resolve("dist/toast/index.mjs")
+      if (fs.existsSync(toastFile)) {
+        const content = fs.readFileSync(toastFile, "utf8")
+        if (!content.startsWith('"use client"')) {
+          fs.writeFileSync(toastFile, `"use client";\n\n${content}`)
+        }
+      }
+    },
+  },
+  {
+    entry: ["src/components/calendar/index.ts"],
+    outDir: "dist/calendar",
+    format: ["esm"],
+    dts: true,
+    sourcemap: true,
+    clean: true,
+    target: "esnext",
+    splitting: false,
     onSuccess: async () => {
       const toastFile = resolve("dist/toast/index.mjs")
       if (fs.existsSync(toastFile)) {

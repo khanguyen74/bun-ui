@@ -1,0 +1,42 @@
+---
+title: Calendar
+description: A customizable calendar component for date selection.
+links:
+  source: components/calendar
+  docs: /docs/components/calendar
+---
+
+<ComponentPreview name="calendar-basic" />
+
+## Usage
+
+Import the `Calendar` component from `@bun-ui/react` and use it in your project:
+
+```tsx
+import { Calendar } from "@bun-ui/react"
+```
+
+```tsx
+<Calendar />
+```
+
+## Examples
+
+### Range Selection
+
+Use the `mode` prop to enable range selection.
+
+<ComponentPreview name="calendar-range" />
+
+### Controlled
+
+`Calendar` can be controlled by managing the selected date in your component's state.
+Use the `onSelect` props and `selected` to handle date changes.
+
+`mode="single"`
+
+<ComponentPreview name="calendar-controlled" />
+
+`mode="range"`
+
+<ComponentPreview name="calendar-controlled-range" />

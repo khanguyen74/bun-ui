@@ -32,6 +32,7 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@bun-ui/react"
+import { Calendar } from "@bun-ui/react/calendar"
 import { useToast } from "@bun-ui/react/toast"
 import { AlignCenter, AlignLeft, AlignRight } from "lucide-react"
 
@@ -60,7 +61,7 @@ export default function ComponentsPage() {
         >
           <div className="flex gap-2">
             <Button>Submit</Button>
-            <Button variant="outline" disabled>
+            <Button variant="outlined" disabled>
               <Spinner size="sm" className="mr-2" color="current" />
               Loading
             </Button>
@@ -166,7 +167,7 @@ export default function ComponentsPage() {
                   />
                 </div>
                 <div className="flex items-center justify-between">
-                  <Button className="mt-2" variant="outline">
+                  <Button className="mt-2" variant="outlined">
                     Update Billing
                   </Button>
                   <Button className="mt-2" variant="text">
@@ -288,6 +289,16 @@ export default function ComponentsPage() {
         </ComponentCard>
         <ComponentCard title="Progress">
           <Progress value={20} />
+        </ComponentCard>
+        <ComponentCard title="Calendar">
+          <div className="flex w-full items-center justify-center">
+            <Calendar
+              startMonth={
+                new Date(new Date().getFullYear(), new Date().getMonth() - 5, 1)
+              }
+              showOutsideDays
+            />
+          </div>
         </ComponentCard>
       </div>
     </div>

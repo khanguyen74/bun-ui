@@ -7,7 +7,7 @@ export const PopoverBasic = () => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline">Show Info</Button>
+        <Button variant="outlined">Show Info</Button>
       </PopoverTrigger>
       <PopoverContent>
         <p className="text-muted-foreground text-sm">

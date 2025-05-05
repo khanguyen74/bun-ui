@@ -29,7 +29,7 @@ export const ToastMax = () => {
           Show Toast
         </Button>
 
-        <Button onClick={() => dismiss()} variant="secondary">
+        <Button onClick={() => dismiss()} color="secondary">
           Dismiss all
         </Button>
       </div>

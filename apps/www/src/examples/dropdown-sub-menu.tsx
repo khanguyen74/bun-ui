@@ -15,7 +15,7 @@ export const DropdownSubMenu = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open Menu</Button>
+        <Button variant="outlined">Open Menu</Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent>

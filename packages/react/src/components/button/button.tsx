@@ -9,15 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:not-disabled:bg-destructive/90",
-        outline:
-          "border border-primary/80 bg-background hover:not-disabled:border-primary hover:not-disabled:text-primary text-primary/80",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:not-disabled:bg-secondary/80",
-        text: "hover:not-disabled:bg-primary/10 hover:text-foreground",
-        link: "text-primary underline-offset-4 hover:not-disabled:underline",
+        contained: "",
+        outlined: "border bg-background",
+        text: "",
+      },
+      color: {
+        primary: "",
+        secondary: "",
+        destructive: "",
+        accent: "",
+        neutral: "",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -26,26 +27,114 @@ const buttonVariants = cva(
         icon: "h-10 w-10",
       },
     },
+    compoundVariants: [
+      {
+        variant: "contained",
+        color: "neutral",
+        className:
+          "bg-foreground text-background hover:not-disabled:bg-foreground/90",
+      },
+      {
+        variant: "contained",
+        color: "primary",
+        className:
+          "bg-primary text-primary-foreground hover:not-disabled:bg-primary/90",
+      },
+      {
+        variant: "contained",
+        color: "secondary",
+        className:
+          "bg-secondary text-secondary-foreground hover:not-disabled:bg-secondary/90",
+      },
+      {
+        variant: "contained",
+        color: "destructive",
+        className:
+          "bg-destructive text-destructive-foreground hover:not-disabled:bg-destructive/90",
+      },
+      {
+        variant: "contained",
+        color: "accent",
+        className:
+          "bg-accent text-accent-foreground hover:not-disabled:bg-accent/90",
+      },
+      {
+        variant: "outlined",
+        color: "neutral",
+        className:
+          "border-foreground/80 hover:not-disabled:border-foreground hover:not-disabled:text-foreground text-foreground/80",
+      },
+      {
+        variant: "outlined",
+        color: "primary",
+        className:
+          "border-primary/80 hover:not-disabled:border-primary hover:not-disabled:text-primary text-primary/80",
+      },
+      {
+        variant: "outlined",
+        color: "secondary",
+        className:
+          "border-secondary hover:not-disabled:border-secondary/90 hover:not-disabled:text-secondary/90 text-secondary",
+      },
+      {
+        variant: "outlined",
+        color: "destructive",
+        className:
+          "border-destructive/80 hover:not-disabled:border-destructive hover:not-disabled:text-destructive text-destructive/80",
+      },
+      {
+        variant: "outlined",
+        color: "accent",
+        className:
+          "border-accent/80 hover:not-disabled:border-accent hover:not-disabled:text-accent text-accent/80",
+      },
+      {
+        variant: "text",
+        color: "neutral",
+        className: "text-foreground hover:not-disabled:bg-foreground/10",
+      },
+      {
+        variant: "text",
+        color: "primary",
+        className: "text-primary hover:not-disabled:bg-primary/10",
+      },
+      {
+        variant: "text",
+        color: "secondary",
+        className: "text-secondary hover:not-disabled:bg-secondary/10",
+      },
+      {
+        variant: "text",
+        color: "destructive",
+        className: "text-destructive hover:not-disabled:bg-destructive/10",
+      },
+      {
+        variant: "text",
+        color: "accent",
+        className: "text-accent hover:not-disabled:bg-accent/10",
+      },
+    ],
     defaultVariants: {
-      variant: "default",
+      variant: "contained",
+      color: "primary",
       size: "default",
     },
   }
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "color">,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ asChild = false, variant, size, className, ...props }, ref) => {
+  ({ asChild = false, variant, size, className, color, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
         ref={ref}
-        className={cx(buttonVariants({ variant, size, className }))}
+        className={cx(buttonVariants({ variant, size, className, color }))}
         {...props}
       />
     )
