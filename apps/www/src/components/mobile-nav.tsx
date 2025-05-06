@@ -15,7 +15,7 @@ import {
 import { Menu } from "lucide-react"
 
 import { docsConfig } from "@/config/docs"
-import { version } from "../../../../packages/react/package.json"
+import bunPackage from "../../../../packages/react/package.json"
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false)
@@ -72,7 +72,7 @@ export function MobileNav() {
       <Link href="/">
         <Logo width={32} height={32} />
       </Link>
-      <p className="text-sm">v{version} Beta</p>
+      <p className="text-sm">v{bunPackage.version} Beta</p>
     </div>
   )
 }
