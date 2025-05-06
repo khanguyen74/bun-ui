@@ -11,7 +11,10 @@ export default async function BlogPage() {
     <div className="mx-auto max-w-5xl px-6 pt-5 pb-20">
       <p className="mb-5 text-lg font-bold">Posts</p>
       {blogs.map((blog) => (
-        <div key={blog.slug} className="grid w-full grid-cols-6 py-4">
+        <div
+          key={blog.slug}
+          className="flex w-full grid-cols-6 flex-col gap-y-2 py-4 lg:grid"
+        >
           <div className="col-span-2 flex w-full flex-col">
             <p className="text-foreground/70 font-mono text-sm font-medium">
               {format(parseISO(blog.date), "PP")}
