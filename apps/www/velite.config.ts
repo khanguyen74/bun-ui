@@ -29,12 +29,10 @@ const docs = defineCollection({
       content: s.markdown(),
       code: s.mdx(),
       toc: s.toc(),
-      links: s
-        .object({
-          source: s.string().optional(),
-          docs: s.string().optional(),
-        })
-        .optional(),
+      links: s.object({
+        source: s.string().optional(),
+        docs: s.string(),
+      }),
     })
     .transform((data, { meta }) => {
       const links = data.links || {}
