@@ -5,4 +5,4 @@ build
 **/.velite/**
 README.md
 tsup.config.ts
-**/*.mdx
+**/docs/**/*.mdx
