@@ -15,6 +15,7 @@ import {
 import { Menu } from "lucide-react"
 
 import { docsConfig } from "@/config/docs"
+import { version } from "../../../../packages/react/package.json"
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false)
@@ -68,9 +69,10 @@ export function MobileNav() {
           </div>
         </DrawerContent>
       </Drawer>
-      <Link href="/" className="h-8 w-8">
+      <Link href="/">
         <Logo width={32} height={32} />
       </Link>
+      <p className="text-sm">v{version} Beta</p>
     </div>
   )
 }
