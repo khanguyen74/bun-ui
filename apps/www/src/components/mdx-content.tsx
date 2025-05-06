@@ -1,5 +1,6 @@
 import * as runtime from "react/jsx-runtime"
 import { Alert, AlertDescription, AlertTitle, cx } from "@bun-ui/react"
+import { ExternalLink } from "lucide-react"
 
 import { ComponentPreview } from "./component-preview"
 import { CopyButton } from "./copy-button"
@@ -10,6 +11,7 @@ const sharedComponents = {
   AlertTitle,
   AlertDescription,
   CopyButton,
+  ExternalLink,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cx(
@@ -64,15 +66,29 @@ const sharedComponents = {
       {...props}
     />
   ),
-  a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
-    <a
-      className={cx(
-        "decoration-primary/40 font-medium underline underline-offset-4",
-        className
-      )}
-      {...props}
-    />
-  ),
+  a: ({
+    className,
+    href,
+    children,
+    ...props
+  }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+    const isExternalLink = href?.startsWith("http")
+    return (
+      <a
+        className={cx(
+          "decoration-primary/40 inline-flex items-center gap-1 font-medium underline underline-offset-4",
+          "hover:decoration-primary",
+          className
+        )}
+        target={isExternalLink ? "_blank" : "_self"}
+        href={href}
+        {...props}
+      >
+        {children}
+        {isExternalLink && <ExternalLink className="inline h-3 w-3" />}
+      </a>
+    )
+  },
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cx("leading-[1.65rem] [&:not(:first-child)]:mt-6", className)}

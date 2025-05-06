@@ -10,6 +10,8 @@ links:
 
 ## Usage
 
+The `Calendar` component is built on top of the [React DayPicker](https://daypicker.dev/) library.
+
 Import the `Calendar` component from `@bun-ui/react` and use it in your project:
 
 ```tsx
@@ -30,8 +32,9 @@ Use the `mode` prop to enable range selection.
 
 ### Controlled
 
-`Calendar` can be controlled by managing the selected date in your component's state.
-Use the `onSelect` props and `selected` to handle date changes.
+<Alert variant="warning" className="mt-2">
+  <AlertTitle>Each mode prop require different type of onSelect and selected props</AlertTitle>
+</Alert>
 
 `mode="single"`
 
@@ -40,3 +43,11 @@ Use the `onSelect` props and `selected` to handle date changes.
 `mode="range"`
 
 <ComponentPreview name="calendar-controlled-range" />
+
+`mode="multiple"`
+
+<ComponentPreview name="calendar-controlled-multiple" />
+
+### Popover
+
+<ComponentPreview name="calendar-popover" />

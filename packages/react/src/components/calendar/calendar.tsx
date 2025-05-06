@@ -36,65 +36,6 @@ export type CalendarProps = DayPickerProps & {
   hiddenClassName?: string
 }
 
-interface CalendarNavProps {
-  onPreviousClick?: (month: Date) => void
-  onNextClick?: (month: Date) => void
-  buttonPreviousClassName?: string
-  buttonNextClassName?: string
-  navClassName?: string
-}
-
-const Nav = ({
-  onPreviousClick,
-  onNextClick,
-  buttonNextClassName,
-  buttonPreviousClassName,
-  navClassName,
-}: CalendarNavProps) => {
-  const { previousMonth, nextMonth, goToMonth } = useDayPicker()
-
-  const handlePreviousClick = () => {
-    if (!previousMonth) return
-    goToMonth(previousMonth)
-    onPreviousClick?.(previousMonth)
-  }
-
-  const handleNextClick = () => {
-    if (!nextMonth) return
-    goToMonth(nextMonth)
-    onNextClick?.(nextMonth)
-  }
-
-  return (
-    <nav className={cx("flex items-start", navClassName)}>
-      <Button
-        variant="outlined"
-        color="neutral"
-        className={cx(
-          "absolute left-0 h-7 w-7 p-0 disabled:opacity-50",
-          buttonPreviousClassName
-        )}
-        disabled={!previousMonth}
-        onClick={handlePreviousClick}
-      >
-        <ChevronLeft />
-      </Button>
-      <Button
-        variant="outlined"
-        color="neutral"
-        className={cx(
-          "absolute right-0 h-7 w-7 p-0 disabled:opacity-50",
-          buttonNextClassName
-        )}
-        disabled={!nextMonth}
-        onClick={handleNextClick}
-      >
-        <ChevronRight />
-      </Button>
-    </nav>
-  )
-}
-
 const Calendar = ({
   className,
   buttonNextClassName,
@@ -212,6 +153,65 @@ const Calendar = ({
     />
   )
 }
+
 Calendar.displayName = "Calendar"
 
+interface CalendarNavProps {
+  onPreviousClick?: (month: Date) => void
+  onNextClick?: (month: Date) => void
+  buttonPreviousClassName?: string
+  buttonNextClassName?: string
+  navClassName?: string
+}
+
+const Nav = ({
+  onPreviousClick,
+  onNextClick,
+  buttonNextClassName,
+  buttonPreviousClassName,
+  navClassName,
+}: CalendarNavProps) => {
+  const { previousMonth, nextMonth, goToMonth } = useDayPicker()
+
+  const handlePreviousClick = () => {
+    if (!previousMonth) return
+    goToMonth(previousMonth)
+    onPreviousClick?.(previousMonth)
+  }
+
+  const handleNextClick = () => {
+    if (!nextMonth) return
+    goToMonth(nextMonth)
+    onNextClick?.(nextMonth)
+  }
+
+  return (
+    <nav className={cx("flex items-start", navClassName)}>
+      <Button
+        variant="outlined"
+        color="neutral"
+        className={cx(
+          "absolute left-0 h-7 w-7 p-0 disabled:opacity-50",
+          buttonPreviousClassName
+        )}
+        disabled={!previousMonth}
+        onClick={handlePreviousClick}
+      >
+        <ChevronLeft />
+      </Button>
+      <Button
+        variant="outlined"
+        color="neutral"
+        className={cx(
+          "absolute right-0 h-7 w-7 p-0 disabled:opacity-50",
+          buttonNextClassName
+        )}
+        disabled={!nextMonth}
+        onClick={handleNextClick}
+      >
+        <ChevronRight />
+      </Button>
+    </nav>
+  )
+}
 export { Calendar, type DateRange }

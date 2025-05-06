@@ -73,6 +73,7 @@ export const HeaderCommand = () => {
     const matchingUrls = new Set(contentResults.map((item) => item.links.docs))
     sideBarNavs.forEach((nav) => {
       const matchedItems = nav.items.filter((item) => {
+        if (!item.url) return false
         return matchingUrls.has(item.url)
       })
       if (matchedItems.length > 0) {
