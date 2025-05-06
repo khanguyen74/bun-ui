@@ -17,11 +17,13 @@ export const CalendarControlledRange = () => {
         mode="range"
         onSelect={setSelectedRange}
       />
-      {selectedRange?.from && selectedRange.to && (
+      {selectedRange?.from && selectedRange.to ? (
         <p>
           Selected from {format(selectedRange.from, "MM/dd/yyyy")} to{" "}
           {format(selectedRange.to, "MM/dd/yyyy")}
         </p>
+      ) : (
+        <p>No date selected</p>
       )}
     </div>
   )
