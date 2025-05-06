@@ -6,7 +6,6 @@ import GithubIconDark from "@/icons/github-mark.svg"
 import { Button } from "@bun-ui/react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
-import { cx } from "@/lib/classnames"
 import { flattenToc } from "@/lib/flatten-toc"
 import { kebabToPascalCase } from "@/lib/string"
 import { MDXContent } from "@/components/mdx-content"
