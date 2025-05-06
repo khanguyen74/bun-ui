@@ -18,12 +18,12 @@ export const sideBarNavs: SideBarNavItem[] = [
     title: "Components",
     items: [
       { title: "Accordion", url: "/docs/components/accordion", items: [] },
-      { title: "Alert", url: "/docs/components/alert", items: [] },
       {
         title: "Alert Dialog",
         url: "/docs/components/alert-dialog",
         items: [],
       },
+      { title: "Alert", url: "/docs/components/alert", items: [] },
       { title: "Avatar", url: "/docs/components/avatar", items: [] },
       { title: "Button", url: "/docs/components/button", items: [] },
       { title: "Breadcrumb", url: "/docs/components/breadcrumb", items: [] },
