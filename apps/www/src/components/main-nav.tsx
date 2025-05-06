@@ -12,8 +12,9 @@ export function MainNav() {
           Bun UI
         </span>
       </Link>
-      <span className="bg-accent/30 text-accent-foreground rounded-md p-2 text-xs font-medium select-none">
-        v{version} Beta
+      <span className="bg-popover text-accent-foreground flex items-center gap-1 rounded-lg p-2 text-xs font-medium select-none">
+        <span className="text-foreground text-sm font-medium">v{version}</span>
+        <span className="text-destructive scale-90">Beta</span>
       </span>
     </div>
   )
