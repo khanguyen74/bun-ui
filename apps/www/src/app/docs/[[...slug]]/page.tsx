@@ -4,7 +4,9 @@ import { docs } from "@/.velite"
 import GithubIcon from "@/icons/github-mark-white.svg"
 import GithubIconDark from "@/icons/github-mark.svg"
 import { Button } from "@bun-ui/react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
+import { cx } from "@/lib/classnames"
 import { flattenToc } from "@/lib/flatten-toc"
 import { kebabToPascalCase } from "@/lib/string"
 import { MDXContent } from "@/components/mdx-content"
@@ -35,9 +37,10 @@ export async function generateMetadata({
 
 export default async function DocPage({ params }: DocPageProps) {
   const { slug } = await params
-  const doc = docs.find(
+  const docIndex = docs.findIndex(
     (doc) => doc.slug === ["docs", ...(slug?.length ? slug : [])].join("/")
   )
+  const doc = docs[docIndex]
   if (!doc) {
     return (
       <div className="flex h-full items-center justify-center">
@@ -45,8 +48,12 @@ export default async function DocPage({ params }: DocPageProps) {
       </div>
     )
   }
+
+  const previousDoc = docIndex > 0 ? docs[docIndex - 1] : null
+  const nextDoc = docIndex < docs.length - 1 ? docs[docIndex + 1] : null
+
   return (
-    <div className="relative mx-auto w-full max-w-2xl grid-cols-6 justify-between px-6 xl:grid xl:max-w-7xl">
+    <div className="relative mx-auto w-full max-w-2xl grid-cols-6 justify-between px-6 pb-20 xl:grid xl:max-w-7xl">
       <div className="col-span-4 mx-auto flex w-full flex-col py-6">
         <h1 className="mb-5 text-3xl font-bold">{doc.title}</h1>
         {doc.links?.source && (
@@ -74,6 +81,28 @@ export default async function DocPage({ params }: DocPageProps) {
           <p className="text-muted-foreground mb-5">{doc.description}</p>
         )}
         <MDXContent code={doc.code} />
+        <div className="mt-8 flex w-full items-center justify-between border-t pt-3">
+          {previousDoc ? (
+            <Button asChild variant="text" size="sm" className="gap-1">
+              <NextLink href={previousDoc.links.docs}>
+                <ChevronLeft />
+                {previousDoc.title}
+              </NextLink>
+            </Button>
+          ) : (
+            <div />
+          )}
+          {nextDoc ? (
+            <Button asChild variant="text" size="sm" className="gap-1">
+              <NextLink href={nextDoc.links.docs}>
+                {nextDoc.title}
+                <ChevronRight />
+              </NextLink>
+            </Button>
+          ) : (
+            <div />
+          )}
+        </div>
       </div>
       <Toc items={flattenToc(doc.toc)} />
     </div>
