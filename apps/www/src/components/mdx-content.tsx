@@ -2,6 +2,7 @@ import * as runtime from "react/jsx-runtime"
 import { Alert, AlertDescription, AlertTitle, cx } from "@bun-ui/react"
 import { ExternalLink } from "lucide-react"
 
+import { getHostName } from "@/lib/string"
 import { ComponentPreview } from "./component-preview"
 import { CopyButton } from "./copy-button"
 
@@ -72,7 +73,9 @@ const sharedComponents = {
     children,
     ...props
   }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
-    const isExternalLink = href?.startsWith("http")
+    const isExternalLink =
+      href?.startsWith("http") && getHostName(href) !== "bun-ui.com"
+
     return (
       <a
         className={cx(
