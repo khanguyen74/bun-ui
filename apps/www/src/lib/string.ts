@@ -25,3 +25,15 @@ export const kebabToPascalCase = (
     .map((word) => capitalizeFirstLetter(word))
     .join(separator)
 }
+
+/**
+ * Extracts the host name from a URL.
+ */
+export const getHostName = (url: string) => {
+  try {
+    return new URL(url).hostname
+  } catch (error) {
+    console.error("Invalid URL:", url, error)
+    return ""
+  }
+}

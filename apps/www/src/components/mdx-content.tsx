@@ -2,6 +2,7 @@ import * as runtime from "react/jsx-runtime"
 import { Alert, AlertDescription, AlertTitle, cx } from "@bun-ui/react"
 import { ExternalLink } from "lucide-react"
 
+import { getHostName } from "@/lib/string"
 import { ComponentPreview } from "./component-preview"
 import { CopyButton } from "./copy-button"
 
@@ -24,7 +25,7 @@ const sharedComponents = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cx(
-        "font-heading mt-16 scroll-m-20 border-b pb-4 text-xl font-semibold tracking-tight first:mt-0",
+        "font-heading mt-6 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -33,7 +34,7 @@ const sharedComponents = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cx(
-        "font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "font-heading mt-6 scroll-m-20 text-lg font-semibold tracking-tight",
         className
       )}
       {...props}
@@ -42,7 +43,7 @@ const sharedComponents = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cx(
-        "font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "font-heading mt-4 scroll-m-20 text-lg font-semibold tracking-tight",
         className
       )}
       {...props}
@@ -51,7 +52,7 @@ const sharedComponents = {
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h5
       className={cx(
-        "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "mt-4 scroll-m-20 text-lg font-semibold tracking-tight",
         className
       )}
       {...props}
@@ -60,7 +61,7 @@ const sharedComponents = {
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h6
       className={cx(
-        "mt-8 scroll-m-20 text-base font-semibold tracking-tight",
+        "mt-4 scroll-m-20 text-base font-semibold tracking-tight",
         className
       )}
       {...props}
@@ -72,7 +73,9 @@ const sharedComponents = {
     children,
     ...props
   }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
-    const isExternalLink = href?.startsWith("http")
+    const isExternalLink =
+      href?.startsWith("http") && getHostName(href) !== "bun-ui.com"
+
     return (
       <a
         className={cx(
@@ -90,16 +93,13 @@ const sharedComponents = {
     )
   },
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p
-      className={cx("leading-[1.65rem] [&:not(:first-child)]:mt-6", className)}
-      {...props}
-    />
+    <p className={cx("mt-4 leading-[1.65rem]", className)} {...props} />
   ),
   strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <strong className={cx("font-semibold", className)} {...props} />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cx("my-6 ml-6 list-disc", className)} {...props} />
+    <ul className={cx("ml-6 list-disc", className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
     <ol className={cx("my-6 ml-6 list-decimal", className)} {...props} />

@@ -11,9 +11,9 @@ import {
   Tabs,
   TabTrigger,
 } from "@bun-ui/react"
-import { Terminal } from "lucide-react"
 
 import { ComponentCard } from "@/components/component-card"
+import { InstallCommandButton } from "@/components/install-command-button"
 
 const HomePage = () => {
   return (
@@ -24,14 +24,11 @@ const HomePage = () => {
           Build beautiful, accessible, and reusable React components
           effortlessly.
         </p>
-        <div className="mt-6 flex items-center gap-4">
+        <div className="mt-6 flex items-center gap-10">
           <Button asChild className="text-base" size="lg">
             <NextLink href="/docs/installation">Get Started</NextLink>
           </Button>
-          <code className="bg-muted text-primary flex h-fit items-center rounded-md px-2 py-4 font-mono text-sm sm:p-4">
-            <Terminal className="mr-2 hidden h-4 w-4 sm:block" />
-            npm i @bun-ui/react
-          </code>
+          <InstallCommandButton />
         </div>
       </div>
 

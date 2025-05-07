@@ -56,6 +56,31 @@ const docs = defineCollection({
     }),
 })
 
+const blogs = defineCollection({
+  name: "Blogs",
+  pattern: "blog/**/*.mdx",
+  schema: s
+    .object({
+      title: s.string(),
+      description: s.string(),
+      date: s.string(),
+      metadata: s.metadata(),
+      content: s.markdown(),
+      code: s.mdx(),
+      toc: s.toc(),
+    })
+    .transform((data, { meta }) => {
+      return {
+        ...data,
+        slug: slugify(meta.path),
+        category: meta.path
+          .replace(/.*\/content\//, "")
+          .replace(/\/[^/]*$/, "")
+          .replace(cwd, ""),
+      }
+    }),
+})
+
 export default defineConfig({
   root: "src/content",
   output: {
@@ -63,6 +88,7 @@ export default defineConfig({
   },
   collections: {
     docs,
+    blogs,
   },
   mdx: {
     remarkPlugins: [codeImport, remarkGfm],
