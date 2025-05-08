@@ -23,6 +23,7 @@ import {
   SelectItem,
   SelectLabel,
   Skeleton,
+  Slider,
   Spinner,
   Switch,
   TabContent,
@@ -298,6 +299,14 @@ export default function ComponentsPage() {
               }
               showOutsideDays
             />
+          </div>
+        </ComponentCard>
+        <ComponentCard title="Slider">
+          <div className="flex w-full flex-col items-center justify-center gap-10">
+            <Slider size="sm" />
+            <Slider size="md" />
+            <Slider size="lg" />
+            <Slider disabled size="lg" />
           </div>
         </ComponentCard>
       </div>
