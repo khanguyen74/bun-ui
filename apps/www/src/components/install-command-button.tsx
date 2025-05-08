@@ -25,11 +25,11 @@ export const InstallCommandButton = () => {
       onClick={handleCopy}
       variant="outlined"
       aria-label="Copy install command"
-      className="group relative flex h-fit cursor-copy items-center py-3 pr-8 font-mono text-sm"
+      className="group relative flex h-fit cursor-copy items-center py-3 font-mono text-sm md:pr-8"
     >
       <Terminal className="mr-2 hidden h-4 w-4 sm:block" />
       npm i @bun-ui/react
-      <span className="absolute right-[6px] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+      <span className="absolute right-[6px] opacity-0 transition-opacity duration-200 md:group-hover:opacity-100">
         {copied ? <Check /> : <Clipboard />}
       </span>
     </Button>
