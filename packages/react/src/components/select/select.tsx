@@ -92,19 +92,19 @@ const SelectItem = React.forwardRef<
   <SelectPrimitives.Item
     ref={ref}
     className={cx(
-      "data-[highlighted]:bg-accent/40 data-[state=checked]:bg-accent relative flex w-full cursor-pointer items-center rounded-sm py-1 pr-2 pl-6 text-sm outline-none select-none",
+      "data-[highlighted]:bg-primary/20 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground relative flex w-full cursor-pointer items-center rounded-sm py-1 pr-6 pl-2 text-sm outline-none select-none",
       "data-[disabled]:text-muted-foreground data-[disabled]:cursor-not-allowed",
       className
     )}
     value={value}
     {...props}
   >
-    <SelectPrimitives.ItemIndicator className="absolute left-1 flex items-center justify-center">
-      <Check className="h-3 w-3" />
-    </SelectPrimitives.ItemIndicator>
     <SelectPrimitives.ItemText className={cx(selectItemTextClassName)}>
       {children}
     </SelectPrimitives.ItemText>
+    <SelectPrimitives.ItemIndicator className="absolute right-1 flex items-center justify-center">
+      <Check className="h-3 w-3" />
+    </SelectPrimitives.ItemIndicator>
   </SelectPrimitives.Item>
 ))
 
