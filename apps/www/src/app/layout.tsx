@@ -14,6 +14,13 @@ export const metadata: Metadata = {
   title: "Bun UI | Accessible and Customizable UI Components",
   description:
     "Build beautiful, accessible, and reusable React components effortlessly.",
+  openGraph: {
+    title: "Bun UI | Modern React Component Library",
+    description:
+      "Build beautiful, accessible, and customizable React components with Bun UI. Powered by Radix UI, styled with Tailwind CSS, and built for modern web applications.",
+    siteName: "Bun UI",
+    type: "website",
+  },
 }
 
 export default async function RootLayout({
