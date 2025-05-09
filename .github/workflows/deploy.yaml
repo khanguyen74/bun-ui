@@ -9,29 +9,14 @@ concurrency:
 
 jobs:
   deploy:
-    if: ${{ github.repository_owner == 'bunui-kit' }}
+    if: >
+      github.repository_owner == 'bunui-kit' &&
+      !startsWith(github.event.head_commit.message, 'chore(release)')
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build packages and docs
-        run: |
-          pnpm www build
 
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.9.0
@@ -41,20 +26,6 @@ jobs:
 
       - name: Add remote host to known_hosts
         run: "ssh-keyscan ${{secrets.HOST}} >> ~/.ssh/known_hosts"
-
-      - name: Create remote directory
-        run: ssh ${{secrets.USERNAME}}@${{secrets.HOST}} "mkdir -p ~/bun-ui"
-
-      - name: Transfer built files
-        run: |
-          tar -czf deploy.tar.gz \
-            apps/www/.next \
-            apps/www/public \
-            apps/www/package.json \
-            apps/www/next.config.js \
-            packages/react/dist
-          scp deploy.tar.gz ${{secrets.USERNAME}}@${{secrets.HOST}}:~/bun-ui/
-          ssh ${{secrets.USERNAME}}@${{secrets.HOST}} "cd ~/bun-ui && tar -xzf deploy.tar.gz && rm deploy.tar.gz"
 
       - name: Deploy to VPS
         run:
