@@ -27,6 +27,7 @@
     "www:start": "pnpm ---filter=./apps/www start",
     "release": "changeset version",
     "react:build": "pnpm --filter=./packages/react build",
+    "react:css": "pnpm --filter=./packages/react build:css",
     "docs:build": "pnpm --filter=./apps/www build:content",
     "lint": "turbo run lint",
     "format:check": "turbo run format:check",

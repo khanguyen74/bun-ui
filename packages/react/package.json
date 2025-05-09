@@ -42,7 +42,7 @@
   },
   "scripts": {
     "build:css": "npx @tailwindcss/cli -i ./src/styles/global.css -o ./dist/index.css",
-    "build": "tsx scripts/build.ts && pnpm build:css",
+    "build": "tsx scripts/build.ts",
     "dev": "tsup --watch",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
