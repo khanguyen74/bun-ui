@@ -18,6 +18,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10.8.0
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build everything
+        run: pnpm build
+
+      - name: Archive build output
+        run: |
+          tar -czf build-artifact.tar.gz \
+            apps/www/.next \
+            apps/www/public \
+            apps/www/package.json \
+            apps/www/next.config.js \
+            packages/react/dist
+
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -27,7 +52,7 @@ jobs:
       - name: Add remote host to known_hosts
         run: "ssh-keyscan ${{secrets.HOST}} >> ~/.ssh/known_hosts"
 
-      - name: Deploy to VPS
+      - name: Copy build to VPS
         run:
-          ssh ${{secrets.USERNAME}}@${{secrets.HOST}}
-          "./deploy/deploy-bun-ui.sh"
+          scp build-artifact.tar.gz
+          ${{secrets.USERNAME}}@${{secrets.HOST}}:~/build/bun-ui/
