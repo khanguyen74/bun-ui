@@ -53,6 +53,7 @@ async function buildComponent(component: string) {
     clean: true,
     target: "esnext",
     splitting: false,
+    silent: true,
   })
 
   if (hasUseClient) {
@@ -72,6 +73,7 @@ async function buildHook(hook: string) {
     sourcemap: true,
     clean: true,
     target: "esnext",
+    silent: true,
     splitting: false,
   })
 }
