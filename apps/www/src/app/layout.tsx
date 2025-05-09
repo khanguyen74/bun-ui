@@ -5,9 +5,9 @@ import "./globals.css"
 // import "@bun-ui/react/index.css"
 
 import { headers } from "next/headers"
-import { Alert, AlertTitle, cx, ThemeProvider } from "@bun-ui/react"
-import { Toaster } from "@bun-ui/react/toast"
+import { Alert, AlertTitle, ThemeProvider, Toaster } from "@bun-ui/react"
 
+import { cx } from "@/lib/classnames"
 import { SiteHeader } from "@/components/site-header"
 
 export const metadata: Metadata = {

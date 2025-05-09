@@ -2,7 +2,8 @@
 
 import NextLink from "next/link"
 import { usePathname } from "next/navigation"
-import { cx } from "@bun-ui/react"
+
+import { cx } from "@/lib/classnames"
 
 export const HeaderLinks = () => {
   const currentPath = usePathname()

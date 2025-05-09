@@ -1,8 +1,10 @@
 "use client"
 
 import React from "react"
-import { Button, ButtonProps, cx } from "@bun-ui/react"
+import { Button, ButtonProps } from "@bun-ui/react"
 import { CheckIcon, ClipboardIcon } from "lucide-react"
+
+import { cx } from "@/lib/classnames"
 
 interface CopyButtonProps extends ButtonProps {
   value: string

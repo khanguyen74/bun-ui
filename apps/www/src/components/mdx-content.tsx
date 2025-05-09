@@ -1,7 +1,8 @@
 import * as runtime from "react/jsx-runtime"
-import { Alert, AlertDescription, AlertTitle, cx } from "@bun-ui/react"
+import { Alert, AlertDescription, AlertTitle } from "@bun-ui/react"
 import { ExternalLink } from "lucide-react"
 
+import { cx } from "@/lib/classnames"
 import { getHostName } from "@/lib/string"
 import { ComponentPreview } from "./component-preview"
 import { CopyButton } from "./copy-button"
