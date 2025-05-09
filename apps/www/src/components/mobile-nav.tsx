@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation"
 import Logo from "@/icons/logo.svg"
 import {
   Button,
-  cx,
   Drawer,
   DrawerContent,
   DrawerTitle,
@@ -15,7 +14,7 @@ import {
 import { Menu } from "lucide-react"
 
 import { docsConfig } from "@/config/docs"
-import bunPackage from "../../../../packages/react/package.json"
+import { cx } from "@/lib/classnames"
 import { VersionBadge } from "./version-badge"
 
 export function MobileNav() {

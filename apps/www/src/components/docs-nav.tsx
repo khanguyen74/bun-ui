@@ -2,9 +2,9 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { cx } from "@bun-ui/react"
 
 import { DocsConfig, SideBarNavItem } from "@/config/docs"
+import { cx } from "@/lib/classnames"
 
 interface DocsNavProps {
   config: DocsConfig

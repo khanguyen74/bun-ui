@@ -3,7 +3,6 @@
 import { useState } from "react"
 import {
   Button,
-  cx,
   Drawer,
   DrawerClose,
   DrawerContent,
@@ -15,6 +14,8 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "@bun-ui/react"
+
+import { cx } from "@/lib/classnames"
 
 export const DrawerDirections = () => {
   const [direction, setDirection] = useState("right")

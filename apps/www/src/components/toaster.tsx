@@ -7,9 +7,8 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
+  useToast,
 } from "@bun-ui/react/toast"
-
-import { useToast } from "@/hooks/use-toast"
 
 const Toaster = () => {
   const { toasts } = useToast()

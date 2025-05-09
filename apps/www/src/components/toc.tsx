@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { cx } from "@bun-ui/react"
 
+import { cx } from "@/lib/classnames"
 import { useScrollSpy } from "../lib/use-scroll-spy"
 
 interface TocItem {
