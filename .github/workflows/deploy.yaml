@@ -42,7 +42,10 @@ jobs:
             apps/www/package.json \
             apps/www/next.config.ts \
             apps/www/src/.velite \
-            packages/react/dist
+            packages/react/dist \
+            packages/react/package.json \
+            package.json \
+            pnpm-workspace.yaml
 
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.9.0
@@ -56,4 +59,8 @@ jobs:
       - name: Copy build to VPS
         run:
           scp build-artifact.tar.gz
-          ${{secrets.USERNAME}}@${{secrets.HOST}}:~/build/bun-ui/
+          ${{secrets.USERNAME}}@${{secrets.HOST}}:~/builds/bun-ui/
+      - name: Restart server
+        run:
+          ssh ${{secrets.USERNAME}}@${{secrets.HOST}}
+          "./deploy/deploy-bun-ui.sh"
