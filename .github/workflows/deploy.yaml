@@ -41,7 +41,7 @@ jobs:
             apps/www/public \
             apps/www/package.json \
             apps/www/next.config.ts \
-            apps/www/src/.velite \
+            apps/www/src \
             packages/react/dist \
             packages/react/package.json \
             package.json \
@@ -59,7 +59,7 @@ jobs:
       - name: Copy build to VPS
         run:
           scp build-artifact.tar.gz
-          ${{secrets.USERNAME}}@${{secrets.HOST}}:~/builds/bun-ui/
+          ${{secrets.USERNAME}}@${{secrets.HOST}}:~/temp
       - name: Restart server
         run:
           ssh ${{secrets.USERNAME}}@${{secrets.HOST}}
