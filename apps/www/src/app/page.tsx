@@ -26,7 +26,7 @@ const HomePage = () => {
           Build beautiful, accessible, and reusable React components
           effortlessly.
         </p>
-        <div className="mt-6 flex flex-col items-center gap-2 sm:flex-row md:gap-6">
+        <div className="mt-6 flex flex-col items-start gap-2 sm:flex-row md:gap-6">
           <Button asChild className="text-base" size="lg">
             <NextLink href="/docs/installation">Get Started</NextLink>
           </Button>
