@@ -40,7 +40,8 @@ jobs:
             apps/www/.next \
             apps/www/public \
             apps/www/package.json \
-            apps/www/next.config.js \
+            apps/www/next.config.ts \
+            apps/www/src/.velite \
             packages/react/dist
 
       - name: Set up SSH
