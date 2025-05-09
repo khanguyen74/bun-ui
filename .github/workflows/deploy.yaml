@@ -29,8 +29,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build packages
-        run: pnpm www build
+      - name: Build packages and docs
+        run: |
+          pnpm www build
 
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.9.0
@@ -42,16 +43,20 @@ jobs:
         run: "ssh-keyscan ${{secrets.HOST}} >> ~/.ssh/known_hosts"
 
       - name: Create remote directory
-        run: ssh ${{secrets.USERNAME}}@${{secrets.HOST}} "mkdir -p ~/bun-ui/www"
+        run: ssh ${{secrets.USERNAME}}@${{secrets.HOST}} "mkdir -p ~/bun-ui"
 
       - name: Transfer built files
         run: |
-          cd packages/react
-          tar -czf dist.tar.gz dist/
-          scp dist.tar.gz ${{secrets.USERNAME}}@${{secrets.HOST}}:~/bun-ui/www/
-          ssh ${{secrets.USERNAME}}@${{secrets.HOST}} "cd ~/bun-ui/www && tar -xzf dist.tar.gz && rm dist.tar.gz"
+          tar -czf deploy.tar.gz \
+            apps/www/.next \
+            apps/www/public \
+            apps/www/package.json \
+            apps/www/next.config.js \
+            packages/react/dist
+          scp deploy.tar.gz ${{secrets.USERNAME}}@${{secrets.HOST}}:~/bun-ui/
+          ssh ${{secrets.USERNAME}}@${{secrets.HOST}} "cd ~/bun-ui && tar -xzf deploy.tar.gz && rm deploy.tar.gz"
 
-      - name: Restart service
+      - name: Deploy to VPS
         run:
           ssh ${{secrets.USERNAME}}@${{secrets.HOST}}
           "./deploy/deploy-bun-ui.sh"
