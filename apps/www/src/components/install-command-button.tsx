@@ -29,7 +29,7 @@ export const InstallCommandButton = () => {
     >
       <Terminal className="mr-2 hidden h-4 w-4 sm:block" />
       npm i @bun-ui/react
-      <span className="absolute right-[6px] opacity-0 transition-opacity duration-200 md:group-hover:opacity-100">
+      <span className="absolute right-[6px] opacity-0 transition-opacity duration-150 md:group-hover:opacity-100">
         {copied ? <Check /> : <Clipboard />}
       </span>
     </Button>

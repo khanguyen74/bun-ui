@@ -9,7 +9,7 @@ export const ComponentCard = ({
   children,
 }: ComponentCardProps) => {
   return (
-    <div className="bg-background rounded-2xl border p-6 shadow-sm transition-all hover:shadow-md">
+    <div className="bg-background rounded-md border p-6 shadow-sm transition-all hover:shadow-md">
       {title && <h2 className="text-xl font-semibold">{title}</h2>}
       {description && (
         <p className="text-muted-foreground mb-4 text-sm">{description}</p>

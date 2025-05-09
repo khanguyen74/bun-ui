@@ -14,8 +14,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "@bun-ui/react"
-
-import { cx } from "@/lib/classnames"
+import clsx from "clsx"
 
 export const DrawerDirections = () => {
   const [direction, setDirection] = useState("right")
@@ -32,7 +31,7 @@ export const DrawerDirections = () => {
         </DrawerTrigger>
         <DrawerContent
           showDragHandle={false}
-          className={cx(
+          className={clsx(
             "top-0",
             direction === "left" ? "right-auto left-0" : "right-0 left-auto"
           )}
