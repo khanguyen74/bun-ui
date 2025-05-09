@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.26
+
+### Patch Changes
+
+- aa59afb: add Slider component
+
 ## 0.2.25
 
 ### Patch Changes
