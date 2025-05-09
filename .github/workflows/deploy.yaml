@@ -10,11 +10,29 @@ concurrency:
 jobs:
   deploy:
     if: ${{ github.repository_owner == 'bunui-kit' }}
-    name: Deploy
+    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build packages
+        run: |
+          cd packages/react
+          pnpm www build
 
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.9.0
@@ -25,7 +43,17 @@ jobs:
       - name: Add remote host to known_hosts
         run: "ssh-keyscan ${{secrets.HOST}} >> ~/.ssh/known_hosts"
 
-      - name: Deploy to VPS
+      - name: Create remote directory
+        run: ssh ${{secrets.USERNAME}}@${{secrets.HOST}} "mkdir -p ~/bun-ui/www"
+
+      - name: Transfer built files
+        run: |
+          cd packages/react
+          tar -czf dist.tar.gz dist/
+          scp dist.tar.gz ${{secrets.USERNAME}}@${{secrets.HOST}}:~/bun-ui/www/
+          ssh ${{secrets.USERNAME}}@${{secrets.HOST}} "cd ~/bun-ui/www && tar -xzf dist.tar.gz && rm dist.tar.gz"
+
+      - name: Restart service
         run:
-          "ssh ${{secrets.USERNAME}}@${{secrets.HOST}}
-          './deploy/deploy-bun-ui.sh'"
+          ssh ${{secrets.USERNAME}}@${{secrets.HOST}}
+          "./deploy/deploy-bun-ui.sh"
