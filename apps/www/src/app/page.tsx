@@ -1,11 +1,13 @@
 import NextLink from "next/link"
 import {
+  Avatar,
+  AvatarImage,
   Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  Input,
+  Spinner,
   TabContent,
   TabList,
   Tabs,
@@ -18,39 +20,36 @@ import { InstallCommandButton } from "@/components/install-command-button"
 const HomePage = () => {
   return (
     <div className="container">
-      <div className="py-16">
+      <div className="mt-16">
         <h1 className="text-4xl font-bold">Welcome to Bun UI</h1>
         <p className="mt-4 text-xl">
           Build beautiful, accessible, and reusable React components
           effortlessly.
         </p>
-        <div className="mt-6 flex items-center gap-10">
+        <div className="mt-6 flex flex-col items-center gap-2 sm:flex-row md:gap-6">
           <Button asChild className="text-base" size="lg">
             <NextLink href="/docs/installation">Get Started</NextLink>
           </Button>
           <InstallCommandButton />
         </div>
       </div>
-
       <section className="py-16">
         <div className="mx-auto text-center">
-          <p className="mt-2">
-            Build faster with pre-styled, accessible components.
-          </p>
-
           <div className="mt-12 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
             <ComponentCard>
-              <div className="flex h-36 items-center justify-center">
-                <Button size="sm">Click Me</Button>
+              <div className="flex h-36 items-center justify-center gap-2">
+                <Avatar>
+                  <AvatarImage src="/avatar.png" />
+                </Avatar>
               </div>
-              <p className="text-muted-foreground mt-8">Button</p>
+              <p className="text-muted-foreground mt-8">Avatar</p>
             </ComponentCard>
 
             <ComponentCard>
-              <div className="flex h-36 items-center justify-center">
-                <Input placeholder="Enter text" />
+              <div className="flex h-36 items-center justify-center gap-2">
+                <Spinner color="primary" size="lg" />
               </div>
-              <p className="text-muted-foreground mt-8">Input</p>
+              <p className="text-muted-foreground mt-8">Spinner</p>
             </ComponentCard>
 
             <ComponentCard>

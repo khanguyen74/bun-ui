@@ -43,6 +43,7 @@ export const sideBarNavs: SideBarNavItem[] = [
       { title: "Radio Group", url: "/docs/components/radio-group", items: [] },
       { title: "Select", url: "/docs/components/select", items: [] },
       { title: "Skeleton", url: "/docs/components/skeleton", items: [] },
+      { title: "Slider", url: "/docs/components/slider", items: [] },
       { title: "Spinner", url: "/docs/components/spinner", items: [] },
       { title: "Switch", url: "/docs/components/switch", items: [] },
       { title: "Tabs", url: "/docs/components/tabs", items: [] },

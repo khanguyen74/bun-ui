@@ -67,23 +67,29 @@ const BreadcrumbItem = React.forwardRef<
 ))
 
 interface BreadcrumbLinkProps extends React.ComponentProps<typeof Link> {
+  /**
+   * if `currentLink=true`, this is rendered as a regular text
+   */
   currentLink?: boolean
 }
 
+/**
+ * Use Link component internally. For custom styling, use Link component directly
+ */
 const BreadcrumbLink = ({
   className,
   currentLink,
   ...props
 }: BreadcrumbLinkProps) =>
   currentLink ? (
-    <span className="text-foreground cursor-default">{props.children}</span>
+    <p className={cx("text-foreground cursor-default", className)}>
+      {props.children}
+    </p>
   ) : (
     <Link
       underline="hover"
-      className={cx(
-        "hover:decoration-foreground hover:text-foreground text-current",
-        className
-      )}
+      color="neutral"
+      className={cx("opacity-60 hover:opacity-100", className)}
       {...props}
     />
   )

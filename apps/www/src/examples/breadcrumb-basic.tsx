@@ -11,16 +11,13 @@ export const BreadcrumbBasic = () => (
       <BreadcrumbItem>
         <BreadcrumbLink href="/">Home</BreadcrumbLink>
       </BreadcrumbItem>
-
       <BreadcrumbItem>
         <BreadcrumbLink href="/docs/components/accordion">
           Accordion
         </BreadcrumbLink>
       </BreadcrumbItem>
       <BreadcrumbItem>
-        <BreadcrumbLink currentLink href="/docs/components/breadcrumb">
-          Breadcrumb
-        </BreadcrumbLink>
+        <BreadcrumbLink currentLink>Breadcrumb</BreadcrumbLink>
       </BreadcrumbItem>
     </BreadcrumbList>
   </Breadcrumb>

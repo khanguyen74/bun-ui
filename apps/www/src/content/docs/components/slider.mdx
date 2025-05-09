@@ -1,0 +1,48 @@
+---
+title: Slider
+description: 
+  "A component that allows users to select a value from a given range."
+links:
+  source: components/slider
+  docs: /docs/components/slider
+---
+
+<ComponentPreview name="slider-basic" />
+
+## Usage
+
+Import the `Slider` component from `@bun-ui/react` and use it in your project:
+
+```tsx
+import { Slider } from "@bun-ui/react"
+```
+
+```tsx
+<Slider defaultValue={50}/>
+```
+
+## Examples
+
+### Color
+
+<ComponentPreview name="slider-colors" />
+
+### Size
+
+<ComponentPreview name="slider-sizes" />
+
+### Controlled
+
+<ComponentPreview name="slider-controlled" />
+
+### With Icon
+
+<ComponentPreview name="slider-icon" />
+
+### Range
+
+The slider can be used to set the start and end of a range by
+setting value of `isRange` to `true`. The `value` or `defaultValue`
+must be an array of two numbers.
+
+<ComponentPreview name="slider-range" />
