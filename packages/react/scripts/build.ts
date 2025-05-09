@@ -1,4 +1,3 @@
-// scripts/build.ts
 import fs from "fs"
 import { resolve } from "path"
 import { build } from "tsup"
