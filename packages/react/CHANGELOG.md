@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.27
+
+### Patch Changes
+
+- 34d1271: create custom build script
+
 ## 0.2.26
 
 ### Patch Changes
