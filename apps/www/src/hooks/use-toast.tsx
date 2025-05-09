@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import type { ToastActionElement, ToastProps } from "@bun-ui/react/toast"
+import type { ToastActionElement, ToastProps } from "@bun-ui/react"
 
 const TOAST_LIMIT = 1
 const TOAST_REMOVE_DELAY = 1000000
