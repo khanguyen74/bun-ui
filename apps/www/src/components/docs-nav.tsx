@@ -14,27 +14,25 @@ export const DocsNav = ({ config }: DocsNavProps) => {
   const items = config.sideBarNavs
 
   return (
-    <nav className="hidden w-[300px] shrink-0 border-r lg:block">
-      <div className="fixed flex h-full w-[300px] flex-col">
-        <div className="h-full overflow-y-auto px-2 py-8 pt-2 pb-[8rem]">
-          {items.map((item, index) => (
-            <div key={index} className="flex flex-col gap-1">
-              <h4 className="rounded-md px-2 py-1 text-sm font-medium">
-                {item.title}{" "}
-                {item.label && (
-                  <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none font-normal text-[#000000] no-underline group-hover:no-underline">
-                    {item.label}
-                  </span>
-                )}
-              </h4>
-              {item?.items?.length && (
-                <DocsNavItems items={item.items} pathname={pathname} />
+    <aside className="sticky top-[var(--header-height)] hidden h-[calc(100vh-var(--header-height))] w-[300px] shrink-0 border-r lg:block">
+      <div className="flex h-full flex-col overflow-y-auto px-2 py-4">
+        {items.map((item, index) => (
+          <div key={index} className="flex flex-col gap-1">
+            <h4 className="rounded-md px-2 py-1 text-sm font-medium">
+              {item.title}{" "}
+              {item.label && (
+                <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none font-normal text-[#000000] no-underline group-hover:no-underline">
+                  {item.label}
+                </span>
               )}
-            </div>
-          ))}
-        </div>
+            </h4>
+            {item?.items?.length && (
+              <DocsNavItems items={item.items} pathname={pathname} />
+            )}
+          </div>
+        ))}
       </div>
-    </nav>
+    </aside>
   )
 }
 
