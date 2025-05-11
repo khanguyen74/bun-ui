@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useMemo } from "react"
 import { cva } from "class-variance-authority"
 import { ChevronLeft, ChevronRight, Ellipsis } from "lucide-react"
