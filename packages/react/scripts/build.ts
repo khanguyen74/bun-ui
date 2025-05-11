@@ -82,28 +82,43 @@ async function buildAll() {
   console.log("Building main entry...")
   await buildMain()
 
-  console.log("Building components...")
-  for (const component of components) {
+  const componentArg = process.argv[2]
+
+  if (componentArg) {
     if (
       !fs
-        .statSync(resolve(__dirname, `../src/components/${component}`))
+        .statSync(resolve(__dirname, `../src/components/${componentArg}`))
         .isDirectory()
     ) {
-      continue
+      console.error(`Component ${componentArg} not found.`)
+      process.exit(1)
     }
-    console.log(`Building ${component}...`)
-    await buildComponent(component)
-  }
+    console.log(`Building ${componentArg}...`)
+    await buildComponent(componentArg)
+  } else {
+    console.log("Building components...")
+    for (const component of components) {
+      if (
+        !fs
+          .statSync(resolve(__dirname, `../src/components/${component}`))
+          .isDirectory()
+      ) {
+        continue
+      }
+      console.log(`Building ${component}...`)
+      await buildComponent(component)
+    }
 
-  console.log("Building hooks...")
-  for (const hook of hooks) {
-    if (
-      !fs.statSync(resolve(__dirname, `../src/hooks/${hook}`)).isDirectory()
-    ) {
-      continue
+    console.log("Building hooks...")
+    for (const hook of hooks) {
+      if (
+        !fs.statSync(resolve(__dirname, `../src/hooks/${hook}`)).isDirectory()
+      ) {
+        continue
+      }
+      console.log(`Building ${hook}...`)
+      await buildHook(hook)
     }
-    console.log(`Building ${hook}...`)
-    await buildHook(hook)
   }
 }
 
