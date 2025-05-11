@@ -12,7 +12,7 @@ import ThemeSwitch from "./theme-switch"
 
 export const SiteHeader = () => {
   return (
-    <header className="bg-background/90 sticky top-0 z-50 h-[var(--header-height)] w-full border-b">
+    <header className="bg-background/70 sticky top-0 z-50 h-[var(--header-height)] w-full border-b backdrop-blur-sm">
       <div className="flex h-14 items-center gap-2 px-4">
         <MainNav />
         <MobileNav />
