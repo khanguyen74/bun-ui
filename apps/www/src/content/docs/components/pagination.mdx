@@ -1,0 +1,115 @@
+---
+title: Pagination
+description: A component for navigating through paginated content with customizable page ranges and navigation controls.
+links:
+  source: components/pagination
+  docs: /docs/components/pagination
+---
+
+<ComponentPreview name="pagination-basic" />
+
+## Usage
+
+Import the `Pagination` component from `@bun-ui/react` and use it in your project:
+
+```jsx
+import { Pagination } from "@bun-ui/react"
+```
+
+```jsx
+<Pagination count={10} />
+```
+
+## Examples
+
+### Basic Usage
+
+A simple pagination component with default settings:
+
+<ComponentPreview name="pagination-basic" />
+
+### Controlled
+
+Manage the page state externally:
+
+<ComponentPreview name="pagination-controlled" />
+
+### With First and Last Buttons
+
+Add first and last page navigation buttons:
+
+<ComponentPreview name="pagination-first-last" />
+
+### Variants
+
+The Pagination component supports two variants:
+
+<ComponentPreview name="pagination-variants" />
+
+### Colors
+
+Customize the color scheme of the pagination:
+
+<ComponentPreview name="pagination-colors" />
+
+### Sizes
+
+The Pagination component supports three sizes:
+
+<ComponentPreview name="pagination-sizes" />
+
+### Disabled State
+
+Disable the entire pagination component:
+
+<ComponentPreview name="pagination-disabled" />
+
+### Customization
+
+The Pagination component can be customized using the `className` prop or by extending its styles with your design system.
+
+```jsx
+<Pagination 
+  count={10} 
+  className="gap-4" 
+  variant="outlined"
+  color="primary"
+/>
+```
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `count` | `number` | Required | The total number of pages |
+| `page` | `number` | `1` | The current page number |
+| `defaultPage` | `number` | `1` | The default page number |
+| `onChange` | `(page: number) => void` | - | Callback fired when the page is changed |
+| `siblingCount` | `number` | `1` | Number of always visible pages before and after the current page |
+| `boundaryCount` | `number` | `1` | Number of always visible pages at the beginning and end |
+| `showFirstButton` | `boolean` | `false` | If true, show the first page button |
+| `showLastButton` | `boolean` | `false` | If true, show the last page button |
+| `hidePrevButton` | `boolean` | `false` | If true, hide the previous page button |
+| `hideNextButton` | `boolean` | `false` | If true, hide the next page button |
+| `disabled` | `boolean` | `false` | If true, disable all pagination buttons |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | The size of the pagination buttons |
+| `variant` | `"text" \| "outlined"` | `"text"` | The variant to use |
+| `color` | `"primary" \| "secondary" \| "neutral"` | `"neutral"` | The color scheme to use |
+
+### Accessibility
+
+The Pagination component is built with accessibility in mind:
+
+- Uses semantic HTML with `<nav>` and `<ul>` elements
+- Provides proper ARIA attributes for current page and disabled states
+- Supports keyboard navigation
+- Maintains focus management for better user experience
+
+```jsx
+<Pagination 
+  count={10} 
+  aria-label="Pagination navigation"
+/>
+``` 
