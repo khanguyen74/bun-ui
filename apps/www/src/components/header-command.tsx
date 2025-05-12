@@ -21,7 +21,8 @@ import { docs } from "../.velite"
 
 export const HeaderCommand = () => {
   const [open, setOpen] = useState(false)
-  const [value, setValue] = useState("")
+  const [inputValue, setInputValue] = useState("")
+  const [selectedValue, setSelectedValue] = useState("")
   const router = useRouter()
 
   useEffect(() => {
@@ -39,13 +40,24 @@ export const HeaderCommand = () => {
     setOpen(true)
   }
 
-  const handleSelectUrl = (url: string) => {
-    return () => router.push(url)
+  const handleSelectUrl = (url: string, isExternal = false) => {
+    setOpen(false)
+    if (isExternal) {
+      const { protocol, hostname, port } = window.location
+      const docUrl = `${protocol}//${hostname}${port ? `:${port}` : ""}${url}`
+      window.open(docUrl, "_blank")
+    } else {
+      router.push(url)
+    }
   }
 
-  const runCommand = (command: () => unknown) => {
-    setOpen(false)
-    command()
+  const handleCommandMenuKeyDown = (e: React.KeyboardEvent) => {
+    if (e.metaKey) {
+      if (e.key === "Enter") {
+        e.preventDefault()
+        handleSelectUrl(selectedValue, true)
+      }
+    }
   }
 
   const renderIcon = (url: string) => {
@@ -53,6 +65,7 @@ export const HeaderCommand = () => {
       return <Puzzle />
     } else return <File />
   }
+
   const contentResults = useMemo(() => {
     const searchValue = value.toLowerCase()
     return docs.filter((doc) => {
@@ -106,11 +119,14 @@ export const HeaderCommand = () => {
           <CommandMenu
             className="[&_[cmdk-group-heading]]:text-muted-foreground **:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5"
             shouldFilter={false}
+            onKeyDown={handleCommandMenuKeyDown}
+            value={selectedValue}
+            onValueChange={setSelectedValue}
           >
             <CommandMenuInput
               placeholder="Search..."
-              value={value}
-              onValueChange={setValue}
+              value={inputValue}
+              onValueChange={setInputValue}
               className="w-lg"
             />
             <CommandMenuList className="max-h-[30rem] lg:max-h-[40rem]">
