@@ -8,7 +8,6 @@ import {
   ChevronLast,
   ChevronLeft,
   ChevronRight,
-  Ellipsis,
 } from "lucide-react"
 
 import { cx, range } from "../../lib"
@@ -122,9 +121,7 @@ const PaginationItem = React.forwardRef<
     ref
   ) => {
     let content: React.ReactNode = page
-    if (type === "start-ellipsis" || type === "end-ellipsis") {
-      content = <Ellipsis />
-    } else if (type === "previous") {
+    if (type === "previous") {
       content = <ChevronLeft />
     } else if (type === "next") {
       content = <ChevronRight />
@@ -133,14 +130,15 @@ const PaginationItem = React.forwardRef<
     } else if (type === "last") {
       content = <ChevronLast />
     }
+    if (type === "start-ellipsis" || type === "end-ellipsis") {
+      return <div>...</div>
+    }
     return (
       <Button
         ref={ref}
         variant={variant}
         className={cx(
           paginationItemVariants({ size, variant, color, selected }),
-          (type === "end-ellipsis" || type === "start-ellipsis") &&
-            "border-none",
           className
         )}
         color="neutral"
