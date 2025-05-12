@@ -2,7 +2,7 @@ import React from "react"
 import { ChevronRight } from "lucide-react"
 
 import { cx } from "../../lib"
-import { Link } from "../link"
+import { Link, type LinkProps } from "../link"
 
 const Breadcrumb = React.forwardRef<
   HTMLElement,
@@ -66,11 +66,13 @@ const BreadcrumbItem = React.forwardRef<
   />
 ))
 
-interface BreadcrumbLinkProps extends React.ComponentProps<typeof Link> {
+interface BreadcrumbLinkProps extends LinkProps {
   /**
    * if `currentLink=true`, this is rendered as a regular text
    */
   currentLink?: boolean
+  children?: React.ReactNode
+  href?: string
 }
 
 /**
@@ -79,11 +81,12 @@ interface BreadcrumbLinkProps extends React.ComponentProps<typeof Link> {
 const BreadcrumbLink = ({
   className,
   currentLink,
+  children,
   ...props
 }: BreadcrumbLinkProps) =>
   currentLink ? (
     <p className={cx("text-foreground cursor-default", className)}>
-      {props.children}
+      {children}
     </p>
   ) : (
     <Link
@@ -91,7 +94,9 @@ const BreadcrumbLink = ({
       color="neutral"
       className={cx("opacity-60 hover:opacity-100", className)}
       {...props}
-    />
+    >
+      {children}
+    </Link>
   )
 
 export { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink }
