@@ -86,7 +86,7 @@ const paginationItemVariants = cva("p-0", {
       color: "neutral",
       variant: "text",
       selected: true,
-      className: "bg-popover",
+      className: "bg-foreground/20 hover:not-disabled:bg-foreground/30",
     },
     {
       color: "primary",
