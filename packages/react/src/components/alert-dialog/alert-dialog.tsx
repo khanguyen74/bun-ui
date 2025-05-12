@@ -20,13 +20,22 @@ const AlertDialogCancel = React.forwardRef<
   />
 ))
 
+interface AlertDialogActionProps
+  extends Omit<
+    React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>,
+    "color"
+  > {
+  color?: "primary" | "secondary" | "destructive" | "neutral" | "accent"
+  variant?: "outlined" | "text" | "contained"
+}
+
 const AlertDialogAction = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Action>,
-  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>
->(({ className, ...props }, ref) => (
+  AlertDialogActionProps
+>(({ className, color, variant, ...props }, ref) => (
   <AlertDialogPrimitive.Action
     ref={ref}
-    className={cx(buttonVariants(), className)}
+    className={cx(buttonVariants({ color, variant }), className)}
     {...props}
   />
 ))
@@ -94,7 +103,11 @@ const AlertDialogFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLProps<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cx("flex gap-x-2", className)} {...props} />
+  <div
+    ref={ref}
+    className={cx("flex justify-end gap-x-2", className)}
+    {...props}
+  />
 ))
 
 export {
