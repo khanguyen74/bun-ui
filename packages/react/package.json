@@ -7,9 +7,11 @@
   "files": [
     "dist"
   ],
+  "homepage": "https://bun-ui.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bunui-kit/bun-ui"
+    "url": "https://github.com/bunui-kit/bun-ui",
+    "directory": "packages/react"
   },
   "publishConfig": {
     "access": "public"
