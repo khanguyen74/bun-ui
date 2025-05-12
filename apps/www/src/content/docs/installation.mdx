@@ -81,19 +81,3 @@ function App() {
 
 export default App
 ```
-
-## 4. Component-Specific Styles (Optional)
-
-For projects where bundle size is a concern, you can import only the styles for the components you use:
-
-```jsx
-// Import only Button styles
-import "@bun-ui/react/styles/button.css"
-import { Button } from "@bun-ui/react"
-
-// Import only Input styles
-import "@bun-ui/react/styles/input.css"
-import { Input } from "@bun-ui/react"
-```
-
-This approach helps reduce the initial bundle size by only loading the styles you need.
