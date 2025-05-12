@@ -15,6 +15,7 @@ import {
   Checkbox,
   Input,
   Link,
+  Pagination,
   Progress,
   RadioGroup,
   RadioGroupItem,
@@ -307,6 +308,16 @@ export default function ComponentsPage() {
             <Slider size="md" />
             <Slider size="lg" />
             <Slider disabled size="lg" />
+          </div>
+        </ComponentCard>
+        <ComponentCard title="Pagination">
+          <div className="flex w-full flex-col items-center justify-center gap-10">
+            <Pagination count={10} defaultPage={3} color="primary" />
+            <Pagination count={10} color="neutral" />
+            <Pagination count={10} color="secondary" />
+            <Pagination count={10} variant="outlined" color="primary" />
+            <Pagination count={10} variant="outlined" color="neutral" />
+            <Pagination count={10} variant="outlined" color="secondary" />
           </div>
         </ComponentCard>
       </div>

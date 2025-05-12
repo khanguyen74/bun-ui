@@ -44,6 +44,13 @@ async function buildComponent(component: string) {
     fs.existsSync(sourceFile) &&
     fs.readFileSync(sourceFile, "utf8").startsWith('"use client"')
 
+  // Get list of exported components
+  const exportedComponents = fs
+    .readdirSync(resolve(__dirname, "../src/components"))
+    .filter((dir) =>
+      fs.statSync(resolve(__dirname, `../src/components/${dir}`)).isDirectory()
+    )
+
   await build({
     entry: [`src/components/${component}/index.ts`],
     outDir: `dist/${component}`,
@@ -54,6 +61,37 @@ async function buildComponent(component: string) {
     target: "esnext",
     splitting: false,
     silent: true,
+    external: [
+      "react",
+      "react-dom",
+      "@bun-ui/react",
+      ...exportedComponents.map((comp) => `../${comp}`),
+    ],
+    esbuildOptions(options) {
+      options.loader = {
+        ...options.loader,
+        ".tsx": "tsx",
+      }
+      options.plugins = [
+        {
+          name: "transform-imports",
+          setup(build) {
+            build.onResolve({ filter: /^\.\.\/.*/ }, (args) => {
+              // Check if the import is a component
+              const importPath = args.path
+              const componentName = importPath.split("/").pop()
+              if (componentName && exportedComponents.includes(componentName)) {
+                return {
+                  path: `@bun-ui/react`,
+                  external: true,
+                }
+              }
+              return null
+            })
+          },
+        },
+      ]
+    },
   })
 
   if (hasUseClient) {
@@ -64,6 +102,7 @@ async function buildComponent(component: string) {
     }
   }
 }
+
 async function buildHook(hook: string) {
   await build({
     entry: [`src/hooks/${hook}/index.ts`],
@@ -75,6 +114,7 @@ async function buildHook(hook: string) {
     target: "esnext",
     silent: true,
     splitting: false,
+    external: ["react", "react-dom", "@bun-ui/react"],
   })
 }
 
@@ -82,28 +122,43 @@ async function buildAll() {
   console.log("Building main entry...")
   await buildMain()
 
-  console.log("Building components...")
-  for (const component of components) {
+  const componentArg = process.argv[2]
+
+  if (componentArg) {
     if (
       !fs
-        .statSync(resolve(__dirname, `../src/components/${component}`))
+        .statSync(resolve(__dirname, `../src/components/${componentArg}`))
         .isDirectory()
     ) {
-      continue
+      console.error(`Component ${componentArg} not found.`)
+      process.exit(1)
     }
-    console.log(`Building ${component}...`)
-    await buildComponent(component)
-  }
+    console.log(`Building ${componentArg}...`)
+    await buildComponent(componentArg)
+  } else {
+    console.log("Building components...")
+    for (const component of components) {
+      if (
+        !fs
+          .statSync(resolve(__dirname, `../src/components/${component}`))
+          .isDirectory()
+      ) {
+        continue
+      }
+      console.log(`Building ${component}...`)
+      await buildComponent(component)
+    }
 
-  console.log("Building hooks...")
-  for (const hook of hooks) {
-    if (
-      !fs.statSync(resolve(__dirname, `../src/hooks/${hook}`)).isDirectory()
-    ) {
-      continue
+    console.log("Building hooks...")
+    for (const hook of hooks) {
+      if (
+        !fs.statSync(resolve(__dirname, `../src/hooks/${hook}`)).isDirectory()
+      ) {
+        continue
+      }
+      console.log(`Building ${hook}...`)
+      await buildHook(hook)
     }
-    console.log(`Building ${hook}...`)
-    await buildHook(hook)
   }
 }
 

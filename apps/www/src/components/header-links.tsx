@@ -8,7 +8,7 @@ import { cx } from "@/lib/classnames"
 export const HeaderLinks = () => {
   const currentPath = usePathname()
   return (
-    <div className="text-foreground/60 hidden gap-x-6 text-sm sm:flex">
+    <nav className="text-foreground/60 hidden gap-x-6 text-sm sm:flex">
       <NextLink
         href="/docs"
         className={cx(currentPath.startsWith("/docs") && "text-foreground")}
@@ -29,6 +29,6 @@ export const HeaderLinks = () => {
       >
         Blog
       </NextLink>
-    </div>
+    </nav>
   )
 }

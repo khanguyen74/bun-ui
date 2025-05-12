@@ -1,0 +1,73 @@
+---
+title: Pagination
+description: A component for navigating through paginated content with customizable page ranges and navigation controls.
+links:
+  source: components/pagination
+  docs: /docs/components/pagination
+---
+
+<ComponentPreview name="pagination-basic" />
+
+## Usage
+
+Import the `Pagination` component from `@bun-ui/react` and use it in your project:
+
+```jsx
+import { Pagination } from "@bun-ui/react"
+```
+
+```jsx
+<Pagination count={10} />
+```
+
+## Examples
+
+### Basic Usage
+
+A simple pagination component with default settings:
+
+<ComponentPreview name="pagination-basic" />
+
+### Controlled
+
+Manage the page state externally:
+
+<ComponentPreview name="pagination-controlled" />
+
+### With First and Last Buttons
+
+Add first and last page navigation buttons:
+
+<ComponentPreview name="pagination-first-last" />
+
+### Variants
+
+The Pagination component supports two variants:
+
+<ComponentPreview name="pagination-variants" />
+
+### Colors
+
+Customize the color scheme of the pagination:
+
+<ComponentPreview name="pagination-colors" />
+
+### Sizes
+
+The Pagination component supports three sizes:
+
+<ComponentPreview name="pagination-sizes" />
+
+### Disabled State
+
+Disable the entire pagination component:
+
+<ComponentPreview name="pagination-disabled" />
+
+### Custom Render Item
+
+You can customize the rendering of individual pagination items using the `renderItem` prop.
+This allows you to have full control over how each item is displayed
+while maintaining the pagination logic:
+
+<ComponentPreview name="pagination-custom-render" />

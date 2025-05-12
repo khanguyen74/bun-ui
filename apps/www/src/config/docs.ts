@@ -38,6 +38,7 @@ export const sideBarNavs: SideBarNavItem[] = [
       },
       { title: "Input", url: "/docs/components/input", items: [] },
       { title: "Link", url: "/docs/components/link", items: [] },
+      { title: "Pagination", url: "/docs/components/pagination", items: [] },
       { title: "Popover", url: "/docs/components/popover", items: [] },
       { title: "Progress", url: "/docs/components/progress", items: [] },
       { title: "Radio Group", url: "/docs/components/radio-group", items: [] },
