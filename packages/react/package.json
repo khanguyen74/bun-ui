@@ -9,8 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bunui-kit/bun-ui",
-    "directory": "packages/react"
+    "url": "https://github.com/bunui-kit/bun-ui"
   },
   "publishConfig": {
     "access": "public"

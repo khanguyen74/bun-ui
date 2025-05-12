@@ -5,17 +5,10 @@
 
 # Bun UI Library
 
+[![npm version](https://img.shields.io/npm/v/@bun-ui/react.svg)](https://www.npmjs.com/package/@bun-ui/react)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Bun UI is a modern, lightweight, and customizable React component library designed to help developers build stunning and accessible user interfaces effortlessly. It provides a collection of reusable, responsive, and fully typed components that integrate seamlessly into your projects.
-
-## ✨ Features
-
-- **Lightweight**: Optimized for performance with minimal overhead.
-- **Customizable**: Easily adaptable to your design system.
-- **Responsive**: Designed with mobile-first principles.
-- **Accessible**: Built with accessibility in mind to ensure inclusivity.
-- **TypeScript Support**: Fully typed for a better developer experience.
-- **Extensive Components**: Includes a variety of pre-built, reusable components.
-- Radix UI Primitives – Built on top of Radix UI for consistent behavior and accessibility.
 
 ## 📦 Installation
 
@@ -27,7 +20,48 @@ npm install @bun-ui/react
 
 # Using pnpm
 pnpm add @bun-ui/react
+
+# Using yarn
+yarn add @bun-ui/react
 ```
+
+### Peer Dependencies
+
+This package requires the following peer dependencies:
+
+```json
+{
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tailwindcss": "^3.0.0"
+  }
+}
+```
+
+## 🚀 Quick Start
+
+```tsx
+import { Button } from "@bun-ui/react"
+
+function App() {
+  return (
+    <Button variant="filled" color="primary">
+      Click me
+    </Button>
+  )
+}
+```
+
+## ✨ Features
+
+- **Lightweight**: Optimized for performance with minimal overhead.
+- **Customizable**: Easily adaptable to your design system.
+- **Responsive**: Designed with mobile-first principles.
+- **Accessible**: Built with accessibility in mind to ensure inclusivity.
+- **TypeScript Support**: Fully typed for a better developer experience.
+- **Extensive Components**: Includes a variety of pre-built, reusable components.
+- **Radix UI Primitives**: Built on top of Radix UI for consistent behavior and accessibility.
 
 ## 📚 Documentation
 
