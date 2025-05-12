@@ -7,15 +7,49 @@ import {
   AccordionItem,
   AccordionTrigger,
   Alert,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogTrigger,
   AlertTitle,
   Avatar,
   AvatarFallback,
   AvatarImage,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
   Button,
   Checkbox,
+  CommandMenu,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuList,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogTitle,
+  DialogTrigger,
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
   Input,
+  Label,
   Link,
   Pagination,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
   Progress,
   RadioGroup,
   RadioGroupItem,
@@ -36,7 +70,7 @@ import {
 } from "@bun-ui/react"
 import { Calendar } from "@bun-ui/react/calendar"
 import { useToast } from "@bun-ui/react/toast"
-import { AlignCenter, AlignLeft, AlignRight } from "lucide-react"
+import { AlignCenter, AlignLeft, AlignRight, Menu } from "lucide-react"
 
 import { ComponentCard } from "@/components/component-card"
 
@@ -44,46 +78,47 @@ export default function ComponentsPage() {
   const { createToast } = useToast()
 
   return (
-    <div className="mx-auto max-w-5xl space-y-14 px-4 py-12">
+    <div className="mx-auto max-w-7xl space-y-14 px-4 py-12">
       <header className="space-y-2">
         <h1 className="text-4xl font-bold tracking-tight">
           🧩 Component Gallery
         </h1>
         <p className="text-muted-foreground text-lg">
-          Preview and interact with all available components from{" "}
-          <code>@bun-ui/react</code>. Use this space as a sandbox or style
-          reference while building.
+          A comprehensive showcase of all available components from{" "}
+          <code>@bun-ui/react</code>. Use this space as a reference while
+          building your applications.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+        {/* Form Components */}
         <ComponentCard
           title="Button"
-          description="Clickable elements for actions."
+          description="Clickable elements for actions and form submissions."
         >
           <div className="flex gap-2">
             <Button>Submit</Button>
-            <Button variant="outlined" disabled>
-              <Spinner size="sm" className="mr-2" color="current" />
-              Loading
-            </Button>
+            <Button variant="outlined">Cancel</Button>
           </div>
         </ComponentCard>
 
         <ComponentCard
           title="Input"
-          description="Text input for forms or data capture."
+          description="Text input fields for forms and data capture."
         >
           <Input label="Email Address" placeholder="you@example.com" />
         </ComponentCard>
 
-        <ComponentCard title="Checkbox" description="Used for binary options.">
+        <ComponentCard
+          title="Checkbox"
+          description="Binary selection control for forms."
+        >
           <Checkbox defaultChecked label="I agree to the terms" />
         </ComponentCard>
 
         <ComponentCard
           title="Radio Group"
-          description="Select one option from a set."
+          description="Single selection from a set of options."
         >
           <RadioGroup defaultValue="light" className="space-y-2">
             <RadioGroupItem id="light" value="light" label="Light Mode" />
@@ -92,19 +127,8 @@ export default function ComponentsPage() {
         </ComponentCard>
 
         <ComponentCard
-          title="Select (Basic)"
-          description="A dropdown to pick a fruit."
-        >
-          <Select placeholder="Select fruit" label="Fruit">
-            <SelectItem value="apple">Apple</SelectItem>
-            <SelectItem value="banana">Banana</SelectItem>
-            <SelectItem value="grape">Grape</SelectItem>
-          </Select>
-        </ComponentCard>
-
-        <ComponentCard
-          title="Select (Grouped)"
-          description="Grouped select options by category."
+          title="Select"
+          description="Dropdown selection with support for groups."
         >
           <Select placeholder="Select language" label="Programming Language">
             <SelectGroup>
@@ -121,111 +145,167 @@ export default function ComponentsPage() {
         </ComponentCard>
 
         <ComponentCard
+          title="Switch"
+          description="Toggle switch for binary settings."
+        >
+          <Switch label="Enable notifications" />
+        </ComponentCard>
+
+        <ComponentCard title="Label" description="Accessible form labels.">
+          <Label>Username</Label>
+        </ComponentCard>
+
+        {/* Navigation Components */}
+        <ComponentCard
           title="Tabs"
-          description="Navigate between content sections."
+          description="Content organization with tabbed navigation."
         >
           <Tabs defaultValue="account">
             <TabList>
               <TabTrigger value="account">Account</TabTrigger>
-              <TabTrigger value="billing">Billing</TabTrigger>
+              <TabTrigger value="settings">Settings</TabTrigger>
             </TabList>
             <TabContent value="account">
-              <div className="mt-4 h-[21rem] space-y-2">
-                <h3 className="text-lg font-semibold">Account Settings</h3>
-                <p className="text-muted-foreground text-sm">
-                  Update your personal information and change your password.
-                </p>
-                <div className="space-y-2">
-                  <Input label="Name" placeholder="John Doe" />
-                  <Input label="Email" placeholder="john@example.com" />
-                </div>
-                <Button className="mt-2">Save Changes</Button>
+              <div className="mt-4">
+                <p className="text-sm">Account content goes here</p>
               </div>
             </TabContent>
-
-            <TabContent value="billing">
-              <div className="mt-4 h-[21rem] space-y-2">
-                <h3 className="text-lg font-semibold">Billing Info</h3>
-                <p className="text-muted-foreground text-sm">
-                  Manage your payment methods and view invoices.
-                </p>
-                <div className="space-y-2">
-                  <Input
-                    label="Card Number"
-                    placeholder="•••• •••• •••• 4242"
-                    autoComplete="off"
-                    autoCorrect="off"
-                  />
-                  <Input
-                    label="Expiration Date"
-                    placeholder="MM / YY"
-                    autoComplete="off"
-                    autoCorrect="off"
-                  />
-                  <Input
-                    label="Billing Address"
-                    placeholder="1234 Main St"
-                    autoComplete="off"
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <Button className="mt-2" variant="outlined">
-                    Update Billing
-                  </Button>
-                  <Button className="mt-2" variant="text">
-                    View Invoices
-                  </Button>
-                </div>
+            <TabContent value="settings">
+              <div className="mt-4">
+                <p className="text-sm">Settings content goes here</p>
               </div>
             </TabContent>
           </Tabs>
         </ComponentCard>
 
         <ComponentCard
-          title="Accordion"
-          description="Expandable content panels."
+          title="Breadcrumb"
+          description="Navigation hierarchy indicator."
         >
-          <Accordion type="multiple" className="w-full">
-            <AccordionItem value="faq1">
-              <AccordionTrigger>What is Bun UI?</AccordionTrigger>
-              <AccordionContent>
-                Bun UI is a customizable component library designed for modern
-                React apps.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="faq2">
-              <AccordionTrigger>Is it customizable?</AccordionTrigger>
-              <AccordionContent>
-                Yes, all components support theming and utility class overrides.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          <Breadcrumb>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbItem>Gallery</BreadcrumbItem>
+          </Breadcrumb>
         </ComponentCard>
 
         <ComponentCard
           title="Link"
-          description="Text-based navigation and hyperlinks."
+          description="Text-based navigation elements."
         >
-          <div className="flex gap-4">
-            <Link asChild>
-              <NextLink href="/">Back to Home</NextLink>
-            </Link>
-          </div>
+          <Link asChild>
+            <NextLink href="/">Back to Home</NextLink>
+          </Link>
+        </ComponentCard>
+
+        {/* Overlay Components */}
+        <ComponentCard
+          title="Dialog"
+          description="Modal dialog for important interactions."
+        >
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button>Open Dialog</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogTitle>Dialog Title</DialogTitle>
+              <DialogDescription>
+                This is a dialog description.
+              </DialogDescription>
+              <DialogFooter className="justify-start">
+                <Button>Confirm</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </ComponentCard>
 
         <ComponentCard
-          title="Switch"
-          description="Toggle between enabled/disabled states."
+          title="Alert Dialog"
+          description="Confirmation dialog for critical actions."
         >
-          <div className="flex gap-6">
-            <Switch label="Enable feature" />
-            <Switch label="Disabled toggle" disabled />
-          </div>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button>Delete Account</Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone.
+              </AlertDialogDescription>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction color="destructive">
+                  Continue
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </ComponentCard>
+
+        <ComponentCard
+          title="Drawer"
+          description="Side panel for additional content."
+        >
+          <Drawer>
+            <DrawerTrigger asChild>
+              <Button>
+                <Menu className="mr-2 h-4 w-4" />
+                Open Drawer
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle>Drawer Title</DrawerTitle>
+              </DrawerHeader>
+              <div className="p-4">Drawer content goes here</div>
+            </DrawerContent>
+          </Drawer>
+        </ComponentCard>
+
+        <ComponentCard title="Popover" description="Floating content panel.">
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button>Open Popover</Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <p>Popover content goes here</p>
+            </PopoverContent>
+          </Popover>
+        </ComponentCard>
+
+        <ComponentCard
+          title="Dropdown Menu"
+          description="Contextual menu of actions."
+        >
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button>Open Menu</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Settings</DropdownMenuItem>
+              <DropdownMenuItem>Logout</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </ComponentCard>
+
+        {/* Feedback Components */}
+        <ComponentCard
+          title="Alert"
+          description="Prominent message for user feedback."
+        >
+          <Alert>
+            <AlertTitle>Heads up!</AlertTitle>
+          </Alert>
         </ComponentCard>
 
         <ComponentCard
           title="Toast"
-          description="Temporary message notification."
+          description="Temporary notification messages."
         >
           <Button
             onClick={() => createToast({ title: "Item saved successfully" })}
@@ -235,24 +315,19 @@ export default function ComponentsPage() {
         </ComponentCard>
 
         <ComponentCard
-          title="Alert"
-          description="Prominent messages for feedback."
+          title="Progress"
+          description="Progress indicator for operations."
         >
-          <Alert>
-            <AlertTitle>Heads up!</AlertTitle>
-          </Alert>
+          <Progress value={75} />
         </ComponentCard>
 
-        <ComponentCard title="Spinner" description="Loading indicator.">
-          <div className="flex items-center gap-4">
-            <Spinner />
-            <Spinner size="lg" color="primary" />
-          </div>
+        <ComponentCard title="Spinner" description="Loading state indicator.">
+          <Spinner size="lg" />
         </ComponentCard>
 
         <ComponentCard
           title="Skeleton"
-          description="Placeholder for loading content."
+          description="Content loading placeholder."
         >
           <div className="flex items-center gap-4">
             <Skeleton className="h-12 w-12 rounded-full" />
@@ -263,9 +338,37 @@ export default function ComponentsPage() {
           </div>
         </ComponentCard>
 
+        {/* Data Display Components */}
+        <ComponentCard title="Avatar" description="User profile image display.">
+          <div className="flex items-center gap-5">
+            <Avatar>
+              <AvatarImage src="/avatar.png" />
+              <AvatarFallback>KN</AvatarFallback>
+            </Avatar>
+          </div>
+        </ComponentCard>
+
         <ComponentCard
-          title="Toggle"
-          description="Switch between layout modes."
+          title="Calendar"
+          description="Date picker and calendar view."
+        >
+          <Calendar startMonth={new Date()} showOutsideDays />
+        </ComponentCard>
+
+        <ComponentCard title="Slider" description="Range selection control.">
+          <Slider size="md" defaultValue={30} />
+        </ComponentCard>
+
+        <ComponentCard
+          title="Pagination"
+          description="Page navigation control."
+        >
+          <Pagination count={10} defaultPage={1} color="primary" />
+        </ComponentCard>
+
+        <ComponentCard
+          title="Toggle Group"
+          description="Group of toggle buttons."
         >
           <ToggleGroup defaultValue="left">
             <ToggleGroupItem value="left" aria-label="Align Left">
@@ -279,46 +382,35 @@ export default function ComponentsPage() {
             </ToggleGroupItem>
           </ToggleGroup>
         </ComponentCard>
-        <ComponentCard title="Avatar">
-          <div className="flex items-center gap-5">
-            <Avatar>
-              <AvatarImage src="/avatar.png" />
-            </Avatar>
-            <Avatar>
-              <AvatarFallback>KN</AvatarFallback>
-            </Avatar>
-          </div>
+
+        <ComponentCard
+          title="Command Menu"
+          description="Command palette interface."
+        >
+          <CommandMenu>
+            <CommandMenuInput placeholder="Search..." />
+            <CommandMenuList>
+              {/* Add a first hidden item to prevent auto focus/scrolling to this component */}
+              <CommandMenuItem value="-" className="hidden"></CommandMenuItem>
+              <CommandMenuItem value="settings">Settings</CommandMenuItem>
+              <CommandMenuItem value="help">Help</CommandMenuItem>
+            </CommandMenuList>
+          </CommandMenu>
         </ComponentCard>
-        <ComponentCard title="Progress">
-          <Progress value={20} />
-        </ComponentCard>
-        <ComponentCard title="Calendar">
-          <div className="flex w-full items-center justify-center">
-            <Calendar
-              startMonth={
-                new Date(new Date().getFullYear(), new Date().getMonth() - 5, 1)
-              }
-              showOutsideDays
-            />
-          </div>
-        </ComponentCard>
-        <ComponentCard title="Slider">
-          <div className="flex w-full flex-col items-center justify-center gap-10">
-            <Slider size="sm" />
-            <Slider size="md" />
-            <Slider size="lg" />
-            <Slider disabled size="lg" />
-          </div>
-        </ComponentCard>
-        <ComponentCard title="Pagination">
-          <div className="flex w-full flex-col items-center justify-center gap-10">
-            <Pagination count={10} defaultPage={3} color="primary" />
-            <Pagination count={10} color="neutral" />
-            <Pagination count={10} color="secondary" />
-            <Pagination count={10} variant="outlined" color="primary" />
-            <Pagination count={10} variant="outlined" color="neutral" />
-            <Pagination count={10} variant="outlined" color="secondary" />
-          </div>
+
+        <ComponentCard
+          title="Accordion"
+          description="Expandable content sections."
+        >
+          <Accordion type="single" className="w-full">
+            <AccordionItem value="faq1">
+              <AccordionTrigger>What is Bun UI?</AccordionTrigger>
+              <AccordionContent>
+                Bun UI is a customizable component library designed for modern
+                React apps.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </ComponentCard>
       </div>
     </div>

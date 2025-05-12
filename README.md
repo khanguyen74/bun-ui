@@ -5,17 +5,67 @@
 
 # Bun UI Library
 
-Bun UI is a modern, lightweight, and customizable React component library designed to help developers build stunning and accessible user interfaces effortlessly. It provides a collection of reusable, responsive, and fully typed components that integrate seamlessly into your projects.
+[![npm version](https://img.shields.io/npm/v/@bun-ui/react.svg)](https://www.npmjs.com/package/@bun-ui/react)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+
+Bun UI is a modern React component library that offers both Tailwind CSS integration and standalone usage. Built with accessibility in mind and designed for flexibility, it provides a collection of reusable, responsive, and fully typed components that adapt to your workflow.
+
+![Bun UI Preview](apps/www/public/preview.png)
+
+## 🚀 Quick Start
+
+```bash
+# Using npm
+npm install @bun-ui/react
+
+# Using pnpm
+pnpm add @bun-ui/react
+
+# Using yarn
+yarn add @bun-ui/react
+```
+
+### With Tailwind CSS (Recommended)
+
+```js
+// tailwind.config.js
+module.exports = {
+  content: [
+    "../node_modules/@bun-ui/react/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+}
+```
+
+### Without Tailwind CSS
+
+```jsx
+// Import all styles
+import "@bun-ui/react/index.css"
+
+// Or import component-specific styles
+import "@bun-ui/react/styles/button.css"
+```
 
 ## ✨ Features
 
-- **Lightweight**: Optimized for performance with minimal overhead.
-- **Customizable**: Easily adaptable to your design system.
-- **Responsive**: Designed with mobile-first principles.
-- **Accessible**: Built with accessibility in mind to ensure inclusivity.
-- **TypeScript Support**: Fully typed for a better developer experience.
-- **Extensive Components**: Includes a variety of pre-built, reusable components.
-- Radix UI Primitives – Built on top of Radix UI for consistent behavior and accessibility.
+- **Flexible Styling**: 
+  - Seamless Tailwind CSS integration
+  - Pre-built styles for non-Tailwind projects
+  - Component-specific style imports
+
+- **Modern Development**: 
+  - Full TypeScript support
+  - Minimal configuration
+  - Clear, consistent API
+
+- **Accessibility First**: Built with Radix UI primitives for robust keyboard navigation and screen reader support
+
+- **Lightweight**: Optimized for performance with minimal overhead
+
+- **Customizable**: Easily adaptable to your design system
+
+- **Extensive Components**: A growing collection of pre-built, reusable components
 
 ## 📚 Documentation
 
@@ -27,7 +77,17 @@ Bun UI is fully open source and designed with simplicity and developer freedom a
 
 Need a custom version of a component? Simply copy the source from the library into your project directory and tweak it to fit your design or specific use case — no complicated overrides or internal coupling.
 
-I believe great UI libraries should be transparent, flexible, and easy to extend.
+## 🏗️ Project Structure
+
+```
+bun-ui/
+├── apps/
+│   └── www/          # Documentation site
+├── packages/
+│   └── react/        # React component library
+└── packages/
+    └── tailwind/     # Tailwind CSS configuration
+```
 
 ## 🤝 Contributing
 

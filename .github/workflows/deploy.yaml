@@ -9,9 +9,7 @@ concurrency:
 
 jobs:
   deploy:
-    if: >
-      github.repository_owner == 'bunui-kit' &&
-      !startsWith(github.event.head_commit.message, 'chore(release)')
+    if: github.repository_owner == 'bunui-kit'
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
@@ -61,6 +59,7 @@ jobs:
         run:
           scp build-artifact.tar.gz
           ${{secrets.USERNAME}}@${{secrets.HOST}}:~/temp
+
       - name: Restart server
         run:
           ssh ${{secrets.USERNAME}}@${{secrets.HOST}}

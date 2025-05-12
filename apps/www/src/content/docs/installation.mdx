@@ -21,18 +21,11 @@ npm install @bun-ui/react
 
 ## 2. Setting Up Styles
 
-### With Tailwind CSS (v4)
+Bun UI provides two ways to use the components:
 
-```css
-/* app/globals.css */
+### Option 1: With Tailwind CSS (Recommended)
 
-/* Detect the components source in @bun-ui/react */
-/* change the pathname that matches your project structure */
-@import "../node_modules/@bun-ui/react/theme.css" layer(base);
-@source "../node_modules/@bun-ui/react/dist/";
-```
-
-### With Tailwind CSS (v3)
+If you're using Tailwind CSS, you can integrate Bun UI's components with your existing Tailwind setup:
 
 ```js
 // tailwind.config.js
@@ -45,14 +38,18 @@ module.exports = {
 }
 ```
 
-### Without Tailwind CSS
+This approach allows you to:
 
-If you're not using Tailwind CSS, you can include Bun UI's compiled CSS
-directly:
+- Customize components using Tailwind's utility classes
+- Maintain consistent styling with your existing Tailwind setup
+- Take advantage of Tailwind's optimization features
+
+### Option 2: Without Tailwind CSS
+
+If you're not using Tailwind CSS, you can use Bun UI's pre-built styles:
 
 ```jsx
 // app/layout.tsx or entry point
-
 import "@bun-ui/react/index.css"
 
 function RootLayout({ children }: { children: React.ReactNode }) {
@@ -60,8 +57,11 @@ function RootLayout({ children }: { children: React.ReactNode }) {
 }
 ```
 
-This will include all the necessary styles for the `@bun-ui/react` components in
-your project.
+This approach:
+
+- Requires no additional configuration
+- Provides ready-to-use styled components
+- Works with any React project
 
 ## 3. Example Usage
 

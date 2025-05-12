@@ -1,8 +1,7 @@
 "use client"
 
 import { Pagination, PaginationItem } from "@bun-ui/react"
-
-import { cx } from "@/lib/classnames"
+import clsx from "clsx"
 
 export const PaginationCustomRender = () => {
   return (
@@ -16,7 +15,7 @@ export const PaginationCustomRender = () => {
           return (
             <div
               {...props}
-              className={cx(
+              className={clsx(
                 "flex h-8 w-8 items-center justify-center rounded-full text-sm transition-colors",
                 item.selected
                   ? "bg-primary text-primary-foreground"
@@ -40,7 +39,7 @@ export const PaginationCustomRender = () => {
           return (
             <div
               {...props}
-              className={cx(
+              className={clsx(
                 "flex h-8 w-8 items-center justify-center rounded-full text-sm transition-colors",
                 "hover:bg-muted cursor-pointer",
                 item.disabled && "cursor-not-allowed opacity-50"
