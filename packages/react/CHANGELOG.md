@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.30
+
+### Patch Changes
+
+- eb6679e: update readme and ui changes
+
 ## 0.2.29
 
 ### Patch Changes
