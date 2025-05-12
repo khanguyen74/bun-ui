@@ -1,5 +1,12 @@
 # @bun-ui/react
 
+## 0.2.29
+
+### Patch Changes
+
+- b869e4e: - add pagination
+  - prevent bundling internal componenent/library
+
 ## 0.2.28
 
 ### Patch Changes
