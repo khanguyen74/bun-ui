@@ -1,10 +1,16 @@
 "use client"
 
 import React, { useMemo } from "react"
+import { useControlled } from "@bun-ui/react"
 import { cva } from "class-variance-authority"
-import { ChevronLeft, ChevronRight, Ellipsis } from "lucide-react"
+import {
+  ChevronFirst,
+  ChevronLast,
+  ChevronLeft,
+  ChevronRight,
+  Ellipsis,
+} from "lucide-react"
 
-import { useControlled } from "../../hooks/use-controlled"
 import { cx, range } from "../../lib"
 import { Button, type ButtonProps } from "../button"
 
@@ -122,6 +128,10 @@ const PaginationItem = React.forwardRef<
       content = <ChevronLeft />
     } else if (type === "next") {
       content = <ChevronRight />
+    } else if (type === "first") {
+      content = <ChevronFirst />
+    } else if (type === "last") {
+      content = <ChevronLast />
     }
     return (
       <Button
@@ -180,6 +190,8 @@ interface PaginationProps
   color?: "primary" | "secondary" | "neutral"
 
   onChange?: (page: number) => void
+
+  renderItem?: (item: PaginationItemProps) => React.ReactNode
 }
 
 const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
@@ -200,6 +212,7 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
       size = "md",
       variant = "text",
       color = "neutral",
+      renderItem = (item) => <PaginationItem {...item} />,
       ...props
     },
     ref
@@ -216,6 +229,8 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
       onChange?.(value)
     }
 
+    // adopted from
+    // github.com/mui/material-ui/blob/master/packages/mui-material/src/usePagination/usePagination.js
     const items: PaginationItemProps[] = useMemo(() => {
       // Calculate ranges
       const startPages = range(1, Math.min(boundaryCount, count))
@@ -238,6 +253,7 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
       )
 
       // Build page items array
+
       const pageItems: PageType[] = [
         ...(showFirstButton ? ["first" as const] : []),
         ...(hidePrevButton ? [] : ["previous" as const]),
@@ -313,11 +329,9 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
 
     return (
       <nav className={cx("flex items-center", className)} ref={ref} {...props}>
-        <ul className="flex w-full gap-x-2">
+        <ul className="flex w-full items-center gap-x-2">
           {items.map((item, index) => (
-            <li key={index}>
-              <PaginationItem {...item} />
-            </li>
+            <li key={index}>{renderItem(item)}</li>
           ))}
         </ul>
       </nav>
