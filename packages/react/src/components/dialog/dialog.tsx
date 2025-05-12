@@ -80,6 +80,17 @@ const DialogContent = React.forwardRef<
   </DialogPortal>
 ))
 
+const DialogFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    className={cx("my-3 flex justify-end", className)}
+    ref={ref}
+    {...props}
+  />
+))
+
 const DialogDescription = React.forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
@@ -99,4 +110,5 @@ export {
   DialogTitle,
   DialogClose,
   DialogDescription,
+  DialogFooter,
 }
