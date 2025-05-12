@@ -19,6 +19,42 @@ import { File, Puzzle, Search } from "lucide-react"
 import { SideBarNavItem, sideBarNavs } from "@/config/docs"
 import { docs } from "../.velite"
 
+// Helper function to get text snippet around the match
+const getTextSnippet = (
+  text: string,
+  searchValue: string,
+  snippetLength = 50
+) => {
+  if (!text || !searchValue) return null
+  const index = text.toLowerCase().indexOf(searchValue.toLowerCase())
+  if (index === -1) return null
+
+  const start = Math.max(0, index - snippetLength)
+  const end = Math.min(text.length, index + searchValue.length + snippetLength)
+  let snippet = text.slice(start, end)
+
+  // Add ellipsis if we're not at the start/end
+  if (start > 0) snippet = "..." + snippet
+  if (end < text.length) snippet = snippet + "..."
+
+  return snippet
+}
+
+// Helper function to highlight matching text
+const highlightMatch = (text: string, searchValue: string) => {
+  if (!text || !searchValue) return text
+  const regex = new RegExp(`(${searchValue})`, "gi")
+  return text.split(regex).map((part, i) =>
+    regex.test(part) ? (
+      <mark key={i} className="bg-primary/20">
+        {part}
+      </mark>
+    ) : (
+      part
+    )
+  )
+}
+
 export const HeaderCommand = () => {
   const [open, setOpen] = useState(false)
   const [inputValue, setInputValue] = useState("")
@@ -36,6 +72,7 @@ export const HeaderCommand = () => {
     document.addEventListener("keydown", down)
     return () => document.removeEventListener("keydown", down)
   }, [])
+
   const handleOpen = () => {
     setOpen(true)
   }
@@ -67,21 +104,71 @@ export const HeaderCommand = () => {
   }
 
   const contentResults = useMemo(() => {
-    const searchValue = value.toLowerCase()
-    return docs.filter((doc) => {
-      if (!searchValue) return true
-      const title = doc.title.toLowerCase() || ""
-      const description = doc.description?.toLowerCase() || ""
-      return (
-        title.includes(searchValue) ||
-        doc.links?.source?.toLowerCase().includes(searchValue) ||
-        description.includes(searchValue)
-      )
-    })
-  }, [value])
+    const searchValue = inputValue.toLowerCase()
+    return docs
+      .filter((doc) => {
+        if (!searchValue) return true
+        const title = doc.title.toLowerCase() || ""
+        const description = doc.description?.toLowerCase() || ""
+
+        // Get all toc items and their nested items
+        const tocItems =
+          doc.toc?.flatMap((item) => [
+            item.title,
+            ...(item.items?.map((subItem) => subItem.title) || []),
+          ]) || []
+        const tocText = tocItems.join(" ").toLowerCase()
+
+        return (
+          title.includes(searchValue) ||
+          description.includes(searchValue) ||
+          tocText.includes(searchValue)
+        )
+      })
+      .map((doc) => {
+        // Only get snippets if there's a search value
+        if (!inputValue) {
+          return {
+            ...doc,
+            matchSnippet: null,
+          }
+        }
+
+        // Try to find a match in description first
+        const descriptionMatch = getTextSnippet(
+          doc.description || "",
+          inputValue
+        )
+
+        // Find matching TOC items
+        const matchingTocItems =
+          doc.toc?.flatMap((item) => {
+            const matches = []
+            if (item.title.toLowerCase().includes(inputValue.toLowerCase())) {
+              matches.push(item.title)
+            }
+            const matchingSubItems = item.items?.filter((subItem) =>
+              subItem.title.toLowerCase().includes(inputValue.toLowerCase())
+            )
+            if (matchingSubItems?.length) {
+              matches.push(...matchingSubItems.map((subItem) => subItem.title))
+            }
+            return matches
+          }) || []
+
+        // If we have matching TOC items, use the first one
+        const tocMatch =
+          matchingTocItems.length > 0 ? matchingTocItems[0] : null
+
+        return {
+          ...doc,
+          matchSnippet: descriptionMatch || tocMatch,
+        }
+      })
+  }, [inputValue])
 
   const navItems = useMemo<SideBarNavItem[]>(() => {
-    if (!value) return sideBarNavs
+    if (!inputValue) return sideBarNavs
     const navs: SideBarNavItem[] = []
     const matchingUrls = new Set(contentResults.map((item) => item.links.docs))
     sideBarNavs.forEach((nav) => {
@@ -97,7 +184,7 @@ export const HeaderCommand = () => {
       }
     })
     return navs
-  }, [contentResults, value])
+  }, [contentResults, inputValue])
 
   return (
     <>
@@ -134,16 +221,26 @@ export const HeaderCommand = () => {
               {navItems.map((nav) => (
                 <CommandMenuGroup heading={nav.title} key={nav.title}>
                   {nav.items.map((item) => {
+                    const doc = contentResults.find(
+                      (d) => d.links.docs === item.url
+                    )
                     return (
                       <CommandMenuItem
                         key={item.title}
-                        value={item.title}
-                        onSelect={() => {
-                          runCommand(handleSelectUrl(item.url as string))
-                        }}
+                        value={item.url}
+                        onSelect={() => handleSelectUrl(item.url as string)}
                       >
-                        {renderIcon(item.url as string)}
-                        {item.title}
+                        <div className="flex flex-col gap-1">
+                          <div className="flex items-center gap-2">
+                            {renderIcon(item.url as string)}
+                            <span>{item.title}</span>
+                          </div>
+                          {doc?.matchSnippet && (
+                            <p className="text-muted-foreground text-xs">
+                              {highlightMatch(doc.matchSnippet, inputValue)}
+                            </p>
+                          )}
+                        </div>
                       </CommandMenuItem>
                     )
                   })}
