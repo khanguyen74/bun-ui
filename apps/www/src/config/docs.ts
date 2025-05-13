@@ -12,6 +12,11 @@ export const sideBarNavs: SideBarNavItem[] = [
         url: "/docs/installation",
         items: [],
       },
+      {
+        title: "Credits",
+        url: "/docs/credits",
+        items: [],
+      },
     ],
   },
   {

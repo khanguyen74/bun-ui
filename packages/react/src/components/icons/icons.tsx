@@ -1,3 +1,9 @@
+/**
+ * Icon from Lucide (https://lucide.dev)
+ * License: ISC
+ * Source: https://github.com/lucide-icons/lucide
+ */
+
 import { cx } from "../../lib"
 
 type IconProps = React.SVGProps<SVGSVGElement>
