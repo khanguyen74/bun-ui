@@ -132,7 +132,7 @@ const CircleAlertIcon = ({ className, ...props }: IconProps) => (
   </svg>
 )
 
-const CircleCheckBig = ({ className, ...props }: IconProps) => (
+const CircleCheckBigIcon = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -250,7 +250,7 @@ export {
   ChevronLeftIcon,
   CheckIcon,
   CircleAlertIcon,
-  CircleCheckBig,
+  CircleCheckBigIcon,
   TriangleAlertIcon,
   SearchIcon,
   CloseIcon,

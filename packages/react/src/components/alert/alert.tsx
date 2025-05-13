@@ -1,9 +1,12 @@
 import React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { CircleCheckBigIcon, TriangleAlertIcon } from "lucide-react"
 
 import { cx } from "../../lib"
-import { CircleAlertIcon } from "../icons"
+import {
+  CircleAlertIcon,
+  CircleCheckBigIcon,
+  TriangleAlertIcon,
+} from "../icons"
 
 const alertVariants = cva(
   "relative w-full rounded-lg border border-border px-4 py-3 text-sm  [&>svg]:text-foreground flex",
