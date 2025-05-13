@@ -402,12 +402,19 @@ export default function ComponentsPage() {
           title="Accordion"
           description="Expandable content sections."
         >
-          <Accordion type="single" className="w-full">
+          <Accordion type="multiple" className="w-full">
             <AccordionItem value="faq1">
               <AccordionTrigger>What is Bun UI?</AccordionTrigger>
               <AccordionContent>
                 Bun UI is a customizable component library designed for modern
                 React apps.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="faq2">
+              <AccordionTrigger>Can I customize styles?</AccordionTrigger>
+              <AccordionContent>
+                Absolutely. All components are unopinionated and easy to theme
+                using Tailwind or your design tokens.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
