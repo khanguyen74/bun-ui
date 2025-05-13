@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.31
+
+### Patch Changes
+
+- f3dad12: add icons directly for internal use
+
 ## 0.2.30
 
 ### Patch Changes
