@@ -14,7 +14,7 @@ export const ComponentCard = ({
       {description && (
         <p className="text-muted-foreground mb-4 text-sm">{description}</p>
       )}
-      <div className="mt-5">{children}</div>
+      <div className="mt-5 w-full">{children}</div>
     </div>
   )
 }

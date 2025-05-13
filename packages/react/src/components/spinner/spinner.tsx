@@ -1,8 +1,8 @@
 import React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { LoaderCircle } from "lucide-react"
 
 import { cx } from "../../lib"
+import { LoaderCircleIcon } from "../icons"
 
 const spinnerVariants = cva("inline-flex animate-spin", {
   variants: {
@@ -45,7 +45,7 @@ const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
       className={cx(spinnerVariants({ size, color, className }))}
       {...props}
     >
-      <LoaderCircle />
+      <LoaderCircleIcon />
     </span>
   )
 )

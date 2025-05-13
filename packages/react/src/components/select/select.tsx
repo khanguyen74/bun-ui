@@ -2,9 +2,9 @@
 
 import React from "react"
 import * as SelectPrimitives from "@radix-ui/react-select"
-import { Check, ChevronDown } from "lucide-react"
 
 import { cx } from "../../lib/utils"
+import { CheckIcon, ChevronDownIcon } from "../icons"
 import { Label } from "../label"
 
 interface SelectProps
@@ -51,7 +51,7 @@ const Select = React.forwardRef<
             {value}
           </SelectPrimitives.Value>
           <SelectPrimitives.Icon>
-            <ChevronDown className="h-4 w-4" />
+            <ChevronDownIcon className="h-4 w-4" />
           </SelectPrimitives.Icon>
         </SelectPrimitives.Trigger>
 
@@ -103,7 +103,7 @@ const SelectItem = React.forwardRef<
       {children}
     </SelectPrimitives.ItemText>
     <SelectPrimitives.ItemIndicator className="absolute right-1 flex items-center justify-center">
-      <Check className="h-3 w-3" />
+      <CheckIcon className="h-3 w-3" />
     </SelectPrimitives.ItemIndicator>
   </SelectPrimitives.Item>
 ))

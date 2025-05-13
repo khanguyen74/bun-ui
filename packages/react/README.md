@@ -6,6 +6,7 @@
 # Bun UI Library
 
 [![npm version](https://img.shields.io/npm/v/@bun-ui/react.svg)](https://www.npmjs.com/package/@bun-ui/react)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/@bun-ui/react)](https://bundlephobia.com/package/@bun-ui/react)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Bun UI is a modern, lightweight, and customizable React component library designed to help developers build stunning and accessible user interfaces effortlessly. It provides a collection of reusable, responsive, and fully typed components that integrate seamlessly into your projects.
@@ -34,7 +35,6 @@ This package requires the following peer dependencies:
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "tailwindcss": "^3.0.0"
   }
 }
 ```

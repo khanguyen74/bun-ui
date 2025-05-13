@@ -1,6 +1,5 @@
 "use client"
 
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import {
   DayPicker,
   useDayPicker,
@@ -10,6 +9,7 @@ import {
 
 import { cx } from "../../lib"
 import { Button, buttonVariants } from "../button"
+import { ChevronLeftIcon, ChevronRightIcon } from "../icons"
 
 export type CalendarProps = DayPickerProps & {
   monthsClassName?: string
@@ -136,7 +136,8 @@ const Calendar = ({
       }}
       components={{
         Chevron: ({ orientation }) => {
-          const Icon = orientation === "left" ? ChevronLeft : ChevronRight
+          const Icon =
+            orientation === "left" ? ChevronLeftIcon : ChevronRightIcon
           return <Icon className="h-4 w-4" />
         },
         Nav: () => (
@@ -197,7 +198,7 @@ const Nav = ({
         disabled={!previousMonth}
         onClick={handlePreviousClick}
       >
-        <ChevronLeft />
+        <ChevronLeftIcon />
       </Button>
       <Button
         variant="outlined"
@@ -209,7 +210,7 @@ const Nav = ({
         disabled={!nextMonth}
         onClick={handleNextClick}
       >
-        <ChevronRight />
+        <ChevronRightIcon />
       </Button>
     </nav>
   )

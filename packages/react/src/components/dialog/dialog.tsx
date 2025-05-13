@@ -1,8 +1,8 @@
 import React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
-import { X } from "lucide-react"
 
 import { cx } from "../../lib"
+import { CloseIcon } from "../icons"
 
 const Dialog = DialogPrimitive.Root
 
@@ -72,7 +72,7 @@ const DialogContent = React.forwardRef<
             "hover:not-disabled:cursor-pointer"
           )}
         >
-          <X className="h-4 w-4" />
+          <CloseIcon className="h-4 w-4" />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
       )}

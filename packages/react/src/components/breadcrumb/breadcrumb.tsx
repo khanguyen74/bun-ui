@@ -1,7 +1,7 @@
 import React from "react"
-import { ChevronRight } from "lucide-react"
 
 import { cx } from "../../lib"
+import { ChevronRightIcon } from "../icons"
 import { Link, type LinkProps } from "../link"
 
 const Breadcrumb = React.forwardRef<
@@ -16,7 +16,7 @@ const BreadcrumbList = React.forwardRef<HTMLOListElement, BreadcrumbListProps>(
   (
     {
       className,
-      separator = <ChevronRight className="h-4 w-4" />,
+      separator = <ChevronRightIcon className="h-4 w-4" />,
       children,
       ...props
     },

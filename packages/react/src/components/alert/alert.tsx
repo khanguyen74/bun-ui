@@ -1,8 +1,12 @@
 import React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { CircleAlert, CircleCheckBig, TriangleAlert } from "lucide-react"
 
 import { cx } from "../../lib"
+import {
+  CircleAlertIcon,
+  CircleCheckBigIcon,
+  TriangleAlertIcon,
+} from "../icons"
 
 const alertVariants = cva(
   "relative w-full rounded-lg border border-border px-4 py-3 text-sm  [&>svg]:text-foreground flex",
@@ -34,11 +38,11 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   ({ className, variant, icon: iconProps, children, ...props }, ref) => {
     let icon = iconProps
     if (icon === undefined) {
-      icon = <CircleAlert className="h-4 w-4" />
+      icon = <CircleAlertIcon className="h-4 w-4" />
       if (variant === "success") {
-        icon = <CircleCheckBig className="h-4 w-4" />
+        icon = <CircleCheckBigIcon className="h-4 w-4" />
       } else if (variant === "warning") {
-        icon = <TriangleAlert className="h-4 w-4" />
+        icon = <TriangleAlertIcon className="h-4 w-4" />
       }
     }
     return (
