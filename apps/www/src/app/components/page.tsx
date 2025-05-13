@@ -22,6 +22,7 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbList,
   Button,
   Checkbox,
   CommandMenu,
@@ -183,13 +184,17 @@ export default function ComponentsPage() {
           description="Navigation hierarchy indicator."
         >
           <Breadcrumb>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem>Gallery</BreadcrumbItem>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbItem className="text-foreground">
+                Gallery
+              </BreadcrumbItem>
+            </BreadcrumbList>
           </Breadcrumb>
         </ComponentCard>
 
