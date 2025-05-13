@@ -1,5 +1,6 @@
 import { docsConfig } from "@/config/docs"
 import { DocsNav } from "@/components/docs-nav"
+import { Footer } from "@/components/footer"
 
 export default function DocsLayout({
   children,
@@ -9,7 +10,10 @@ export default function DocsLayout({
   return (
     <div className="block w-full grow lg:flex">
       <DocsNav config={docsConfig} />
-      {children}
+      <div className="flex w-full flex-col">
+        {children}
+        <Footer />
+      </div>
     </div>
   )
 }
