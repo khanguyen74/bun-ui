@@ -3,15 +3,15 @@
 import React, { useMemo } from "react"
 import { useControlled } from "@bun-ui/react"
 import { cva } from "class-variance-authority"
-import {
-  ChevronFirst,
-  ChevronLast,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react"
 
 import { cx, range } from "../../lib"
 import { Button, type ButtonProps } from "../button"
+import {
+  ChevronFirstIcon,
+  ChevronLastIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "../icons"
 
 type PageType =
   | "first"
@@ -122,13 +122,13 @@ const PaginationItem = React.forwardRef<
   ) => {
     let content: React.ReactNode = page
     if (type === "previous") {
-      content = <ChevronLeft />
+      content = <ChevronLeftIcon />
     } else if (type === "next") {
-      content = <ChevronRight />
+      content = <ChevronRightIcon />
     } else if (type === "first") {
-      content = <ChevronFirst />
+      content = <ChevronFirstIcon />
     } else if (type === "last") {
-      content = <ChevronLast />
+      content = <ChevronLastIcon />
     }
     if (type === "start-ellipsis" || type === "end-ellipsis") {
       return <div>...</div>

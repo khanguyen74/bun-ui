@@ -1,8 +1,8 @@
 import React, { useId } from "react"
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { Check } from "lucide-react"
 
 import { cx } from "../../lib/utils"
+import { CheckIcon } from "../icons"
 import { Label } from "../label"
 
 interface CheckboxProps
@@ -30,7 +30,7 @@ const Checkbox = React.forwardRef<
         <CheckboxPrimitive.CheckboxIndicator
           className={cx("flex items-center justify-center text-current")}
         >
-          <Check className="h-4 w-4" />
+          <CheckIcon className="h-4 w-4" />
         </CheckboxPrimitive.CheckboxIndicator>
       </CheckboxPrimitive.Root>
       {label && (
