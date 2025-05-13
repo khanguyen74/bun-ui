@@ -252,7 +252,7 @@ export default function ComponentsPage() {
         >
           <Drawer>
             <DrawerTrigger asChild>
-              <Button>
+              <Button variant="outlined">
                 <Menu className="mr-2 h-4 w-4" />
                 Open Drawer
               </Button>
@@ -352,7 +352,11 @@ export default function ComponentsPage() {
           title="Calendar"
           description="Date picker and calendar view."
         >
-          <Calendar startMonth={new Date()} showOutsideDays />
+          <Calendar
+            className="mx-auto"
+            startMonth={new Date()}
+            showOutsideDays
+          />
         </ComponentCard>
 
         <ComponentCard title="Slider" description="Range selection control.">
