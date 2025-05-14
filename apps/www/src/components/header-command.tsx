@@ -197,7 +197,7 @@ export const HeaderCommand = () => {
         <span className="mr-4 hidden sm:inline-flex">Search...</span>
         <kbd className="bg-muted pointer-events-none hidden items-center gap-1 rounded border px-1.5 font-sans text-xs font-medium opacity-100 select-none sm:flex">
           <span className="hidden [.os-macos_&]:block">⌘K</span>
-          <span className="hidden not-[.os-macos_&]:block">Ctrl&apos;K</span>
+          <span className="hidden not-[.os-macos_&]:block">Ctrl K</span>
         </kbd>
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
