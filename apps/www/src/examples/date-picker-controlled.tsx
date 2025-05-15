@@ -11,7 +11,7 @@ import {
 import { format } from "date-fns"
 import { CalendarDays } from "lucide-react"
 
-export const DatePickerBasic = () => {
+export const DatePickerControlled = () => {
   const [selectedDate, setSelectedDate] = useState<Date>()
 
   const handleDateChange = (date?: Date) => {
