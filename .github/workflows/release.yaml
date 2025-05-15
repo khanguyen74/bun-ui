@@ -33,17 +33,12 @@ jobs:
 
       - name: Check for Version Changes
         id: check_version
-        run: |
-          npx @changesets/cli status
-          echo "has_changes=$?" >> $GITHUB_OUTPUT
-        continue-on-error: true
+        run: npx @changesets/cli status
 
       - name: Build NPM Dependencies
-        if: steps.check_version.outputs.has_changes == '0'
         run: pnpm react:build && pnpm react:css
 
       - name: Create Release Pull Request or Publish to npm
-        if: steps.check_version.outputs.has_changes == '0'
         id: changesets
         uses: changesets/action@v1
         with:
