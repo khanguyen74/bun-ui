@@ -65,7 +65,7 @@ export const CardInteractive = () => {
               <p className="text-sm font-medium">Progress</p>
               <p className="text-muted-foreground text-sm">75% completed</p>
             </div>
-            <Progress value={75} className="w-24" />
+            <Progress value={75} className="w-24" color="neutral" />
           </div>
           <div className="flex items-center justify-between">
             <div className="space-y-1">
