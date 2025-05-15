@@ -85,7 +85,7 @@ export const CardInteractive = () => {
                 </Avatar>
               </div>
             </div>
-            <Button size="sm" variant="outlined">
+            <Button size="sm" color="neutral" variant="outlined">
               View Details
             </Button>
           </div>

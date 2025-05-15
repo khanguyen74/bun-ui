@@ -64,6 +64,14 @@ export const HeaderCommand = () => {
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || e.key === "/") {
+        // Check if the active element is an input or textarea
+        const activeElement = document.activeElement
+        if (
+          activeElement instanceof HTMLInputElement ||
+          activeElement instanceof HTMLTextAreaElement
+        ) {
+          return
+        }
         e.preventDefault()
         setOpen((open) => !open)
       }

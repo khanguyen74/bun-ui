@@ -36,6 +36,7 @@ export const sideBarNavs: SideBarNavItem[] = [
       { title: "Calendar", url: "/docs/components/calendar", items: [] },
       { title: "Card", url: "/docs/components/card", items: [] },
       { title: "Checkbox", url: "/docs/components/checkbox", items: [] },
+      { title: "Date Picker", url: "/docs/components/date-picker", items: [] },
       { title: "Dialog", url: "/docs/components/dialog", items: [] },
       { title: "Drawer", url: "/docs/components/drawer", items: [] },
       {
