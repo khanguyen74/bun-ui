@@ -6,7 +6,7 @@ import { useCallback } from "react"
 import { useTheme as useNextTheme } from "next-themes"
 
 const useTheme = () => {
-  const { resolvedTheme, setTheme } = useNextTheme()
+  const { resolvedTheme, setTheme, theme } = useNextTheme()
 
   const toggleDarkMode = useCallback(() => {
     if (!resolvedTheme) return
@@ -28,7 +28,8 @@ const useTheme = () => {
   }, [resolvedTheme])
 
   return {
-    theme: resolvedTheme,
+    theme,
+    resolvedTheme,
     /**
      * Switches between light and dark mode.
      * If the theme is "light", it changes to "dark", and if it's "dark", it changes to "light".

@@ -5,6 +5,6 @@ export const ProgressColor = () => (
     <Progress value={50} />
     <Progress color="secondary" value={50} />
     <Progress color="accent" value={50} />
-    <Progress color="info" value={50} />
+    <Progress color="neutral" value={50} />
   </div>
 )

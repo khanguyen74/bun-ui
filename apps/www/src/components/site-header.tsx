@@ -2,10 +2,9 @@ import NextLink from "next/link"
 import { Button } from "@bun-ui/react"
 
 import { siteConfig } from "@/config/site"
-import GithubIcon from "../icons/github-mark-white.svg"
-import GithubIconDark from "../icons/github-mark.svg"
 import { HeaderCommand } from "./header-command"
 import { HeaderLinks } from "./header-links"
+import { GithubIcon } from "./icons"
 import { MainNav } from "./main-nav"
 import { MobileNav } from "./mobile-nav"
 import ThemeSwitch from "./theme-switch"
@@ -22,12 +21,7 @@ export const SiteHeader = () => {
             <HeaderLinks />
             <Button size="icon" variant="text" asChild>
               <NextLink href={siteConfig.links.github} target="_blank">
-                <span className="hidden dark:block">
-                  <GithubIcon viewBox="0 0 96 96" />
-                </span>
-                <span className="hidden not-dark:block">
-                  <GithubIconDark viewBox="0 0 96 96" />
-                </span>
+                <GithubIcon className="text-foreground" />
               </NextLink>
             </Button>
             <ThemeSwitch />

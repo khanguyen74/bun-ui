@@ -3,7 +3,6 @@
 import * as React from "react"
 import Link, { LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
-import Logo from "@/icons/logo.svg"
 import {
   Button,
   Drawer,
@@ -15,6 +14,7 @@ import { Menu } from "lucide-react"
 
 import { docsConfig } from "@/config/docs"
 import { cx } from "@/lib/classnames"
+import { BunUIIcon } from "./icons"
 import { VersionBadge } from "./version-badge"
 
 export function MobileNav() {
@@ -70,7 +70,7 @@ export function MobileNav() {
         </DrawerContent>
       </Drawer>
       <Link href="/">
-        <Logo width={32} height={32} />
+        <BunUIIcon width={32} height={32} />
       </Link>
       <VersionBadge />
     </div>

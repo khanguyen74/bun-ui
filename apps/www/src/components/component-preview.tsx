@@ -30,7 +30,7 @@ export const ExampleCode = async ({ name, ext }: ExampleCodeProps) => {
         className="[&_pre]:max-h-[650px] [&_pre]:overflow-x-auto [&_pre]:rounded-md [&_pre]:p-2"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      <CopyButton value={content} className="absolute top-4 right-4" />
+      <CopyButton value={content} className="absolute top-2 right-2" />
     </div>
   )
 }

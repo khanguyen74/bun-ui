@@ -13,7 +13,7 @@ const spinnerVariants = cva("inline-flex animate-spin", {
       lg: "h-10 w-10 [&_svg]:h-10 [&_svg]:w-10",
     },
     color: {
-      info: "text-foreground",
+      neutral: "text-foreground",
       primary: "text-primary",
       secondary: "text-secondary",
       destructive: "text-destructive",
@@ -23,7 +23,7 @@ const spinnerVariants = cva("inline-flex animate-spin", {
   },
   defaultVariants: {
     size: "md",
-    color: "info",
+    color: "neutral",
   },
 })
 

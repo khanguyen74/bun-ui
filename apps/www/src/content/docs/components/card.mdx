@@ -1,0 +1,44 @@
+---
+title: Card
+description: A flexible container for displaying content with a consistent style.
+links:
+  source: components/card
+  docs: /docs/components/card
+---
+
+<ComponentPreview name="card-basic" />
+
+## Usage
+
+Import the `Card` component and its related subcomponents from `@bun-ui/react`:
+
+```tsx
+import { Card, CardHeader, CardContent, CardFooter } from "@bun-ui/react"
+```
+
+## Examples
+
+### With Footer
+
+<ComponentPreview name="card-footer-example" />
+
+### Interactive Card
+
+<ComponentPreview name="card-interactive" />
+
+## Customization
+
+The `Card` component and its subcomponents can be customized using the `className` prop or by extending their styles with your design system.
+
+```tsx
+<Card className="bg-gradient-to-r from-purple-500 to-pink-500">
+  <CardHeader className="text-white">
+    <h3>Gradient Card</h3>
+  </CardHeader>
+  <CardContent className="text-white">
+    Custom styled card content
+  </CardContent>
+</Card>
+```
+
+Refer to the source code for more advanced usage and customization options.

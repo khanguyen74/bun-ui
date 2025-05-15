@@ -20,6 +20,7 @@ export const metadata: Metadata = {
       "Build beautiful, accessible, and customizable React components with Bun UI. Powered by Radix UI, styled with Tailwind CSS, and built for modern web applications.",
     siteName: "Bun UI",
     type: "website",
+    url: "https://bun-ui.com",
     images: [
       {
         url: "https://bun-ui.com/opengraph-image.png",

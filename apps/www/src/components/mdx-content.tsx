@@ -146,10 +146,7 @@ const sharedComponents = {
           <CopyButton
             value={__rawString__}
             src={__src__}
-            className={cx(
-              "absolute top-4 right-4 z-20",
-              __withMeta__ && "top-16"
-            )}
+            className={cx("absolute top-3 right-2 z-20")}
           />
         )}
       </div>

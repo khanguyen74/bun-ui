@@ -1,0 +1,72 @@
+---
+title: DatePicker
+description: A date picker component that combines a calendar with a trigger element.
+links:
+  source: components/calendar
+  docs: /docs/components/date-picker
+---
+
+<ComponentPreview name="date-picker-basic" />
+
+## Usage
+
+The `DatePicker` component is built on top of the `Calendar` component
+and uses a `Popover` for the dropdown functionality. It provides
+a convenient way to select dates with various trigger elements.
+
+```tsx
+import {
+  Button,
+  Calendar,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@bun-ui/react"
+import { CalendarDays } from "lucide-react"
+
+export const DatePickerBasic = () => {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outlined" color="neutral" className="w-40">
+          <CalendarDays className="mr-2 h-4 w-4" />
+          Select a date
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <Calendar mode="single" />
+      </PopoverContent>
+    </Popover>
+  )
+}
+```
+
+## Examples
+
+### Controlled
+
+A simple date picker with a button trigger.
+
+<ComponentPreview name="date-picker-controlled" />
+
+### Range DatePicker
+
+A date picker that allows selecting a date range.
+
+<ComponentPreview name="date-picker-range" />
+
+### Input DatePicker
+
+A date picker with an input field trigger.
+
+<ComponentPreview name="date-picker-input" />
+
+## Customization
+
+The DatePicker component is highly customizable as it's built using the `Calendar` and `Popover` components. You can:
+
+- Use different trigger elements (Button, Input, etc.)
+- Customize the date format using the `format` function from `date-fns`
+- Add custom styling to the trigger and popover content
+- Implement different selection modes (single, range, multiple)
+- Add custom validation and date constraints

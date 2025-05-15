@@ -12,7 +12,7 @@ const progressVariants = cva(
         primary: "bg-primary/20 [&_div[data-state]]:bg-primary",
         secondary: "bg-secondary/20 [&_div[data-state]]:bg-secondary",
         accent: "bg-accent/20 [&_div[data-state]]:bg-accent",
-        info: "bg-foreground/20 [&_div[data-state]]:bg-foreground",
+        neutral: "bg-foreground/20 [&_div[data-state]]:bg-foreground",
       },
     },
     defaultVariants: {
