@@ -30,6 +30,7 @@ export const sideBarNavs: SideBarNavItem[] = [
       },
       { title: "Alert", url: "/docs/components/alert", items: [] },
       { title: "Avatar", url: "/docs/components/avatar", items: [] },
+      { title: "Badge", url: "/docs/components/badge", items: [] },
       { title: "Button", url: "/docs/components/button", items: [] },
       { title: "Breadcrumb", url: "/docs/components/breadcrumb", items: [] },
       { title: "Calendar", url: "/docs/components/calendar", items: [] },

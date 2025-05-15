@@ -19,6 +19,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
+  Badge,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -26,7 +27,6 @@ import {
   Button,
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   Checkbox,
   CommandMenu,
@@ -485,6 +485,15 @@ export default function ComponentsPage() {
               </div>
             </CardContent>
           </Card>
+        </ComponentCard>
+        <ComponentCard
+          title="Card"
+          description="Container for displaying content."
+        >
+          <div className="flex space-x-2">
+            <Badge>Plus</Badge>
+            <Badge color="accent">Premium</Badge>
+          </div>
         </ComponentCard>
       </div>
     </div>
