@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.32
+
+### Patch Changes
+
+- f7fa4fd: add Card and some changes
+
 ## 0.2.31
 
 ### Patch Changes
