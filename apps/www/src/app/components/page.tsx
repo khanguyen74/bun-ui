@@ -24,6 +24,10 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   Button,
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
   Checkbox,
   CommandMenu,
   CommandMenuInput,
@@ -427,6 +431,60 @@ export default function ComponentsPage() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
+        </ComponentCard>
+        <ComponentCard
+          title="Card"
+          description="Container for displaying content."
+        >
+          <Card>
+            <CardHeader className="items-center justify-between">
+              <div>
+                <h3 className="text-lg font-semibold">Project Status</h3>
+                <p className="text-muted-foreground text-sm">
+                  Last updated 2 hours ago
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-green-500" />
+                <span className="text-sm">Active</span>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">Progress</p>
+                    <p className="text-muted-foreground text-sm">
+                      75% completed
+                    </p>
+                  </div>
+                  <Progress value={75} className="w-24" />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">Team Members</p>
+                    <div className="flex -space-x-2">
+                      <Avatar className="border-background h-6 w-6 border-2">
+                        <AvatarImage src="/avatar.png" />
+                        <AvatarFallback>JD</AvatarFallback>
+                      </Avatar>
+                      <Avatar className="border-background h-6 w-6 border-2">
+                        <AvatarImage src="/avatar.png" />
+                        <AvatarFallback>AS</AvatarFallback>
+                      </Avatar>
+                      <Avatar className="border-background h-6 w-6 border-2">
+                        <AvatarImage src="/avatar.png" />
+                        <AvatarFallback>RK</AvatarFallback>
+                      </Avatar>
+                    </div>
+                  </div>
+                  <Button size="sm" variant="outlined">
+                    View Details
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </ComponentCard>
       </div>
     </div>
