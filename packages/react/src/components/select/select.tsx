@@ -47,9 +47,7 @@ const Select = React.forwardRef<
             className
           )}
         >
-          <SelectPrimitives.Value placeholder={placeholder}>
-            {value}
-          </SelectPrimitives.Value>
+          <SelectPrimitives.Value placeholder={placeholder} />
           <SelectPrimitives.Icon>
             <ChevronDownIcon className="h-4 w-4" />
           </SelectPrimitives.Icon>
