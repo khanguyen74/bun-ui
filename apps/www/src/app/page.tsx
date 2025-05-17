@@ -28,6 +28,7 @@ import {
 
 import { ComponentCard } from "@/components/component-card"
 import { Footer } from "@/components/footer"
+import { GithubIcon } from "@/components/icons"
 import { InstallCommandButton } from "@/components/install-command-button"
 
 const HomePage = () => {
@@ -200,6 +201,7 @@ const HomePage = () => {
                   href="https://github.com/bunui-kit/bun-ui"
                   target="_blank"
                 >
+                  <GithubIcon className="mr-2" />
                   GitHub
                 </NextLink>
               </Button>

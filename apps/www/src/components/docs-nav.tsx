@@ -15,7 +15,7 @@ export const DocsNav = ({ config }: DocsNavProps) => {
 
   return (
     <aside className="sticky top-[var(--header-height)] hidden h-[calc(100vh-var(--header-height))] w-[300px] shrink-0 border-r lg:block">
-      <div className="flex h-full flex-col overflow-y-auto px-2 py-4">
+      <div className="flex h-full flex-col overflow-y-auto px-2 py-4 pb-20">
         {items.map((item, index) => (
           <div key={index} className="flex flex-col gap-1">
             <h4 className="rounded-md px-2 py-1 text-sm font-medium">
