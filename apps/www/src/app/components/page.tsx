@@ -72,6 +72,7 @@ import {
   TabTrigger,
   ToggleGroup,
   ToggleGroupItem,
+  Tooltip,
 } from "@bun-ui/react"
 import { Calendar } from "@bun-ui/react/calendar"
 import { useToast } from "@bun-ui/react/toast"
@@ -486,13 +487,20 @@ export default function ComponentsPage() {
             </CardContent>
           </Card>
         </ComponentCard>
-        <ComponentCard
-          title="Card"
-          description="Container for displaying content."
-        >
+        <ComponentCard title="Badge" description="Badge">
           <div className="flex space-x-2">
             <Badge>Plus</Badge>
             <Badge color="accent">Premium</Badge>
+          </div>
+        </ComponentCard>
+        <ComponentCard title="Tooltip" description="Tooltip">
+          <div className="flex items-center space-x-2">
+            <Tooltip placement="left" content="What's up">
+              <Button>Hover</Button>
+            </Tooltip>
+            <Tooltip clickOnly placement="bottom" content="What's up">
+              <Button>Click</Button>
+            </Tooltip>
           </div>
         </ComponentCard>
       </div>

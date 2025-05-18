@@ -1,0 +1,56 @@
+---
+title: Tooltip
+description: 
+ "A floating element that displays additional information when hovering over or focusing on an element."
+links:
+  source: components/tooltip
+  docs: /docs/components/tooltip
+---
+
+<ComponentPreview name="tooltip-basic" />
+
+## Usage
+
+Import the `Tooltip` component from `@bun-ui/react` and use it in your project:
+
+```jsx
+import { Tooltip } from "@bun-ui/react"
+```
+
+```jsx
+<Tooltip content="This is a tooltip">
+  <button>Hover me</button>
+</Tooltip>
+```
+
+## Examples
+
+### Placement
+
+The tooltip can be positioned in different places relative to the trigger element.
+
+<ComponentPreview name="tooltip-placement" />
+
+### Delay
+
+Control the timing of when the tooltip appears and disappears.
+
+<ComponentPreview name="tooltip-delay" />
+
+### Click Only
+
+Show the tooltip only when clicking the trigger element instead of hovering.
+
+<ComponentPreview name="tooltip-click" />
+
+### Offset
+
+Adjust the distance between the tooltip and the trigger element.
+
+<ComponentPreview name="tooltip-offset" />
+
+### Custom Content
+
+The tooltip content can be customized with any React component.
+
+<ComponentPreview name="tooltip-custom" />

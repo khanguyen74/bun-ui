@@ -35,7 +35,7 @@ const sharedComponents = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cx(
-        "font-heading mt-6 scroll-m-20 text-lg font-semibold tracking-tight",
+        "font-heading mt-6 scroll-m-20 text-xl font-semibold tracking-tight",
         className
       )}
       {...props}
