@@ -14,7 +14,10 @@ import {
   useHover,
   useInteractions,
   useRole,
+  type FlipOptions,
+  type OffsetOptions,
   type Placement,
+  type ShiftOptions,
 } from "@floating-ui/react"
 
 import { cx } from "../../lib"
@@ -52,8 +55,36 @@ interface TooltipProps
    * @default true
    **/
   focusable?: boolean
+
+  /**
+   * The offset of the tooltip from the reference element.
+   * @default 5
+   *
+   * API: https://floating-ui.com/docs/flip
+   */
+  offset?: OffsetOptions
+
+  /**
+   * The shift options for the tooltip to keep it within the viewport.
+   *
+   * API: https://floating-ui.com/docs/shift
+   **/
+  shift?: ShiftOptions
+
+  /**
+   * Flip options for the tooltip to keep it within the viewport.
+   *
+   * API: https://floating-ui.com/docs/flip
+   */
+
+  flip?: FlipOptions
 }
 
+/** A tooltip component that displays additional
+ * information when hovering over or focusing on an element.
+ * Built on top of Floating UI
+ *
+ **/
 const Tooltip = ({
   content,
   children,
@@ -62,6 +93,9 @@ const Tooltip = ({
   closeDelay = 0,
   clickOnly = false,
   focusable = true,
+  offset: offsetProp = 5,
+  shift: shiftProp = { padding: 5 },
+  flip: flipProp,
   className,
   ...props
 }: TooltipProps) => {
@@ -71,7 +105,7 @@ const Tooltip = ({
     placement,
     open: isOpen,
     onOpenChange: setIsOpen,
-    middleware: [offset(5), flip(), shift({ padding: 5 })],
+    middleware: [offset(offsetProp), flip(flipProp), shift(shiftProp)],
     whileElementsMounted: autoUpdate,
   })
 
