@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.33
+
+### Patch Changes
+
+- 3666c9f: add tooltip component and minor fixes
+
 ## 0.2.32
 
 ### Patch Changes
