@@ -63,6 +63,7 @@ export const sideBarNavs: SideBarNavItem[] = [
         items: [],
       },
       { title: "Toggle", url: "/docs/components/toggle", items: [] },
+      { title: "Tooltip", url: "/docs/components/tooltip", items: [] },
     ],
   },
 ]

@@ -37,7 +37,7 @@ const Select = React.forwardRef<
     },
     ref
   ) => (
-    <div className="flex flex-col gap-2">
+    <div className="flex w-fit flex-col gap-2">
       {label && <Label>{label}</Label>}
       <SelectPrimitives.Root value={value} {...props}>
         <SelectPrimitives.Trigger
@@ -47,9 +47,7 @@ const Select = React.forwardRef<
             className
           )}
         >
-          <SelectPrimitives.Value placeholder={placeholder}>
-            {value}
-          </SelectPrimitives.Value>
+          <SelectPrimitives.Value placeholder={placeholder} />
           <SelectPrimitives.Icon>
             <ChevronDownIcon className="h-4 w-4" />
           </SelectPrimitives.Icon>

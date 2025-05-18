@@ -31,10 +31,6 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
-      - name: Check for Version Changes
-        id: check_version
-        run: npx @changesets/cli status
-
       - name: Build NPM Dependencies
         run: pnpm react:build && pnpm react:css
 

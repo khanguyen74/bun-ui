@@ -1,13 +1,12 @@
 import { Metadata } from "next"
 import NextLink from "next/link"
 import { docs } from "@/.velite"
-import GithubIcon from "@/icons/github-mark-white.svg"
-import GithubIconDark from "@/icons/github-mark.svg"
 import { Button } from "@bun-ui/react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 import { flattenToc } from "@/lib/flatten-toc"
 import { kebabToPascalCase } from "@/lib/string"
+import { GithubIcon } from "@/components/icons"
 import { MDXContent } from "@/components/mdx-content"
 import { Toc } from "@/components/toc"
 
@@ -59,12 +58,7 @@ export default async function DocPage({ params }: DocPageProps) {
           <Button variant="text" color="neutral" asChild className="w-fit">
             <NextLink href={doc.links.source} target="_blank">
               <div className="flex items-center gap-2">
-                <span className="hidden [html.dark_&]:block">
-                  <GithubIcon viewBox="0 0 96 96" />
-                </span>
-                <span className="hidden [html.light_&]:block">
-                  <GithubIconDark viewBox="0 0 96 96" />
-                </span>
+                <GithubIcon className="text-foreground" />
                 Source
               </div>
             </NextLink>

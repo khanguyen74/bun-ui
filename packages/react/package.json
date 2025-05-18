@@ -64,6 +64,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.27.8",
     "@radix-ui/react-accordion": "^1.2.4",
     "@radix-ui/react-alert-dialog": "^1.1.11",
     "@radix-ui/react-avatar": "^1.1.7",
