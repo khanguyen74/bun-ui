@@ -41,7 +41,7 @@ export const ExamplePreview = ({ name }: Props) => {
     import(`../examples/${name}`).then((mod) => mod[componentName])
   )
   return (
-    <div className="flex items-center justify-center overflow-auto rounded-sm border-2 p-10">
+    <div className="flex items-center justify-center overflow-auto rounded-lg border-2 p-10">
       <Component />
     </div>
   )
