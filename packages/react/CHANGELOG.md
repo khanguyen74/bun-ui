@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.34
+
+### Patch Changes
+
+- e2ffc5c: update layout of components which have Label
+
 ## 0.2.33
 
 ### Patch Changes
