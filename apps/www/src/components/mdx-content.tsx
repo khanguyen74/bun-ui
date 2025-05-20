@@ -137,7 +137,7 @@ const sharedComponents = {
       <div className="relative">
         <pre
           className={cx(
-            "mt-6 mb-4 max-h-[550px] overflow-x-auto rounded-xl bg-zinc-950 py-4 dark:bg-zinc-900",
+            "mt-6 mb-4 max-h-[550px] overflow-x-auto rounded-lg bg-zinc-950 py-4 dark:bg-zinc-900",
             className
           )}
           {...props}

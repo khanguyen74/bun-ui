@@ -70,6 +70,7 @@ import {
   TabList,
   Tabs,
   TabTrigger,
+  TextArea,
   ToggleGroup,
   ToggleGroupItem,
   Tooltip,
@@ -381,59 +382,6 @@ export default function ComponentsPage() {
         </ComponentCard>
 
         <ComponentCard
-          title="Toggle Group"
-          description="Group of toggle buttons."
-        >
-          <ToggleGroup defaultValue="left">
-            <ToggleGroupItem value="left" aria-label="Align Left">
-              <AlignLeft />
-            </ToggleGroupItem>
-            <ToggleGroupItem value="center" aria-label="Align Center">
-              <AlignCenter />
-            </ToggleGroupItem>
-            <ToggleGroupItem value="right" aria-label="Align Right">
-              <AlignRight />
-            </ToggleGroupItem>
-          </ToggleGroup>
-        </ComponentCard>
-
-        <ComponentCard
-          title="Command Menu"
-          description="Command palette interface."
-        >
-          <CommandMenu>
-            <CommandMenuInput placeholder="Search..." />
-            <CommandMenuList>
-              {/* Add a first hidden item to prevent auto focus/scrolling to this component */}
-              <CommandMenuItem value="-" className="hidden"></CommandMenuItem>
-              <CommandMenuItem value="settings">Settings</CommandMenuItem>
-              <CommandMenuItem value="help">Help</CommandMenuItem>
-            </CommandMenuList>
-          </CommandMenu>
-        </ComponentCard>
-
-        <ComponentCard
-          title="Accordion"
-          description="Expandable content sections."
-        >
-          <Accordion type="multiple" className="w-full">
-            <AccordionItem value="faq1">
-              <AccordionTrigger>What is Bun UI?</AccordionTrigger>
-              <AccordionContent>
-                Bun UI is a customizable component library designed for modern
-                React apps.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="faq2">
-              <AccordionTrigger>Can I customize styles?</AccordionTrigger>
-              <AccordionContent>
-                Absolutely. All components are unopinionated and easy to theme
-                using Tailwind or your design tokens.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </ComponentCard>
-        <ComponentCard
           title="Card"
           description="Container for displaying content."
         >
@@ -487,6 +435,59 @@ export default function ComponentsPage() {
             </CardContent>
           </Card>
         </ComponentCard>
+
+        <ComponentCard
+          title="Command Menu"
+          description="Command palette interface."
+        >
+          <CommandMenu>
+            <CommandMenuInput placeholder="Search..." />
+            <CommandMenuList>
+              {/* Add a first hidden item to prevent auto focus/scrolling to this component */}
+              <CommandMenuItem value="-" className="hidden"></CommandMenuItem>
+              <CommandMenuItem value="settings">Settings</CommandMenuItem>
+              <CommandMenuItem value="help">Help</CommandMenuItem>
+            </CommandMenuList>
+          </CommandMenu>
+        </ComponentCard>
+
+        <ComponentCard
+          title="Accordion"
+          description="Expandable content sections."
+        >
+          <Accordion type="multiple" className="w-full">
+            <AccordionItem value="faq1">
+              <AccordionTrigger>What is Bun UI?</AccordionTrigger>
+              <AccordionContent>
+                Bun UI is a customizable component library designed for modern
+                React apps.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="faq2">
+              <AccordionTrigger>Can I customize styles?</AccordionTrigger>
+              <AccordionContent>
+                Absolutely. All components are unopinionated and easy to theme
+                using Tailwind or your design tokens.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </ComponentCard>
+        <ComponentCard
+          title="Toggle Group"
+          description="Group of toggle buttons."
+        >
+          <ToggleGroup defaultValue="left">
+            <ToggleGroupItem value="left" aria-label="Align Left">
+              <AlignLeft />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="center" aria-label="Align Center">
+              <AlignCenter />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="right" aria-label="Align Right">
+              <AlignRight />
+            </ToggleGroupItem>
+          </ToggleGroup>
+        </ComponentCard>
         <ComponentCard title="Badge" description="Badge">
           <div className="flex space-x-2">
             <Badge>Plus</Badge>
@@ -502,6 +503,9 @@ export default function ComponentsPage() {
               <Button>Click</Button>
             </Tooltip>
           </div>
+        </ComponentCard>
+        <ComponentCard title="Text area">
+          <TextArea label="Text Area" />
         </ComponentCard>
       </div>
     </div>

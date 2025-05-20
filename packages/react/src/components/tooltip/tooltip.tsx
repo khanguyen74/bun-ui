@@ -147,7 +147,7 @@ const Tooltip = ({
             ref={refs.setFloating}
             style={floatingStyles}
             className={cx(
-              "bg-popover text-popover-foreground z-50 rounded-md p-2 text-sm shadow-md",
+              "bg-popover text-popover-foregroundrounded-md z-50 rounded-sm px-1.5 py-1 text-xs shadow-lg",
               className
             )}
             {...getFloatingProps()}
