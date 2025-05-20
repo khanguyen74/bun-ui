@@ -107,8 +107,8 @@ export const HeaderCommand = () => {
 
   const renderIcon = (url: string) => {
     if (url.includes("components")) {
-      return <Puzzle />
-    } else return <File />
+      return <Puzzle className="text-current" />
+    } else return <File className="text-current" />
   }
 
   const contentResults = useMemo(() => {
