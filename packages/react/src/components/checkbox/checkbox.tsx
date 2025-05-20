@@ -36,8 +36,10 @@ const Checkbox = React.forwardRef<
   CheckboxProps
 >(({ className, label, id, disabled, color, ...props }, ref) => {
   const _id = id || useId()
+  const Wrapper = label ? "div" : React.Fragment
+  const wrapperClassName = label ? "flex items-center space-x-2" : ""
   return (
-    <div className="flex items-center space-x-2">
+    <Wrapper {...(label ? { className: wrapperClassName } : {})}>
       <CheckboxPrimitive.Root
         ref={ref}
         id={_id}
@@ -59,7 +61,7 @@ const Checkbox = React.forwardRef<
           {label}
         </Label>
       )}
-    </div>
+    </Wrapper>
   )
 })
 
