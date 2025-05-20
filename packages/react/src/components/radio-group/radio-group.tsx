@@ -20,8 +20,10 @@ const RadioGroupItem = React.forwardRef<
     ref
   ) => {
     const _id = id || React.useId()
+    const Wrapper = label ? "div" : React.Fragment
+    const wrapperClassName = label ? "flex items-center space-x-2" : ""
     return (
-      <div className="flex items-center space-x-2">
+      <Wrapper {...(label ? { className: wrapperClassName } : {})}>
         <RadioGroupPrimitive.Item
           ref={ref}
           id={_id}
@@ -49,7 +51,7 @@ const RadioGroupItem = React.forwardRef<
             {label}
           </Label>
         )}
-      </div>
+      </Wrapper>
     )
   }
 )
