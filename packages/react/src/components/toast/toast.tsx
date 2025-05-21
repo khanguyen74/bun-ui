@@ -25,7 +25,7 @@ ToastViewport.displayName = ToastPrimitives.Viewport.displayName
 
 const Toast = React.forwardRef<
   React.ComponentRef<typeof ToastPrimitives.Root>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root>
+  Omit<React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root>, "title">
 >(({ className, ...props }, ref) => {
   return (
     <ToastPrimitives.Root

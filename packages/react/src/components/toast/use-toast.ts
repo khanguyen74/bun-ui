@@ -9,8 +9,18 @@ const TOAST_REMOVE_DELAY = 2000
 
 type ToasterToast = ToastProps & {
   id: string
+  /**
+   * Title of the toast.
+   */
   title?: React.ReactNode
+  /**
+   * Description of the toast.
+   */
   description?: React.ReactNode
+  /**
+   * The button element to be rendered in the toast.
+   * Clicking the button will close the toast.
+   */
   action?: ToastActionElement
 }
 

@@ -3,7 +3,7 @@ import React, { useId } from "react"
 import { cx } from "../../lib/utils"
 import { Label } from "../label"
 
-export interface InputProps extends React.ComponentProps<"input"> {
+export interface InputProps extends React.ComponentPropsWithoutRef<"input"> {
   label?: React.ReactNode
   labelClassName?: string
 }
