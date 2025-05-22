@@ -1,0 +1,94 @@
+---
+title: File Upload
+description: A versatile component for handling file uploads with drag and drop support.
+links:
+  source: components/file-upload
+  docs: /docs/components/file-upload
+---
+
+<ComponentPreview name="file-upload-basic" />
+
+## Usage
+
+Import the `FileUpload` component and its subcomponents from `@bun-ui/react`:
+
+```jsx
+import { FileUpload, FileUploadDropZone, FileUploadTrigger } from "@bun-ui/react"
+```
+
+The FileUpload component provides two ways to trigger file selection:
+
+1. Using `FileUploadDropZone` for drag and drop functionality:
+
+```jsx
+<FileUpload>
+  <FileUploadDropZone>
+    <p>Drag and drop files here, or click to select files</p>
+  </FileUploadDropZone>
+</FileUpload>
+```
+
+2. Using `FileUploadTrigger` for a simple button trigger:
+
+```jsx
+<FileUpload>
+  <FileUploadTrigger>Select Files</FileUploadTrigger>
+</FileUpload>
+```
+
+## Examples
+
+### Drag and Drop
+
+A simple file upload with drag and drop support.
+
+<ComponentPreview name="file-upload-drop" />
+
+### Multiple Files
+
+Upload multiple files at once.
+
+<ComponentPreview name="file-upload-multiple" />
+
+### File Type Restriction
+
+Restrict file types using the `accept` prop.
+
+<ComponentPreview name="file-upload-accept" />
+
+### Maximum Files
+
+Limit the number of files that can be uploaded.
+
+<ComponentPreview name="file-upload-max-files" />
+
+### Disabled State
+
+Disable the file upload component.
+
+<ComponentPreview name="file-upload-disabled" />
+
+### Custom Trigger
+
+Use a custom button as the file selection trigger.
+
+<ComponentPreview name="file-upload-custom-trigger" />
+
+### Form Integration
+
+Use the FileUpload component within a form without any controlled state.
+
+<ComponentPreview name="file-upload-form" />
+
+### Controlled Usage
+
+Use the FileUpload component with external state management and upload progress.
+
+<ComponentPreview name="file-upload-controlled" />
+
+### Preview
+
+You can preview the selected files before uploading them by using `FileUploadPreview`
+
+<ComponentPreview name="file-upload-preview" />
+

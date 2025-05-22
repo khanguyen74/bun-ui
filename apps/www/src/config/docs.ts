@@ -44,6 +44,7 @@ export const sideBarNavs: SideBarNavItem[] = [
         url: "/docs/components/dropdown-menu",
         items: [],
       },
+      { title: "File Upload", url: "/docs/components/file-upload", items: [] },
       { title: "Input", url: "/docs/components/input", items: [] },
       { title: "Link", url: "/docs/components/link", items: [] },
       { title: "Pagination", url: "/docs/components/pagination", items: [] },
