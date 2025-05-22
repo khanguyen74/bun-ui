@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.35
+
+### Patch Changes
+
+- f9e6006: add FileUpload component
+
 ## 0.2.34
 
 ### Patch Changes
