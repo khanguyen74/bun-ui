@@ -48,7 +48,7 @@ const FileUploadDropZone = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, children, ...props }, ref) => {
-  const { setFiles, inputId, onFileSelect, disabled, maxFiles, multiple } =
+  const { setFiles, fileInputRef, onFileSelect, disabled, maxFiles, multiple } =
     useFileUploadContext()
   const [isDragging, setIsDragging] = React.useState(false)
 
@@ -89,7 +89,7 @@ const FileUploadDropZone = React.forwardRef<
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      onClick={() => document.getElementById(inputId)?.click()}
+      onClick={() => fileInputRef?.current?.click()}
       {...props}
     >
       {children}
@@ -112,14 +112,14 @@ const FileUploadTrigger = React.forwardRef<
   HTMLButtonElement,
   FileUploadTriggerProps
 >(({ className, children, asChild = false, ...props }, ref) => {
-  const { inputId } = useFileUploadContext()
+  const { fileInputRef } = useFileUploadContext()
   const Comp = asChild ? Slot : Button
 
   return (
     <Comp
       ref={ref}
       className={cx("w-fit", className)}
-      onClick={() => document.getElementById(inputId)?.click()}
+      onClick={() => fileInputRef?.current?.click()}
       {...props}
     >
       {children}
@@ -157,13 +157,22 @@ interface FileUploadProps extends React.HTMLAttributes<HTMLDivElement> {
   value?: File[]
   /** Name attribute for the file input element */
   name?: string
+  /**
+   * Ref passed to the file input element
+   */
+  inputRef?: React.RefObject<HTMLInputElement>
+
+  /**
+   * Optional ID for the file input element
+   **/
+  inputId?: string
 }
 
 const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
   (
     {
       className,
-      id,
+      inputId: inputIdProp,
       onFileSelect,
       onFileRemove,
       maxFiles,
@@ -173,11 +182,14 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
       value,
       children,
       name,
+      inputRef: fileInputRefProp,
       ...props
     },
     ref
   ) => {
-    const inputId = id ?? React.useId()
+    const inputId = inputIdProp ?? React.useId()
+    const fileInputRef =
+      fileInputRefProp ?? React.useRef<HTMLInputElement>(null)
     const [files, setFiles] = useControlled({ value, defaultValue: [] })
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -204,6 +216,7 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
           multiple,
           disabled,
           onFileRemove,
+          fileInputRef,
         }}
       >
         <div
@@ -220,6 +233,7 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
             disabled={disabled}
             onChange={handleChange}
             name={name}
+            ref={fileInputRef}
           />
           {children}
         </div>

@@ -11,6 +11,7 @@ interface FileUploadContextValue {
   accept?: string
   multiple?: boolean
   disabled?: boolean
+  fileInputRef?: React.RefObject<HTMLInputElement | null>
 }
 
 const FileUploadContext = createContext<FileUploadContextValue | undefined>(
