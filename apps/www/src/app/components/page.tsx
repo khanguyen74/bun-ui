@@ -50,6 +50,7 @@ import {
   DropdownMenuTrigger,
   FileUpload,
   FileUploadDropZone,
+  FileUploadList,
   FileUploadTrigger,
   Input,
   Label,
@@ -518,6 +519,7 @@ export default function ComponentsPage() {
                 <p className="text-sm">Upload</p>
               </Button>
             </FileUploadTrigger>
+            <FileUploadList />
           </FileUpload>
         </ComponentCard>
         <ComponentCard title="File upload dropzone">
@@ -526,6 +528,7 @@ export default function ComponentsPage() {
               <Upload />
               <p className="text-sm">Drop here to upload</p>
             </FileUploadDropZone>
+            <FileUploadList />
           </FileUpload>
         </ComponentCard>
       </div>
