@@ -1,7 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { Button, FileUpload, FileUploadDropZone } from "@bun-ui/react"
+import {
+  Button,
+  FileUpload,
+  FileUploadDropZone,
+  FileUploadList,
+} from "@bun-ui/react"
 import { useToast } from "@bun-ui/react/toast"
 import { UploadIcon } from "lucide-react"
 
@@ -62,6 +67,7 @@ export const FileUploadControlled = () => {
         value={files}
         onFileSelect={handleFilesChange}
         onFileRemove={handleRemove}
+        className="w-[400px]"
       >
         <FileUploadDropZone>
           <UploadIcon className="text-muted-foreground mb-2 h-6 w-6" />
@@ -69,6 +75,7 @@ export const FileUploadControlled = () => {
             Drag and drop files here, or click to select files
           </p>
         </FileUploadDropZone>
+        <FileUploadList />
       </FileUpload>
 
       {files.length > 0 && (
