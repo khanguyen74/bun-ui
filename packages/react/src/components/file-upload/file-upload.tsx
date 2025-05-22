@@ -266,22 +266,22 @@ const FileUploadPreviewList = React.forwardRef<
     }
   }, [files])
 
-  if (files.length === 0 || !files[0].size) {
+  if (objectUrls.length === 0) {
     return null
   }
 
   return (
     <ul className="flex flex-wrap gap-2">
-      {files.map((file, index) => (
+      {objectUrls.map((file, index) => (
         <li
           className="border-foreground/40 relative flex h-[5rem] w-[5rem] items-center rounded-md border p-2"
-          key={`${file.name}-${index}`}
+          key={`${files[index].name}-${index}`}
         >
           <img
             className={cx(className)}
             ref={ref}
-            src={objectUrls[index]}
-            alt={file.name}
+            src={file}
+            alt={files[index].name}
             {...props}
           />
         </li>
