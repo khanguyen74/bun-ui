@@ -48,6 +48,9 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  FileUpload,
+  FileUploadDropZone,
+  FileUploadTrigger,
   Input,
   Label,
   Link,
@@ -77,7 +80,7 @@ import {
 } from "@bun-ui/react"
 import { Calendar } from "@bun-ui/react/calendar"
 import { useToast } from "@bun-ui/react/toast"
-import { AlignCenter, AlignLeft, AlignRight, Menu } from "lucide-react"
+import { AlignCenter, AlignLeft, AlignRight, Menu, Upload } from "lucide-react"
 
 import { ComponentCard } from "@/components/component-card"
 
@@ -506,6 +509,24 @@ export default function ComponentsPage() {
         </ComponentCard>
         <ComponentCard title="Text area">
           <TextArea label="Text Area" />
+        </ComponentCard>
+        <ComponentCard title="File upload button">
+          <FileUpload onFileSelect={(files) => console.log(files)}>
+            <FileUploadTrigger asChild>
+              <Button variant="outlined" className="w-fit" color="neutral">
+                <Upload />
+                <p className="text-sm">Upload</p>
+              </Button>
+            </FileUploadTrigger>
+          </FileUpload>
+        </ComponentCard>
+        <ComponentCard title="File upload dropzone">
+          <FileUpload onFileSelect={(files) => console.log(files)}>
+            <FileUploadDropZone className="items-center justify-center border border-dashed">
+              <Upload />
+              <p className="text-sm">Drop here to upload</p>
+            </FileUploadDropZone>
+          </FileUpload>
         </ComponentCard>
       </div>
     </div>
