@@ -81,8 +81,8 @@ const FileUploadDropZone = React.forwardRef<
     <div
       ref={ref}
       className={cx(
-        "hover:bg-secondary/10 border-foreground/50 hover:border-foreground min-h-[200px] w-full cursor-pointer rounded-sm border border-dashed p-4",
-        isDragging && "border-primary bg-accent/50",
+        "hover:bg-foreground/10 border-foreground/30 hover:border-foreground/80 flex min-h-[200px] min-w-[300px] cursor-pointer flex-col items-center justify-center rounded-sm border border-dashed p-4",
+        isDragging && "border-primary bg-foreground/30",
         disabled && "pointer-events-none opacity-50",
         className
       )}
@@ -184,19 +184,12 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
       const newFiles = event.target.files
       if (newFiles) {
         const fileArray = Array.from(newFiles)
-        console.log("file numbers", fileArray.length, maxFiles)
         if (multiple && maxFiles && fileArray.length > maxFiles) {
           return
         }
         setFiles(fileArray)
         onFileSelect?.(fileArray)
       }
-    }
-
-    const handleRemove = (index: number) => {
-      const newFiles = files.filter((_, i) => i !== index)
-      setFiles(newFiles)
-      onFileRemove?.(files[index])
     }
 
     return (
@@ -210,10 +203,11 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
           accept,
           multiple,
           disabled,
+          onFileRemove,
         }}
       >
         <div
-          className={cx("flex min-w-[300px] flex-col gap-2", className)}
+          className={cx("flex flex-col gap-2", className)}
           ref={ref}
           {...props}
         >
@@ -228,17 +222,6 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
             name={name}
           />
           {children}
-          {files.length > 0 && (
-            <div className="flex flex-col gap-2">
-              {files.map((file, index) => (
-                <FileItem
-                  key={`${file.name}-${index}`}
-                  file={file}
-                  onRemove={() => handleRemove(index)}
-                />
-              ))}
-            </div>
-          )}
         </div>
       </FileUploadContext.Provider>
     )
@@ -247,9 +230,86 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
 
 FileUpload.displayName = "FileUpload"
 
+const FileUploadPreviewList = React.forwardRef<
+  HTMLImageElement,
+  React.HTMLAttributes<HTMLImageElement>
+>(({ className, ...props }, ref) => {
+  const { files } = useFileUploadContext()
+  const [objectUrls, setObjectUrls] = React.useState<string[]>([])
+
+  React.useEffect(() => {
+    if (files.length === 0 || !files[0].size) {
+      setObjectUrls([])
+      return
+    }
+    // Create object URLs for each file
+    const urls = files.map((file) => URL.createObjectURL(file))
+    setObjectUrls(urls)
+
+    // Cleanup function to revoke object URLs
+    return () => {
+      urls.forEach((url) => URL.revokeObjectURL(url))
+    }
+  }, [files])
+
+  if (files.length === 0 || !files[0].size) {
+    return null
+  }
+
+  return (
+    <ul className="flex flex-wrap gap-2">
+      {files.map((file, index) => (
+        <li
+          className="border-foreground/40 relative flex h-[5rem] w-[5rem] items-center rounded-md border p-2"
+          key={`${file.name}-${index}`}
+        >
+          <img
+            className={cx(className)}
+            ref={ref}
+            src={objectUrls[index]}
+            alt={file.name}
+            {...props}
+          />
+        </li>
+      ))}
+    </ul>
+  )
+})
+
+const FileUploadList = React.forwardRef<
+  HTMLUListElement,
+  React.HTMLAttributes<HTMLUListElement>
+>(({ className, ...props }, ref) => {
+  const { files, setFiles, onFileRemove } = useFileUploadContext()
+
+  const handleRemove = (index: number) => {
+    const newFiles = files.filter((_, i) => i !== index)
+    setFiles(newFiles)
+    onFileRemove?.(files[index])
+  }
+
+  if (files.length === 0) {
+    return null
+  }
+
+  return (
+    <ul className={cx("flex flex-col gap-2", className)} ref={ref} {...props}>
+      {files.map((file, index) => (
+        <FileItem
+          key={`${file.name}-${index}`}
+          file={file}
+          onRemove={() => handleRemove(index)}
+        />
+      ))}
+    </ul>
+  )
+})
+
 export {
   FileUpload,
   FileUploadDropZone,
   FileUploadTrigger,
   type FileUploadProps,
+  FileUploadPreviewList,
+  FileUploadList,
 }
