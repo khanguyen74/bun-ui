@@ -13,7 +13,7 @@ links:
 Import the `FileUpload` component and its subcomponents from `@bun-ui/react`:
 
 ```jsx
-import { FileUpload, FileUploadDropZone, FileUploadTrigger } from "@bun-ui/react"
+import { FileUpload, FileUploadDropZone, FileUploadTrigger, FileUploadList } from "@bun-ui/react"
 ```
 
 The FileUpload component provides two ways to trigger file selection:
@@ -25,6 +25,7 @@ The FileUpload component provides two ways to trigger file selection:
   <FileUploadDropZone>
     <p>Drag and drop files here, or click to select files</p>
   </FileUploadDropZone>
+  <FileUploadList/>
 </FileUpload>
 ```
 
@@ -33,6 +34,7 @@ The FileUpload component provides two ways to trigger file selection:
 ```jsx
 <FileUpload>
   <FileUploadTrigger>Select Files</FileUploadTrigger>
+  <FileUploadList/>
 </FileUpload>
 ```
 
@@ -70,7 +72,7 @@ Disable the file upload component.
 
 ### Custom Trigger
 
-Use a custom button as the file selection trigger.
+Use prop `asChild` in `FileUploadTrigger` to create a custom trigger element.
 
 <ComponentPreview name="file-upload-custom-trigger" />
 
@@ -88,7 +90,6 @@ Use the FileUpload component with external state management and upload progress.
 
 ### Preview
 
-You can preview the selected files before uploading them by using `FileUploadPreview`
+You can preview the selected files before uploading them by using `FileUploadPreviewList` component
 
 <ComponentPreview name="file-upload-preview" />
-

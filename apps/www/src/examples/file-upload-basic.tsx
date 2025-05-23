@@ -1,5 +1,3 @@
-"use client"
-
 import { FileUpload, FileUploadList, FileUploadTrigger } from "@bun-ui/react"
 import { UploadIcon } from "lucide-react"
 

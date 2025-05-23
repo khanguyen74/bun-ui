@@ -5,8 +5,6 @@
 
 @source "../../node_modules/@bun-ui/react/dist/";
 
-@custom-variant dark (&:where([class*="dark"] *, [data-theme*="dark"] *));
-
 [data-rehype-pretty-code-figure] code {
   background: transparent;
 }
@@ -17,11 +15,6 @@
 
 pre code {
   font-size: 0.875rem;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
 }
 
 ::-webkit-scrollbar {
@@ -42,6 +35,9 @@ body {
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 

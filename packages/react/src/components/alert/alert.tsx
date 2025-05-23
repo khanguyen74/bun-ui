@@ -66,10 +66,14 @@ const AlertTitle = React.forwardRef<
 ))
 
 const AlertDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cx("text-sm peer-last:mt-1", className)} {...props} />
+  <div
+    ref={ref}
+    className={cx("text-sm peer-last:mt-1", className)}
+    {...props}
+  />
 ))
 
 export { Alert, AlertTitle, AlertDescription }

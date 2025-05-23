@@ -2,8 +2,6 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
-// import "@bun-ui/react/index.css"
-
 import { headers } from "next/headers"
 import { Alert, AlertTitle, ThemeProvider, Toaster } from "@bun-ui/react"
 

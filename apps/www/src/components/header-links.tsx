@@ -24,6 +24,12 @@ export const HeaderLinks = () => {
         Components
       </NextLink>
       <NextLink
+        href="/examples"
+        className={cx(currentPath.startsWith("/examples") && "text-foreground")}
+      >
+        Examples
+      </NextLink>
+      <NextLink
         href="/blog"
         className={cx(currentPath.startsWith("/blog") && "text-foreground")}
       >
