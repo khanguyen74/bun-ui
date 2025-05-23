@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.36
+
+### Patch Changes
+
+- e0efb56: fix radix-ui dependencies
+
 ## 0.2.35
 
 ### Patch Changes
