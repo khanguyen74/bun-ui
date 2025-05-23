@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.38
+
+### Patch Changes
+
+- eb9324e: fix dependencies
+
 ## 0.2.37
 
 ### Patch Changes
