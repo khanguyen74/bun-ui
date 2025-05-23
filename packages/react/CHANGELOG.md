@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.37
+
+### Patch Changes
+
+- 18d5ea6: fix dependencies
+
 ## 0.2.36
 
 ### Patch Changes
