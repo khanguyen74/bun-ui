@@ -22,7 +22,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
   Input,
-  Label,
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -168,9 +167,21 @@ export default function TaskManagementPage() {
               </div>
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="relative w-full">
+                  <Input
+                    label="Due Date"
+                    placeholder="Select due date"
+                    className="w-full pr-8"
+                    readOnly
+                    value={dateInputValue}
+                    onFocus={() => setCalendarOpen(true)}
+                  />
                   <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
                     <PopoverTrigger asChild>
-                      <Button variant="text" size="icon">
+                      <Button
+                        variant="text"
+                        size="icon"
+                        className="absolute top-6.5 right-1 h-8 w-8"
+                      >
                         <CalendarDays className="text-muted-foreground h-4 w-4" />
                       </Button>
                     </PopoverTrigger>
