@@ -1,6 +1,6 @@
 {
   "name": "@bun-ui/react",
-  "version": "0.2.36",
+  "version": "0.2.37",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.mts",
