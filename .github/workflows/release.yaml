@@ -32,7 +32,7 @@ jobs:
         run: pnpm install
 
       - name: Build NPM Dependencies
-        run: pnpm react:build && pnpm react:css
+        run: pnpm react:build
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets

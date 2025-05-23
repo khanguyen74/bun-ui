@@ -49,8 +49,6 @@ import {
   UserPlus,
 } from "lucide-react"
 
-import { CreateTaskDialog } from "@/components/create-task-dialog"
-
 const tasks = [
   {
     id: 1,
