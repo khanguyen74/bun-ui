@@ -1,5 +1,11 @@
 # @bun-ui/react
 
+## 0.2.39
+
+### Patch Changes
+
+- b02749f: fix dependencies, nested dialog and popover issue
+
 ## 0.2.38
 
 ### Patch Changes
