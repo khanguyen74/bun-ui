@@ -39,16 +39,17 @@ const examples = [
 
 export default function ExamplesPage() {
   return (
-    <div className="container mx-auto py-12">
-      <div className="mb-12 text-center">
+    <div className="container mx-auto max-w-7xl p-8">
+      <div className="mb-8">
         <h1 className="mb-4 text-4xl font-bold">Example Dashboards</h1>
         <p className="text-muted-foreground text-lg">
           Explore our collection of beautiful dashboards and examples built with
-          Bun UI.
+          Bun UI. Each example demonstrates different component combinations and
+          best practices for building modern web applications.
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {examples.map((example) => (
           <Link key={example.href} href={example.href}>
             <Card className="flex h-full min-h-[250px] flex-col transition-all hover:shadow-lg">
